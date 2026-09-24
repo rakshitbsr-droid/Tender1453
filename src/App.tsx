@@ -18,9 +18,11 @@ import confetti from 'canvas-confetti';
 import { AlertTriangle, CheckCircle2, Loader2, X } from 'lucide-react';
 
 // `npm run dev` starts the .NET API alongside Vite; the API needs a few seconds to compile on first
-// launch, so keep retrying for a while before reporting it as unreachable.
-const API_CONNECT_ATTEMPTS = 40;
+// launch, so in development keep retrying for a while before reporting it as unreachable. A hosted
+// build talks to an API that is either there or not, so it gives up quickly and says so.
+const API_CONNECT_ATTEMPTS = import.meta.env.DEV ? 40 : 4;
 const API_CONNECT_RETRY_MS = 1500;
+const API_ADDRESS_MISSING = !import.meta.env.DEV && !import.meta.env.VITE_API_BASE;
 
 export default function App() {
   const [initialTenders, setInitialTenders] = useState<Tender[] | null>(null);
@@ -31,6 +33,10 @@ export default function App() {
     let cancelled = false;
 
     (async () => {
+      if (API_ADDRESS_MISSING) {
+        setLoadError('This hosted copy has no API address: VITE_API_BASE is not set.');
+        return;
+      }
       for (let attempt = 1; attempt <= API_CONNECT_ATTEMPTS && !cancelled; attempt++) {
         try {
           const [users, tenders] = await Promise.all([api.getUsers(), api.getTenders()]);
@@ -65,7 +71,9 @@ export default function App() {
             <AlertTriangle className="w-8 h-8 text-rose-500 mx-auto mb-3" />
             <h1 className="text-base font-semibold text-slate-900 mb-1">We couldn’t load your tenders</h1>
             <p className="text-sm text-slate-500 mb-4">
-              The server isn’t responding. Wait a moment and try again. If it keeps happening, tell your IT support.
+              {API_ADDRESS_MISSING
+                ? 'This site is not connected to an API yet, so there is no data to show. The person who set it up needs to add the API address (see Technical details).'
+                : 'The server isn’t responding. Wait a moment and try again. If it keeps happening, tell your IT support.'}
             </p>
             <button
               type="button"
@@ -92,7 +100,9 @@ export default function App() {
           <div role="status">
             <Loader2 className="w-8 h-8 text-blue-600 mx-auto mb-3 animate-spin" />
             <h1 className="text-base font-semibold text-slate-900 mb-1">Loading your tenders…</h1>
-            <p className="text-sm text-slate-500">This takes a few seconds the first time.</p>
+            <p className="text-sm text-slate-500">
+              {import.meta.env.DEV ? 'This takes a few seconds the first time.' : 'If the server was asleep this can take up to a minute.'}
+            </p>
           </div>
         )}
       </div>
