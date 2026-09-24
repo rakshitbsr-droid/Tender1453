@@ -41,6 +41,19 @@
   animation: slideUp 0.25s ease-out forwards;
 }
 
+@keyframes slideIn {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+.animate-slideIn {
+  animation: slideIn 0.2s ease-out forwards;
+}
+
 .animate-scaleUp {
   animation: scaleUp 0.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }

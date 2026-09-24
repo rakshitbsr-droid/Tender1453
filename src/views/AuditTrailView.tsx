@@ -54,7 +54,7 @@ export const AuditTrailView: React.FC<AuditTrailViewProps> = ({ tenders, onOpenT
       <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 mb-6">
         <StatCard label="Hand-offs recorded" value={allRows.length} />
         <StatCard label="Files on a desk right now" value={openNow} />
-        <StatCard label="Tenders" value={tenders.length} />
+        <StatCard label="Tenders" value={tenders.length} className="col-span-2 sm:col-span-1" />
       </div>
 
       <div className="flex flex-col sm:flex-row sm:items-center gap-3 mb-4">
@@ -95,7 +95,33 @@ export const AuditTrailView: React.FC<AuditTrailViewProps> = ({ tenders, onOpenT
             }
           />
         ) : (
-          <div className="overflow-x-auto">
+          <>
+            {/* Phones: one card per hand-off */}
+            <ul className="md:hidden divide-y divide-slate-100">
+              {rows.map((row, idx) => {
+                const duration = getTimelineEntryDuration(row);
+                const held = duration.totalHours < 24 ? duration.formattedDisplay : formatDaysShort(duration.totalDays);
+                return (
+                  <li key={`${row.tender.sr_no}-${idx}`}>
+                    <button type="button" onClick={() => onOpenTender(row.tender)} className="w-full text-left p-4 hover:bg-blue-50/40 cursor-pointer">
+                      <div className="flex items-center justify-between gap-2">
+                        <span className="font-mono text-sm text-blue-700">{row.tender.pr_no}</span>
+                        <span className="text-xs text-slate-500 whitespace-nowrap">{formatFriendlyDate(row.entry_date)}</span>
+                      </div>
+                      <div className="text-sm font-medium text-slate-900 mt-1">{row.stage}</div>
+                      <div className="text-sm text-slate-700 mt-1 flex items-center gap-2 flex-wrap">
+                        <span>{row.holder}</span>
+                        <RoleBadge role={row.role} />
+                      </div>
+                      <div className="text-xs text-slate-500 mt-1.5">
+                        {row.exit_date ? `Held ${held}, passed on ${formatFriendlyDate(row.exit_date)}` : `Still with them (${held})`}
+                      </div>
+                    </button>
+                  </li>
+                );
+              })}
+            </ul>
+            <div className="hidden md:block overflow-x-auto">
             <table className="w-full text-left text-sm border-collapse min-w-225">
               <thead>
                 <tr className="bg-slate-50 text-slate-600 border-b border-slate-200">
@@ -171,7 +197,8 @@ export const AuditTrailView: React.FC<AuditTrailViewProps> = ({ tenders, onOpenT
                 })}
               </tbody>
             </table>
-          </div>
+            </div>
+          </>
         )}
       </div>
       <p className="text-xs text-slate-500 mt-2">Time held counts working days only (Monday to Friday).</p>

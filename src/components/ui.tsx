@@ -34,7 +34,7 @@ export function PageHeader({
           </div>
         )}
         <div className="min-w-0">
-          <h1 className="text-xl font-semibold text-slate-900 leading-tight">{title}</h1>
+          <h1 className="text-lg sm:text-xl font-semibold text-slate-900 leading-tight">{title}</h1>
           {description && <p className="text-sm text-slate-500 mt-1 max-w-3xl">{description}</p>}
         </div>
       </div>
@@ -98,6 +98,7 @@ export function StatCard({
   tone = 'neutral',
   onClick,
   active,
+  className,
 }: {
   label: string;
   value: React.ReactNode;
@@ -106,6 +107,7 @@ export function StatCard({
   tone?: keyof typeof STAT_TONES;
   onClick?: () => void;
   active?: boolean;
+  className?: string;
 }) {
   const body = (
     <>
@@ -113,13 +115,14 @@ export function StatCard({
         <span className="text-sm text-slate-500">{label}</span>
         {Icon && <Icon className="w-4 h-4 text-slate-400 shrink-0" />}
       </div>
-      <div className={cx('text-2xl font-semibold mt-1 tabular-nums whitespace-nowrap', STAT_TONES[tone])}>{value}</div>
+      <div className={cx('text-xl sm:text-2xl font-semibold mt-1 tabular-nums whitespace-nowrap', STAT_TONES[tone])}>{value}</div>
       {hint && <div className="text-xs text-slate-500 mt-1">{hint}</div>}
     </>
   );
   const base = cx(
-    'bg-white border rounded-xl p-4 text-left w-full',
-    active ? 'border-blue-500 ring-2 ring-blue-100' : 'border-slate-200'
+    'bg-white border rounded-xl p-3 sm:p-4 text-left w-full',
+    active ? 'border-blue-500 ring-2 ring-blue-100' : 'border-slate-200',
+    className
   );
   if (!onClick) return <div className={base}>{body}</div>;
   return (
@@ -264,9 +267,9 @@ export function SegmentedControl<T extends string>({
   onChange: (value: T) => void;
 }) {
   return (
-    <div className="flex items-center gap-2">
+    <div className="flex flex-wrap items-center gap-2">
       {label && <span className="text-sm text-slate-500 whitespace-nowrap">{label}</span>}
-      <div role="group" aria-label={label} className="inline-flex bg-slate-100 rounded-lg p-0.5">
+      <div role="group" aria-label={label} className="inline-flex bg-slate-100 rounded-lg p-0.5 max-w-full overflow-x-auto">
         {options.map((o) => (
           <button
             key={o.value}
@@ -430,7 +433,7 @@ export function ModalShell({
   const width = size === 'xl' ? 'max-w-5xl' : size === 'lg' ? 'max-w-3xl' : 'max-w-xl';
   return (
     <div
-      className="fixed inset-0 z-50 bg-slate-900/50 backdrop-blur-xs flex items-center justify-center p-3 sm:p-6 animate-fadeIn"
+      className="fixed inset-0 z-50 bg-slate-900/50 backdrop-blur-xs flex items-center justify-center p-0 sm:p-6 animate-fadeIn"
       onMouseDown={(e) => {
         if (e.target === e.currentTarget) onClose();
       }}
@@ -439,7 +442,7 @@ export function ModalShell({
         role="dialog"
         aria-modal="true"
         aria-labelledby={labelledBy}
-        className={cx('bg-white border border-slate-200 rounded-xl w-full shadow-xl flex flex-col max-h-[92vh] overflow-hidden', width, className)}
+        className={cx('bg-white border border-slate-200 rounded-none sm:rounded-xl w-full h-full sm:h-auto shadow-xl flex flex-col max-h-full sm:max-h-[92vh] overflow-hidden', width, className)}
       >
         {children}
       </div>

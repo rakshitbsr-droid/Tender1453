@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import { UserProfile, Tender, UserRole } from '../types';
 import { USERS } from '../data/seedData';
 import { isPrimaryOfficer, roleName } from '../utils/tenderUtils';
-import { ChevronDown, PlusCircle, CheckCircle2 } from 'lucide-react';
+import { ChevronDown, PlusCircle, CheckCircle2, Menu } from 'lucide-react';
 import { Button, RoleBadge, SearchInput, cx } from './ui';
 
 interface HeaderProps {
@@ -12,12 +12,13 @@ interface HeaderProps {
   onOpenComparison?: () => void;
   onOpenWalkthrough?: () => void;
   onResetData?: () => void;
+  onOpenNav?: () => void;
   tenders?: Tender[];
 }
 
 const ROLE_ORDER: UserRole[] = ['ADMIN', 'PM', 'FM', 'CEC'];
 
-export const Header: React.FC<HeaderProps> = ({ currentUser, onSelectUser, onOpenCreateTender, tenders = [] }) => {
+export const Header: React.FC<HeaderProps> = ({ currentUser, onSelectUser, onOpenCreateTender, onOpenNav, tenders = [] }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [userSearch, setUserSearch] = useState('');
   const menuRef = useRef<HTMLDivElement>(null);
@@ -57,14 +58,25 @@ export const Header: React.FC<HeaderProps> = ({ currentUser, onSelectUser, onOpe
   return (
     <header className="bg-white border-b border-slate-200 text-slate-800 sticky top-0 z-40">
       <div className="w-full px-4 sm:px-6 h-14 flex items-center justify-between gap-4">
-        <div className="flex items-center gap-3 min-w-0">
-          <span className="text-sm text-slate-500 truncate">Prototype with demo data. Nothing here is a real tender.</span>
+        <div className="flex items-center gap-2 min-w-0">
+          {onOpenNav && (
+            <button
+              type="button"
+              onClick={onOpenNav}
+              aria-label="Open menu"
+              className="lg:hidden p-2 -ml-2 rounded-lg text-slate-600 hover:bg-slate-100 cursor-pointer"
+            >
+              <Menu className="w-5 h-5" />
+            </button>
+          )}
+          <span className="lg:hidden text-base font-semibold text-slate-900 truncate">Tender Tracker</span>
+          <span className="hidden lg:inline text-sm text-slate-500 truncate">Prototype with demo data. Nothing here is a real tender.</span>
         </div>
 
         <div className="flex items-center gap-2 sm:gap-3 shrink-0">
           {(currentUser.role === 'PM' || currentUser.role === 'ADMIN') && (
-            <Button variant="primary" icon={PlusCircle} onClick={onOpenCreateTender}>
-              New tender
+            <Button variant="primary" icon={PlusCircle} onClick={onOpenCreateTender} aria-label="New tender">
+              <span className="hidden sm:inline">New tender</span>
             </Button>
           )}
 
@@ -87,7 +99,7 @@ export const Header: React.FC<HeaderProps> = ({ currentUser, onSelectUser, onOpe
             </button>
 
             {isOpen && (
-              <div role="menu" className="absolute right-0 mt-2 w-80 sm:w-96 bg-white border border-slate-200 rounded-xl shadow-xl z-50 overflow-hidden">
+              <div role="menu" className="absolute right-0 mt-2 w-80 max-w-[calc(100vw-2rem)] sm:w-96 bg-white border border-slate-200 rounded-xl shadow-xl z-50 overflow-hidden">
                 <div className="p-3 border-b border-slate-200">
                   <div className="text-sm font-semibold text-slate-900 mb-2">Switch user</div>
                   <p className="text-xs text-slate-500 mb-2">This demo lets you see the app as anyone on the team.</p>

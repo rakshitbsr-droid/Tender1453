@@ -91,10 +91,10 @@ export const MyQueueView: React.FC<MyQueueViewProps> = ({ currentUser, tenders, 
         </Card>
       )}
 
-      <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6">
+      <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 mb-6">
         <StatCard label={`Waiting for ${you}`} value={waiting.length} tone={waiting.length > 0 ? 'amber' : 'green'} icon={Clock} />
         <StatCard label="With someone else" value={inProgressElsewhere.length} hint="Still in progress" />
-        <StatCard label="Total value" value={formatCurrencyCr(totalValue)} hint={`${mine.length} tenders in all`} />
+        <StatCard label="Total value" value={formatCurrencyCr(totalValue)} hint={`${mine.length} tenders in all`} className="col-span-2 sm:col-span-1" />
       </div>
 
       <div className="flex flex-col sm:flex-row sm:items-center gap-3 mb-6">

@@ -16,6 +16,7 @@ import { CreateTenderModal } from './components/CreateTenderModal';
 import { FeatureWalkthroughModal } from './components/FeatureWalkthroughModal';
 import confetti from 'canvas-confetti';
 import { AlertTriangle, CheckCircle2, Loader2, X } from 'lucide-react';
+import { useDismiss } from './components/ui';
 
 // `npm run dev` starts the .NET API alongside Vite; the API needs a few seconds to compile on first
 // launch, so in development keep retrying for a while before reporting it as unreachable. A hosted
@@ -148,6 +149,7 @@ function TenderWorkspace({ initialTenders }: { initialTenders: Tender[] }) {
   const setActiveTab = (tab: NavTab) => {
     setActiveTabState(tab);
     setSelectedSrNo(null);
+    setIsNavOpen(false);
     writeHash(tab, null);
     document.querySelector('main')?.scrollTo({ top: 0 });
   };
@@ -167,6 +169,7 @@ function TenderWorkspace({ initialTenders }: { initialTenders: Tender[] }) {
     return () => window.removeEventListener('hashchange', onHashChange);
   }, []);
   const [isCreateOpen, setIsCreateOpen] = useState<boolean>(false);
+  const [isNavOpen, setIsNavOpen] = useState<boolean>(false); // the sidebar as a drawer on narrow screens
   const [isWalkthroughOpen, setIsWalkthroughOpen] = useState<boolean>(false);
   const [toastMessage, setToastMessage] = useState<string | null>(null);
   const [toastIsError, setToastIsError] = useState<boolean>(false);
@@ -259,20 +262,42 @@ function TenderWorkspace({ initialTenders }: { initialTenders: Tender[] }) {
         onOpenCreateTender={() => setIsCreateOpen(true)}
         onOpenWalkthrough={() => setIsWalkthroughOpen(true)}
         onOpenComparison={() => setActiveTab('excel-comparison')}
+        onOpenNav={() => setIsNavOpen(true)}
         tenders={tenders}
       />
 
       {/* Main Workspace Layout */}
       <div className="flex-1 flex overflow-hidden">
-        {/* Left Sidebar */}
-        <Sidebar
-          activeTab={activeTab}
-          onSelectTab={setActiveTab}
-          currentUser={currentUser}
-          tenders={tenders}
-          onOpenCreateTender={() => setIsCreateOpen(true)}
-          onOpenWalkthrough={() => setIsWalkthroughOpen(true)}
-        />
+        {/* Left Sidebar: always visible on wide screens, a slide-in drawer on phones */}
+        <div className="hidden lg:flex shrink-0">
+          <Sidebar
+            activeTab={activeTab}
+            onSelectTab={setActiveTab}
+            currentUser={currentUser}
+            tenders={tenders}
+            onOpenCreateTender={() => setIsCreateOpen(true)}
+            onOpenWalkthrough={() => setIsWalkthroughOpen(true)}
+          />
+        </div>
+        {isNavOpen && (
+          <MobileNav onClose={() => setIsNavOpen(false)}>
+            <Sidebar
+              activeTab={activeTab}
+              onSelectTab={setActiveTab}
+              currentUser={currentUser}
+              tenders={tenders}
+              onOpenCreateTender={() => {
+                setIsNavOpen(false);
+                setIsCreateOpen(true);
+              }}
+              onOpenWalkthrough={() => {
+                setIsNavOpen(false);
+                setIsWalkthroughOpen(true);
+              }}
+              onClose={() => setIsNavOpen(false)}
+            />
+          </MobileNav>
+        )}
 
         {/* Dynamic Center Stage Content */}
         <main className="flex-1 overflow-y-auto p-4 sm:p-6 lg:p-8 bg-slate-50" id="main">
@@ -355,7 +380,7 @@ function TenderWorkspace({ initialTenders }: { initialTenders: Tender[] }) {
         <div
           role={toastIsError ? 'alert' : 'status'}
           aria-live={toastIsError ? 'assertive' : 'polite'}
-          className="fixed bottom-5 right-5 z-60 max-w-md bg-slate-900 border border-slate-700 text-white px-4 py-3 rounded-lg shadow-xl flex items-center gap-3 animate-slideUp"
+          className="fixed bottom-5 left-4 right-4 sm:left-auto sm:right-5 sm:max-w-md z-60 bg-slate-900 border border-slate-700 text-white px-4 py-3 rounded-lg shadow-xl flex items-center gap-3 animate-slideUp"
         >
           {toastIsError ? (
             <AlertTriangle className="w-5 h-5 text-rose-400 shrink-0" />
@@ -372,6 +397,17 @@ function TenderWorkspace({ initialTenders }: { initialTenders: Tender[] }) {
           </button>
         </div>
       )}
+    </div>
+  );
+}
+
+/** The sidebar as a drawer for narrow screens. Tapping the backdrop or pressing Escape closes it. */
+function MobileNav({ onClose, children }: { onClose: () => void; children: React.ReactNode }) {
+  useDismiss(onClose);
+  return (
+    <div className="lg:hidden fixed inset-0 z-50">
+      <div className="absolute inset-0 bg-slate-900/50" onClick={onClose} aria-hidden="true" />
+      <div className="absolute inset-y-0 left-0 w-72 max-w-[85vw] shadow-xl animate-slideIn">{children}</div>
     </div>
   );
 }

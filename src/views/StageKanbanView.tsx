@@ -44,7 +44,7 @@ export const StageKanbanView: React.FC<StageKanbanViewProps> = ({ tenders, onOpe
         />
       </div>
 
-      <div className="flex gap-4 overflow-x-auto pb-4 items-start">
+      <div className="flex gap-4 overflow-x-auto pb-4 items-start snap-x snap-mandatory sm:snap-none -mx-4 px-4 sm:mx-0 sm:px-0">
         {COLUMNS.map((stage, colIdx) => {
           const colTenders = visible.filter((t) => t.brief_status === stage);
           const colValue = colTenders.reduce((acc, t) => acc + (t.estimate_value_cr || 0), 0);
@@ -52,7 +52,7 @@ export const StageKanbanView: React.FC<StageKanbanViewProps> = ({ tenders, onOpe
           const isSideStep = stage === 'Under Discussion with User';
 
           return (
-            <section key={stage} aria-label={stage} className="w-72 shrink-0 bg-slate-100/70 border border-slate-200 rounded-xl flex flex-col max-h-[calc(100vh-15rem)]">
+            <section key={stage} aria-label={stage} className="w-[85vw] sm:w-72 shrink-0 snap-start bg-slate-100/70 border border-slate-200 rounded-xl flex flex-col max-h-[calc(100vh-15rem)]">
               <div className="p-3.5 border-b border-slate-200 bg-white rounded-t-xl">
                 <div className="flex items-center justify-between gap-2">
                   <h2 className="text-sm font-semibold text-slate-900 truncate flex items-center gap-2" title={stage}>

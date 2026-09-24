@@ -1,7 +1,7 @@
 import React from 'react';
 import { UserProfile, Tender } from '../types';
 import { isPrimaryOfficer, roleName } from '../utils/tenderUtils';
-import { LayoutDashboard, Inbox, TableProperties, KanbanSquare, History, FileSpreadsheet, HelpCircle } from 'lucide-react';
+import { LayoutDashboard, Inbox, TableProperties, KanbanSquare, History, FileSpreadsheet, HelpCircle, X } from 'lucide-react';
 import { cx } from './ui';
 
 export type NavTab =
@@ -19,6 +19,8 @@ interface SidebarProps {
   tenders: Tender[];
   onOpenCreateTender: () => void;
   onOpenWalkthrough?: () => void;
+  /** Present when the sidebar is shown as a drawer; renders a close button. */
+  onClose?: () => void;
 }
 
 /** Tenders sitting with this person right now, where they are the responsible officer. */
@@ -29,7 +31,7 @@ export function countWaitingFor(user: UserProfile, tenders: Tender[]): number {
   }).length;
 }
 
-export const Sidebar: React.FC<SidebarProps> = ({ activeTab, onSelectTab, currentUser, tenders, onOpenWalkthrough }) => {
+export const Sidebar: React.FC<SidebarProps> = ({ activeTab, onSelectTab, currentUser, tenders, onOpenWalkthrough, onClose }) => {
   const waitingCount = countWaitingFor(currentUser, tenders);
   const openCount = tenders.filter((t) => t.brief_status !== 'Awarded' && t.brief_status !== 'Cancelled').length;
 
@@ -43,10 +45,22 @@ export const Sidebar: React.FC<SidebarProps> = ({ activeTab, onSelectTab, curren
   ];
 
   return (
-    <aside className="w-60 bg-slate-900 text-slate-300 flex flex-col border-r border-slate-800 shrink-0 select-none">
-      <div className="px-5 py-4 border-b border-slate-800">
-        <div className="text-white font-semibold text-base tracking-tight">Tender Tracker</div>
-        <div className="text-xs text-slate-400 mt-0.5">Chief Procurement Office</div>
+    <aside className="w-60 h-full bg-slate-900 text-slate-300 flex flex-col border-r border-slate-800 shrink-0 select-none">
+      <div className="px-5 py-4 border-b border-slate-800 flex items-center justify-between gap-2">
+        <div>
+          <div className="text-white font-semibold text-base tracking-tight">Tender Tracker</div>
+          <div className="text-xs text-slate-400 mt-0.5">Chief Procurement Office</div>
+        </div>
+        {onClose && (
+          <button
+            type="button"
+            onClick={onClose}
+            aria-label="Close menu"
+            className="lg:hidden p-1.5 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800 cursor-pointer"
+          >
+            <X className="w-5 h-5" />
+          </button>
+        )}
       </div>
 
       <nav className="flex-1 p-3 space-y-1 overflow-y-auto" aria-label="Main">

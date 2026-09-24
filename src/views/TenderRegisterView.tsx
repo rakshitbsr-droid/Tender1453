@@ -121,7 +121,33 @@ export const TenderRegisterView: React.FC<TenderRegisterViewProps> = ({ tenders,
             }
           />
         ) : (
-          <div className="overflow-x-auto">
+          <>
+            {/* Phones: one card per tender */}
+            <ul className="md:hidden divide-y divide-slate-100">
+              {rows.map((tender) => (
+                <li key={tender.sr_no}>
+                  <button type="button" onClick={() => onOpenTender(tender)} className="w-full text-left p-4 hover:bg-blue-50/40 cursor-pointer">
+                    <div className="flex items-center justify-between gap-2">
+                      <span className="font-mono text-sm text-blue-700">{tender.pr_no}</span>
+                      <StageBadge stage={tender.brief_status} />
+                    </div>
+                    <div className="text-sm font-medium text-slate-900 mt-1.5 leading-snug">{tender.item_description}</div>
+                    <div className="text-xs text-slate-500 mt-1">
+                      {tender.user_function} · {tender.pm_officer}
+                    </div>
+                    <div className="mt-2 flex items-center justify-between gap-2 text-sm">
+                      <span className="text-slate-900">{formatCurrencyCr(tender.estimate_value_cr)}</span>
+                      {tender.current_holder ? (
+                        <span className="text-xs text-slate-600 truncate">With {tender.current_holder}</span>
+                      ) : tender.sla_days ? (
+                        <span className="text-xs text-slate-500">{formatDaysShort(tender.sla_days)}</span>
+                      ) : null}
+                    </div>
+                  </button>
+                </li>
+              ))}
+            </ul>
+            <div className="hidden md:block overflow-x-auto">
             <table className="w-full text-left text-sm border-collapse min-w-250">
               <thead>
                 <tr className="bg-slate-50 text-slate-600 border-b border-slate-200">
@@ -208,7 +234,8 @@ export const TenderRegisterView: React.FC<TenderRegisterViewProps> = ({ tenders,
                 ))}
               </tbody>
             </table>
-          </div>
+            </div>
+          </>
         )}
       </div>
       <p className="text-xs text-slate-500 mt-2">Working days count Monday to Friday only; weekends are not included.</p>
