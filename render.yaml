@@ -1,0 +1,16 @@
+# Render Blueprint: hosts the .NET API. In Render choose "New > Blueprint", pick this repo, and it
+# creates the service below. The frontend is hosted separately on Vercel (see README.md, "Deploy").
+services:
+  - type: web
+    name: tender-tracker-api
+    runtime: docker
+    plan: free
+    dockerfilePath: ./backend/TenderTracker.Api/Dockerfile
+    dockerContext: ./backend/TenderTracker.Api
+    healthCheckPath: /api/health
+    envVars:
+      - key: ASPNETCORE_ENVIRONMENT
+        value: Production
+      # Comma-separated list of sites allowed to call the API. Leave unset to allow any site (fine for a demo).
+      - key: Cors__AllowedOrigins
+        sync: false

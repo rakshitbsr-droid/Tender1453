@@ -1,0 +1,3105 @@
+[
+  {
+    "sr_no": 2,
+    "pr_no": "PR1000412891",
+    "crfq_no": "CRFQ1000389124",
+    "date_pr_initial_indent": "12-08-2024",
+    "receipt_actionable_pr": "18-08-2024",
+    "tender_sent_tech_eval": "15-11-2024",
+    "receipt_tech_eval": "02-12-2024",
+    "item_description": "EPC Package for Offshore Subsea Pipeline & Compression Facility",
+    "user_function": "E&P-Services",
+    "date_receipt_estimate_cec": "05-09-2024",
+    "pm_officer": "Amit Kumar Jha",
+    "attached_pms": [
+      "Ashishkumar Mihirkumar Jha"
+    ],
+    "tender_type": "Open",
+    "tender_floated_on": "25-09-2024",
+    "tender_opened_due_on": "05-11-2024",
+    "estimate_value_cr": 1100,
+    "brief_status": "Awarded",
+    "awarded_value_cr": 1093.39,
+    "tec_proposed_on": "10-01-2025",
+    "tec_approval_date": "28-01-2025",
+    "tender_register_updated": "YES",
+    "aoc_completed": "YES",
+    "contract_ola_created": "YES",
+    "sla_days": 167,
+    "savings_due_to_negotiation_cr": 6.61,
+    "time_taken_approving_committee_days": 18,
+    "month_year": "Jan-25",
+    "remarks": "Successful negotiation resulted in Rs 6.61 Cr direct savings. Approved by Board.",
+    "attached_fms": [
+      "Rajesh J",
+      "Priya Nair"
+    ],
+    "attached_cec_officers": [
+      "Meera Iyer"
+    ],
+    "current_holder": "",
+    "current_role": "",
+    "priority": "High",
+    "days_by_role": {
+      "PM": 92,
+      "FM": 45,
+      "CEC": 30
+    },
+    "timeline": [
+      {
+        "stage": "PR Received",
+        "role": "PM",
+        "holder": "Amit Kumar Jha",
+        "entry_date": "18-08-2024",
+        "exit_date": "24-08-2024",
+        "days_spent": 6,
+        "remarks": "Actionable PR verified, forwarded to CEC for benchmark estimation"
+      },
+      {
+        "stage": "Under Estimation",
+        "role": "CEC",
+        "holder": "Meera Iyer",
+        "entry_date": "24-08-2024",
+        "exit_date": "05-09-2024",
+        "days_spent": 12,
+        "remarks": "Detailed capital cost estimation completed at Rs 1,100.00 Cr"
+      },
+      {
+        "stage": "BQC Preparation",
+        "role": "PM",
+        "holder": "Amit Kumar Jha",
+        "entry_date": "05-09-2024",
+        "exit_date": "15-09-2024",
+        "days_spent": 10,
+        "remarks": "BQC criteria drafted with technical committee requirements"
+      },
+      {
+        "stage": "BQC Preparation",
+        "role": "FM",
+        "holder": "Rajesh J",
+        "entry_date": "15-09-2024",
+        "exit_date": "22-09-2024",
+        "days_spent": 7,
+        "remarks": "Financial solvency criteria & turnover thresholds vetted and cleared"
+      },
+      {
+        "stage": "To be Floated",
+        "role": "PM",
+        "holder": "Amit Kumar Jha",
+        "entry_date": "22-09-2024",
+        "exit_date": "25-09-2024",
+        "days_spent": 3,
+        "remarks": "Global E-tender published on portal"
+      },
+      {
+        "stage": "Under Bidding",
+        "role": "PM",
+        "holder": "Amit Kumar Jha",
+        "entry_date": "25-09-2024",
+        "exit_date": "05-11-2024",
+        "days_spent": 41,
+        "remarks": "Pre-bid meeting completed, 4 tier-1 consortia submitted bids"
+      },
+      {
+        "stage": "Under BQC / Tech Evaluation",
+        "role": "PM",
+        "holder": "Amit Kumar Jha",
+        "entry_date": "05-11-2024",
+        "exit_date": "25-11-2024",
+        "days_spent": 20,
+        "hours_spent": 480,
+        "remarks": "Initial technical compliance matrix drafted across 4 bidder consortia"
+      },
+      {
+        "stage": "Under BQC / Tech Evaluation",
+        "role": "CEC",
+        "holder": "Meera Iyer",
+        "entry_date": "25-11-2024 10:00",
+        "exit_date": "25-11-2024 18:00",
+        "days_spent": 0.33,
+        "hours_spent": 8,
+        "remarks": "Fast-track technical query review cleared within 8 hours"
+      },
+      {
+        "stage": "Under BQC / Tech Evaluation",
+        "role": "FM",
+        "holder": "Rajesh J",
+        "entry_date": "26-11-2024 09:30",
+        "exit_date": "26-11-2024 15:30",
+        "days_spent": 0.25,
+        "hours_spent": 6,
+        "remarks": "Commercial price parity vetting cleared in 6 hours"
+      },
+      {
+        "stage": "Under BQC / Tech Evaluation",
+        "role": "PM",
+        "holder": "Amit Kumar Jha",
+        "entry_date": "26-11-2024 15:30",
+        "exit_date": "02-12-2024",
+        "days_spent": 6.4,
+        "hours_spent": 154,
+        "remarks": "Consolidated TEC approval documentation signed; 3 bidders technically qualified"
+      },
+      {
+        "stage": "Under BQC / Tech Evaluation",
+        "role": "FM",
+        "holder": "Priya Nair",
+        "entry_date": "02-12-2024",
+        "exit_date": "16-12-2024",
+        "days_spent": 14,
+        "remarks": "Comparative statement and tax structure reviewed"
+      },
+      {
+        "stage": "Under Award TEC",
+        "role": "PM",
+        "holder": "Amit Kumar Jha",
+        "entry_date": "16-12-2024",
+        "exit_date": "10-01-2025",
+        "days_spent": 25,
+        "remarks": "TEC recommendation prepared for L1 bidder"
+      },
+      {
+        "stage": "Under Negotiation",
+        "role": "PM",
+        "holder": "Amit Kumar Jha",
+        "entry_date": "10-01-2025",
+        "exit_date": "28-01-2025",
+        "days_spent": 18,
+        "remarks": "Negotiation committee secured discount of Rs 6.61 Cr"
+      },
+      {
+        "stage": "Awarded",
+        "role": "PM",
+        "holder": "Amit Kumar Jha",
+        "entry_date": "28-01-2025",
+        "exit_date": "01-02-2025",
+        "days_spent": 4,
+        "remarks": "Letter of Award (LoA) dispatched & contract signed"
+      }
+    ]
+  },
+  {
+    "sr_no": 3,
+    "pr_no": "PR1000418902",
+    "crfq_no": "CRFQ1000390451",
+    "date_pr_initial_indent": "04-09-2024",
+    "receipt_actionable_pr": "10-09-2024",
+    "tender_sent_tech_eval": "18-11-2024",
+    "receipt_tech_eval": "04-12-2024",
+    "item_description": "Annual Maintenance Contract for Gas Turbine Generators",
+    "user_function": "E&P-Bargarh",
+    "date_receipt_estimate_cec": "22-09-2024",
+    "pm_officer": "Amit Kumar Jha",
+    "attached_pms": [
+      "Purushottam Kumar"
+    ],
+    "tender_type": "Open",
+    "tender_floated_on": "05-10-2024",
+    "tender_opened_due_on": "12-11-2024",
+    "estimate_value_cr": 6.4,
+    "brief_status": "Awarded",
+    "awarded_value_cr": 7.35,
+    "tec_proposed_on": "20-12-2024",
+    "tec_approval_date": "09-01-2025",
+    "tender_register_updated": "YES",
+    "aoc_completed": "YES",
+    "contract_ola_created": "YES",
+    "sla_days": 121,
+    "savings_due_to_negotiation_cr": 0,
+    "time_taken_approving_committee_days": 20,
+    "month_year": "Jan-25",
+    "remarks": "OEM spare pricing escalated; finalized after committee justification.",
+    "attached_fms": [
+      "Anil Verma",
+      "Sneha Kulkarni"
+    ],
+    "attached_cec_officers": [
+      "Sanjay Gupta"
+    ],
+    "current_holder": "",
+    "current_role": "",
+    "priority": "Normal",
+    "days_by_role": {
+      "PM": 72,
+      "FM": 31,
+      "CEC": 18
+    },
+    "timeline": [
+      {
+        "stage": "PR Received",
+        "role": "PM",
+        "holder": "Amit Kumar Jha",
+        "entry_date": "10-09-2024",
+        "exit_date": "14-09-2024",
+        "days_spent": 4
+      },
+      {
+        "stage": "Under Estimation",
+        "role": "CEC",
+        "holder": "Sanjay Gupta",
+        "entry_date": "14-09-2024",
+        "exit_date": "22-09-2024",
+        "days_spent": 8
+      },
+      {
+        "stage": "BQC Preparation",
+        "role": "PM",
+        "holder": "Amit Kumar Jha",
+        "entry_date": "22-09-2024",
+        "exit_date": "28-09-2024",
+        "days_spent": 6
+      },
+      {
+        "stage": "BQC Preparation",
+        "role": "FM",
+        "holder": "Anil Verma",
+        "entry_date": "28-09-2024",
+        "exit_date": "03-10-2024",
+        "days_spent": 5
+      },
+      {
+        "stage": "To be Floated",
+        "role": "PM",
+        "holder": "Amit Kumar Jha",
+        "entry_date": "03-10-2024",
+        "exit_date": "05-10-2024",
+        "days_spent": 2
+      },
+      {
+        "stage": "Under Bidding",
+        "role": "PM",
+        "holder": "Amit Kumar Jha",
+        "entry_date": "05-10-2024",
+        "exit_date": "12-11-2024",
+        "days_spent": 38
+      },
+      {
+        "stage": "Under BQC / Tech Evaluation",
+        "role": "PM",
+        "holder": "Amit Kumar Jha",
+        "entry_date": "12-11-2024",
+        "exit_date": "04-12-2024",
+        "days_spent": 22
+      },
+      {
+        "stage": "Under BQC / Tech Evaluation",
+        "role": "FM",
+        "holder": "Sneha Kulkarni",
+        "entry_date": "04-12-2024",
+        "exit_date": "15-12-2024",
+        "days_spent": 11
+      },
+      {
+        "stage": "Under Award TEC",
+        "role": "PM",
+        "holder": "Amit Kumar Jha",
+        "entry_date": "15-12-2024",
+        "exit_date": "09-01-2025",
+        "days_spent": 25
+      }
+    ]
+  },
+  {
+    "sr_no": 4,
+    "pr_no": "PR1000420114",
+    "crfq_no": "CRFQ1000392819",
+    "date_pr_initial_indent": "15-09-2024",
+    "receipt_actionable_pr": "22-09-2024",
+    "tender_sent_tech_eval": "28-11-2024",
+    "receipt_tech_eval": "15-12-2024",
+    "item_description": "Supply of High Pressure Control Valves & Actuators",
+    "user_function": "Brand",
+    "date_receipt_estimate_cec": "08-10-2024",
+    "pm_officer": "Purushottam Kumar",
+    "attached_pms": [
+      "Suryawanshi Tulsidas"
+    ],
+    "tender_type": "Open",
+    "tender_floated_on": "18-10-2024",
+    "tender_opened_due_on": "20-11-2024",
+    "estimate_value_cr": 4.02,
+    "brief_status": "Awarded",
+    "awarded_value_cr": 4.13,
+    "tec_proposed_on": "05-01-2025",
+    "tec_approval_date": "26-01-2025",
+    "tender_register_updated": "YES",
+    "aoc_completed": "YES",
+    "contract_ola_created": "YES",
+    "sla_days": 126,
+    "savings_due_to_negotiation_cr": 0,
+    "time_taken_approving_committee_days": 21,
+    "month_year": "Jan-25",
+    "remarks": "Approved within normal variance envelope.",
+    "attached_fms": [
+      "Vikram Rao",
+      "Deepa Menon"
+    ],
+    "attached_cec_officers": [
+      "Ritu Desai"
+    ],
+    "current_holder": "",
+    "current_role": "",
+    "priority": "Normal",
+    "days_by_role": {
+      "PM": 74,
+      "FM": 36,
+      "CEC": 16
+    },
+    "timeline": [
+      {
+        "stage": "PR Received",
+        "role": "PM",
+        "holder": "Purushottam Kumar",
+        "entry_date": "22-09-2024",
+        "exit_date": "28-09-2024",
+        "days_spent": 6
+      },
+      {
+        "stage": "Under Estimation",
+        "role": "CEC",
+        "holder": "Ritu Desai",
+        "entry_date": "28-09-2024",
+        "exit_date": "08-10-2024",
+        "days_spent": 10
+      },
+      {
+        "stage": "BQC Preparation",
+        "role": "PM",
+        "holder": "Purushottam Kumar",
+        "entry_date": "08-10-2024",
+        "exit_date": "14-10-2024",
+        "days_spent": 6
+      },
+      {
+        "stage": "BQC Preparation",
+        "role": "FM",
+        "holder": "Vikram Rao",
+        "entry_date": "14-10-2024",
+        "exit_date": "17-10-2024",
+        "days_spent": 3
+      },
+      {
+        "stage": "To be Floated",
+        "role": "PM",
+        "holder": "Purushottam Kumar",
+        "entry_date": "17-10-2024",
+        "exit_date": "18-10-2024",
+        "days_spent": 1
+      },
+      {
+        "stage": "Under Bidding",
+        "role": "PM",
+        "holder": "Purushottam Kumar",
+        "entry_date": "18-10-2024",
+        "exit_date": "20-11-2024",
+        "days_spent": 33
+      },
+      {
+        "stage": "Under BQC / Tech Evaluation",
+        "role": "PM",
+        "holder": "Purushottam Kumar",
+        "entry_date": "20-11-2024",
+        "exit_date": "15-12-2024",
+        "days_spent": 25
+      },
+      {
+        "stage": "Under BQC / Tech Evaluation",
+        "role": "FM",
+        "holder": "Deepa Menon",
+        "entry_date": "15-12-2024",
+        "exit_date": "29-12-2024",
+        "days_spent": 14
+      },
+      {
+        "stage": "Under Award TEC",
+        "role": "PM",
+        "holder": "Purushottam Kumar",
+        "entry_date": "29-12-2024",
+        "exit_date": "26-01-2025",
+        "days_spent": 28
+      }
+    ]
+  },
+  {
+    "sr_no": 5,
+    "pr_no": "PR1000424560",
+    "crfq_no": "CRFQ1000395018",
+    "date_pr_initial_indent": "01-11-2024",
+    "receipt_actionable_pr": "05-11-2024",
+    "tender_sent_tech_eval": "20-11-2024",
+    "receipt_tech_eval": "28-11-2024",
+    "item_description": "Fast-Track Procurement of Heavy Earthmoving Machinery Spares",
+    "user_function": "RE",
+    "date_receipt_estimate_cec": "10-11-2024",
+    "pm_officer": "Gunjan Omprakash Bhiwal",
+    "attached_pms": [
+      "Nandhini N"
+    ],
+    "tender_type": "Open",
+    "tender_floated_on": "12-11-2024",
+    "tender_opened_due_on": "19-11-2024",
+    "estimate_value_cr": 12.31,
+    "brief_status": "Awarded",
+    "awarded_value_cr": 11.42,
+    "tec_proposed_on": "02-12-2024",
+    "tec_approval_date": "12-12-2024",
+    "tender_register_updated": "YES",
+    "aoc_completed": "YES",
+    "contract_ola_created": "YES",
+    "sla_days": 37,
+    "savings_due_to_negotiation_cr": 0.89,
+    "time_taken_approving_committee_days": 10,
+    "month_year": "Dec-24",
+    "remarks": "Benchmark fast-track turnaround (37 days total). Excellent savings of Rs 89 Lakhs.",
+    "attached_fms": [
+      "Karan Shah"
+    ],
+    "attached_cec_officers": [
+      "Harish Patel"
+    ],
+    "current_holder": "",
+    "current_role": "",
+    "priority": "High",
+    "days_by_role": {
+      "PM": 23,
+      "FM": 9,
+      "CEC": 5
+    },
+    "timeline": [
+      {
+        "stage": "PR Received",
+        "role": "PM",
+        "holder": "Gunjan Omprakash Bhiwal",
+        "entry_date": "05-11-2024",
+        "exit_date": "07-11-2024",
+        "days_spent": 2
+      },
+      {
+        "stage": "Under Estimation",
+        "role": "CEC",
+        "holder": "Harish Patel",
+        "entry_date": "07-11-2024",
+        "exit_date": "10-11-2024",
+        "days_spent": 3
+      },
+      {
+        "stage": "BQC Preparation",
+        "role": "PM",
+        "holder": "Gunjan Omprakash Bhiwal",
+        "entry_date": "10-11-2024",
+        "exit_date": "11-11-2024",
+        "days_spent": 1
+      },
+      {
+        "stage": "BQC Preparation",
+        "role": "FM",
+        "holder": "Karan Shah",
+        "entry_date": "11-11-2024",
+        "exit_date": "12-11-2024",
+        "days_spent": 1
+      },
+      {
+        "stage": "To be Floated",
+        "role": "PM",
+        "holder": "Gunjan Omprakash Bhiwal",
+        "entry_date": "12-11-2024",
+        "exit_date": "12-11-2024",
+        "days_spent": 0
+      },
+      {
+        "stage": "Under Bidding",
+        "role": "PM",
+        "holder": "Gunjan Omprakash Bhiwal",
+        "entry_date": "12-11-2024",
+        "exit_date": "19-11-2024",
+        "days_spent": 7
+      },
+      {
+        "stage": "Under BQC / Tech Evaluation",
+        "role": "PM",
+        "holder": "Gunjan Omprakash Bhiwal",
+        "entry_date": "19-11-2024",
+        "exit_date": "28-11-2024",
+        "days_spent": 9
+      },
+      {
+        "stage": "Under Negotiation",
+        "role": "PM",
+        "holder": "Gunjan Omprakash Bhiwal",
+        "entry_date": "28-11-2024",
+        "exit_date": "05-12-2024",
+        "days_spent": 7
+      },
+      {
+        "stage": "Awarded",
+        "role": "PM",
+        "holder": "Gunjan Omprakash Bhiwal",
+        "entry_date": "05-12-2024",
+        "exit_date": "12-12-2024",
+        "days_spent": 7
+      }
+    ]
+  },
+  {
+    "sr_no": 6,
+    "pr_no": "PR1000427810",
+    "crfq_no": "CRFQ1000396419",
+    "date_pr_initial_indent": "10-10-2024",
+    "receipt_actionable_pr": "18-10-2024",
+    "tender_sent_tech_eval": "12-11-2024",
+    "receipt_tech_eval": "25-11-2024",
+    "item_description": "Civil Infrastructure & Stormwater Drainage Revamp Phase II",
+    "user_function": "SOR",
+    "date_receipt_estimate_cec": "28-10-2024",
+    "pm_officer": "Gunjan Omprakash Bhiwal",
+    "attached_pms": [
+      "Sarath Kumar P"
+    ],
+    "tender_type": "Open",
+    "tender_floated_on": "02-11-2024",
+    "tender_opened_due_on": "10-11-2024",
+    "estimate_value_cr": 35.29,
+    "brief_status": "Awarded",
+    "awarded_value_cr": 32.93,
+    "tec_proposed_on": "05-12-2024",
+    "tec_approval_date": "15-12-2024",
+    "tender_register_updated": "YES",
+    "aoc_completed": "YES",
+    "contract_ola_created": "YES",
+    "sla_days": 58,
+    "savings_due_to_negotiation_cr": 2.36,
+    "time_taken_approving_committee_days": 10,
+    "month_year": "Dec-24",
+    "remarks": "Excellent cost compression achieved: Rs 2.36 Cr savings below estimation.",
+    "attached_fms": [
+      "Rajesh J",
+      "Anil Verma"
+    ],
+    "attached_cec_officers": [
+      "Neha Joshi"
+    ],
+    "current_holder": "",
+    "current_role": "",
+    "priority": "Normal",
+    "days_by_role": {
+      "PM": 35,
+      "FM": 14,
+      "CEC": 9
+    },
+    "timeline": [
+      {
+        "stage": "PR Received",
+        "role": "PM",
+        "holder": "Gunjan Omprakash Bhiwal",
+        "entry_date": "18-10-2024",
+        "exit_date": "22-10-2024",
+        "days_spent": 4
+      },
+      {
+        "stage": "Under Estimation",
+        "role": "CEC",
+        "holder": "Neha Joshi",
+        "entry_date": "22-10-2024",
+        "exit_date": "28-10-2024",
+        "days_spent": 6
+      },
+      {
+        "stage": "BQC Preparation",
+        "role": "PM",
+        "holder": "Gunjan Omprakash Bhiwal",
+        "entry_date": "28-10-2024",
+        "exit_date": "31-10-2024",
+        "days_spent": 3
+      },
+      {
+        "stage": "BQC Preparation",
+        "role": "FM",
+        "holder": "Rajesh J",
+        "entry_date": "31-10-2024",
+        "exit_date": "02-11-2024",
+        "days_spent": 2
+      },
+      {
+        "stage": "To be Floated",
+        "role": "PM",
+        "holder": "Gunjan Omprakash Bhiwal",
+        "entry_date": "02-11-2024",
+        "exit_date": "02-11-2024",
+        "days_spent": 0
+      },
+      {
+        "stage": "Under Bidding",
+        "role": "PM",
+        "holder": "Gunjan Omprakash Bhiwal",
+        "entry_date": "02-11-2024",
+        "exit_date": "10-11-2024",
+        "days_spent": 8
+      },
+      {
+        "stage": "Under BQC / Tech Evaluation",
+        "role": "PM",
+        "holder": "Gunjan Omprakash Bhiwal",
+        "entry_date": "10-11-2024",
+        "exit_date": "25-11-2024",
+        "days_spent": 15
+      },
+      {
+        "stage": "Under Negotiation",
+        "role": "PM",
+        "holder": "Gunjan Omprakash Bhiwal",
+        "entry_date": "25-11-2024",
+        "exit_date": "05-12-2024",
+        "days_spent": 10
+      },
+      {
+        "stage": "Awarded",
+        "role": "PM",
+        "holder": "Gunjan Omprakash Bhiwal",
+        "entry_date": "05-12-2024",
+        "exit_date": "15-12-2024",
+        "days_spent": 10
+      }
+    ]
+  },
+  {
+    "sr_no": 8,
+    "pr_no": "PR1000431201",
+    "crfq_no": "CRFQ1000399812",
+    "date_pr_initial_indent": "02-05-2024",
+    "receipt_actionable_pr": "15-05-2024",
+    "tender_sent_tech_eval": "20-08-2024",
+    "receipt_tech_eval": "10-11-2024",
+    "item_description": "Turnkey Installation of Automated Fire Detection & Deluge System",
+    "user_function": "HSSE",
+    "date_receipt_estimate_cec": "18-06-2024",
+    "pm_officer": "Purushottam Kumar",
+    "attached_pms": [
+      "Arishi Yadav"
+    ],
+    "tender_type": "Open",
+    "tender_floated_on": "05-07-2024",
+    "tender_opened_due_on": "15-08-2024",
+    "estimate_value_cr": 40.55,
+    "brief_status": "Awarded",
+    "awarded_value_cr": 41.5,
+    "tec_proposed_on": "28-11-2024",
+    "tec_approval_date": "23-12-2024",
+    "tender_register_updated": "YES",
+    "aoc_completed": "YES",
+    "contract_ola_created": "YES",
+    "sla_days": 222,
+    "savings_due_to_negotiation_cr": 0,
+    "time_taken_approving_committee_days": 25,
+    "month_year": "Dec-24",
+    "remarks": "Significant delays during Technical Evaluation stage (82 days) due to user committee reviews.",
+    "attached_fms": [
+      "Tara Pillai",
+      "Ritika Shah"
+    ],
+    "attached_cec_officers": [
+      "Vivek Sharma"
+    ],
+    "current_holder": "",
+    "current_role": "",
+    "priority": "Normal",
+    "days_by_role": {
+      "PM": 135,
+      "FM": 55,
+      "CEC": 32
+    },
+    "timeline": [
+      {
+        "stage": "PR Received",
+        "role": "PM",
+        "holder": "Purushottam Kumar",
+        "entry_date": "15-05-2024",
+        "exit_date": "29-05-2024",
+        "days_spent": 14
+      },
+      {
+        "stage": "Under Estimation",
+        "role": "CEC",
+        "holder": "Vivek Sharma",
+        "entry_date": "29-05-2024",
+        "exit_date": "18-06-2024",
+        "days_spent": 20
+      },
+      {
+        "stage": "BQC Preparation",
+        "role": "PM",
+        "holder": "Purushottam Kumar",
+        "entry_date": "18-06-2024",
+        "exit_date": "27-06-2024",
+        "days_spent": 9
+      },
+      {
+        "stage": "BQC Preparation",
+        "role": "FM",
+        "holder": "Tara Pillai",
+        "entry_date": "27-06-2024",
+        "exit_date": "04-07-2024",
+        "days_spent": 7
+      },
+      {
+        "stage": "To be Floated",
+        "role": "PM",
+        "holder": "Purushottam Kumar",
+        "entry_date": "04-07-2024",
+        "exit_date": "05-07-2024",
+        "days_spent": 1
+      },
+      {
+        "stage": "Under Bidding",
+        "role": "PM",
+        "holder": "Purushottam Kumar",
+        "entry_date": "05-07-2024",
+        "exit_date": "15-08-2024",
+        "days_spent": 41
+      },
+      {
+        "stage": "Under BQC / Tech Evaluation",
+        "role": "PM",
+        "holder": "Purushottam Kumar",
+        "entry_date": "15-08-2024",
+        "exit_date": "10-11-2024",
+        "days_spent": 87,
+        "remarks": "Slow tech clarification queries from HSSE user department."
+      },
+      {
+        "stage": "Under BQC / Tech Evaluation",
+        "role": "FM",
+        "holder": "Ritika Shah",
+        "entry_date": "10-11-2024",
+        "exit_date": "28-11-2024",
+        "days_spent": 18
+      },
+      {
+        "stage": "Under Award TEC",
+        "role": "PM",
+        "holder": "Purushottam Kumar",
+        "entry_date": "28-11-2024",
+        "exit_date": "23-12-2024",
+        "days_spent": 25
+      }
+    ]
+  },
+  {
+    "sr_no": 9,
+    "pr_no": "PR1000435678",
+    "crfq_no": "CRFQ1000401129",
+    "date_pr_initial_indent": "14-08-2024",
+    "receipt_actionable_pr": "22-08-2024",
+    "tender_sent_tech_eval": "20-10-2024",
+    "receipt_tech_eval": "15-11-2024",
+    "item_description": "Supply & Retrofitting of Digital SCADA Telemetry Units",
+    "user_function": "E&P-Services",
+    "date_receipt_estimate_cec": "10-09-2024",
+    "pm_officer": "Suryawanshi Tulsidas",
+    "attached_pms": [
+      "Sandhya Singh"
+    ],
+    "tender_type": "Open",
+    "tender_floated_on": "22-09-2024",
+    "tender_opened_due_on": "18-10-2024",
+    "estimate_value_cr": 7.23,
+    "brief_status": "Awarded",
+    "awarded_value_cr": 7.67,
+    "tec_proposed_on": "25-11-2024",
+    "tec_approval_date": "01-12-2024",
+    "tender_register_updated": "YES",
+    "aoc_completed": "YES",
+    "contract_ola_created": "YES",
+    "sla_days": 101,
+    "savings_due_to_negotiation_cr": 0,
+    "time_taken_approving_committee_days": 6,
+    "month_year": "Dec-24",
+    "remarks": "Fast committee approval (6 days). Successfully closed on schedule.",
+    "attached_fms": [
+      "Divya Reddy",
+      "Omkar Joshi"
+    ],
+    "attached_cec_officers": [
+      "Pooja Reddy"
+    ],
+    "current_holder": "",
+    "current_role": "",
+    "priority": "Normal",
+    "days_by_role": {
+      "PM": 62,
+      "FM": 25,
+      "CEC": 14
+    },
+    "timeline": [
+      {
+        "stage": "PR Received",
+        "role": "PM",
+        "holder": "Suryawanshi Tulsidas",
+        "entry_date": "22-08-2024",
+        "exit_date": "28-08-2024",
+        "days_spent": 6
+      },
+      {
+        "stage": "Under Estimation",
+        "role": "CEC",
+        "holder": "Pooja Reddy",
+        "entry_date": "28-08-2024",
+        "exit_date": "10-09-2024",
+        "days_spent": 13
+      },
+      {
+        "stage": "BQC Preparation",
+        "role": "PM",
+        "holder": "Suryawanshi Tulsidas",
+        "entry_date": "10-09-2024",
+        "exit_date": "18-09-2024",
+        "days_spent": 8
+      },
+      {
+        "stage": "BQC Preparation",
+        "role": "FM",
+        "holder": "Divya Reddy",
+        "entry_date": "18-09-2024",
+        "exit_date": "21-09-2024",
+        "days_spent": 3
+      },
+      {
+        "stage": "To be Floated",
+        "role": "PM",
+        "holder": "Suryawanshi Tulsidas",
+        "entry_date": "21-09-2024",
+        "exit_date": "22-09-2024",
+        "days_spent": 1
+      },
+      {
+        "stage": "Under Bidding",
+        "role": "PM",
+        "holder": "Suryawanshi Tulsidas",
+        "entry_date": "22-09-2024",
+        "exit_date": "18-10-2024",
+        "days_spent": 26
+      },
+      {
+        "stage": "Under BQC / Tech Evaluation",
+        "role": "PM",
+        "holder": "Suryawanshi Tulsidas",
+        "entry_date": "18-10-2024",
+        "exit_date": "15-11-2024",
+        "days_spent": 28
+      },
+      {
+        "stage": "Under Award TEC",
+        "role": "PM",
+        "holder": "Suryawanshi Tulsidas",
+        "entry_date": "15-11-2024",
+        "exit_date": "01-12-2024",
+        "days_spent": 16
+      }
+    ]
+  },
+  {
+    "sr_no": 1,
+    "pr_no": "PR1000409822",
+    "crfq_no": "",
+    "date_pr_initial_indent": "12-06-2024",
+    "receipt_actionable_pr": "20-06-2024",
+    "tender_sent_tech_eval": "",
+    "receipt_tech_eval": "",
+    "item_description": "Procurement of Specialized Deep-Well Drill Bits (Series X)",
+    "user_function": "E&P-Services",
+    "date_receipt_estimate_cec": "08-07-2024",
+    "pm_officer": "Abhishek Lodhi",
+    "attached_pms": [
+      "Tarun Meena"
+    ],
+    "tender_type": "Single",
+    "tender_floated_on": "",
+    "tender_opened_due_on": "",
+    "estimate_value_cr": 4.15,
+    "brief_status": "Cancelled",
+    "awarded_value_cr": null,
+    "tec_proposed_on": "",
+    "tec_approval_date": "",
+    "tender_register_updated": "NO",
+    "aoc_completed": "NO",
+    "contract_ola_created": "NO",
+    "sla_days": null,
+    "savings_due_to_negotiation_cr": null,
+    "time_taken_approving_committee_days": null,
+    "month_year": "Jul-24",
+    "remarks": "Requirement withdrawn by user department due to revised field exploration plan.",
+    "attached_fms": [
+      "Aarav Menon"
+    ],
+    "attached_cec_officers": [
+      "Aditya Chopra"
+    ],
+    "current_holder": "",
+    "current_role": "",
+    "priority": "Normal",
+    "days_by_role": {
+      "PM": 18,
+      "FM": 0,
+      "CEC": 14
+    },
+    "timeline": [
+      {
+        "stage": "PR Received",
+        "role": "PM",
+        "holder": "Abhishek Lodhi",
+        "entry_date": "20-06-2024",
+        "exit_date": "24-06-2024",
+        "days_spent": 4
+      },
+      {
+        "stage": "Under Estimation",
+        "role": "CEC",
+        "holder": "Aditya Chopra",
+        "entry_date": "24-06-2024",
+        "exit_date": "08-07-2024",
+        "days_spent": 14
+      },
+      {
+        "stage": "BQC Preparation",
+        "role": "PM",
+        "holder": "Abhishek Lodhi",
+        "entry_date": "08-07-2024",
+        "exit_date": "22-07-2024",
+        "days_spent": 14,
+        "remarks": "Cancelled upon indent cancellation notice from user directorate."
+      }
+    ]
+  },
+  {
+    "sr_no": 10,
+    "pr_no": "PR1000441092",
+    "crfq_no": "CRFQ1000405820",
+    "date_pr_initial_indent": "10-01-2025",
+    "receipt_actionable_pr": "18-01-2025",
+    "tender_sent_tech_eval": "",
+    "receipt_tech_eval": "",
+    "item_description": "High-Integrity Pressure Relief Valves for Gas Dehydration Unit",
+    "user_function": "E&P-Services",
+    "date_receipt_estimate_cec": "",
+    "pm_officer": "Amit Kumar Jha",
+    "attached_pms": [
+      "M S Neetha"
+    ],
+    "tender_type": "Limited",
+    "tender_floated_on": "",
+    "tender_opened_due_on": "",
+    "estimate_value_cr": 3.02,
+    "brief_status": "Under Estimation",
+    "awarded_value_cr": null,
+    "tec_proposed_on": "",
+    "tec_approval_date": "",
+    "tender_register_updated": "",
+    "aoc_completed": "",
+    "contract_ola_created": "",
+    "sla_days": null,
+    "savings_due_to_negotiation_cr": null,
+    "time_taken_approving_committee_days": null,
+    "month_year": "Feb-25",
+    "remarks": "Sent to CEC Officer Meera Iyer for proprietary OEM cost benchmark analysis.",
+    "attached_fms": [
+      "Sana Qureshi"
+    ],
+    "attached_cec_officers": [
+      "Meera Iyer"
+    ],
+    "current_holder": "Meera Iyer",
+    "current_role": "CEC",
+    "priority": "High",
+    "days_by_role": {
+      "PM": 6,
+      "FM": 0,
+      "CEC": 12
+    },
+    "timeline": [
+      {
+        "stage": "PR Received",
+        "role": "PM",
+        "holder": "Amit Kumar Jha",
+        "entry_date": "18-01-2025 09:30",
+        "exit_date": "23-01-2025 17:00",
+        "days_spent": 5.3,
+        "hours_spent": 127.5,
+        "remarks": "Actionable PR vetted, items and technical requirements checked."
+      },
+      {
+        "stage": "PR Received",
+        "role": "PM",
+        "holder": "Ashishkumar Mihirkumar Jha",
+        "entry_date": "24-01-2025 09:30",
+        "exit_date": "24-01-2025 13:30",
+        "days_spent": 0.17,
+        "hours_spent": 4,
+        "remarks": "Fast-track vendor list and OEM authorization checked in 4 hours, routed to CEC."
+      },
+      {
+        "stage": "Under Estimation",
+        "role": "CEC",
+        "holder": "Meera Iyer",
+        "entry_date": "24-01-2025",
+        "exit_date": null,
+        "days_spent": null,
+        "remarks": "Benchmarking global valve component indices."
+      }
+    ]
+  },
+  {
+    "sr_no": 11,
+    "pr_no": "PR1000445671",
+    "crfq_no": "CRFQ1000411209",
+    "date_pr_initial_indent": "12-01-2025",
+    "receipt_actionable_pr": "19-01-2025",
+    "tender_sent_tech_eval": "",
+    "receipt_tech_eval": "",
+    "item_description": "Comprehensive Environmental Air Quality & Effluent Monitoring",
+    "user_function": "HSSE",
+    "date_receipt_estimate_cec": "28-01-2025",
+    "pm_officer": "Ashishkumar Mihirkumar Jha",
+    "attached_pms": [
+      "Gunjan Omprakash Bhiwal"
+    ],
+    "tender_type": "Open",
+    "tender_floated_on": "",
+    "tender_opened_due_on": "",
+    "estimate_value_cr": 18.5,
+    "brief_status": "BQC Preparation",
+    "awarded_value_cr": null,
+    "tec_proposed_on": "",
+    "tec_approval_date": "",
+    "tender_register_updated": "",
+    "aoc_completed": "",
+    "contract_ola_created": "",
+    "sla_days": null,
+    "savings_due_to_negotiation_cr": null,
+    "time_taken_approving_committee_days": null,
+    "month_year": "Feb-25",
+    "remarks": "Finance reviewing bidder qualification criteria (BQC) before floating.",
+    "attached_fms": [
+      "Rajesh J",
+      "Priya Nair"
+    ],
+    "attached_cec_officers": [
+      "Harish Patel"
+    ],
+    "current_holder": "Rajesh J",
+    "current_role": "FM",
+    "priority": "High",
+    "days_by_role": {
+      "PM": 9,
+      "FM": 8,
+      "CEC": 9
+    },
+    "timeline": [
+      {
+        "stage": "PR Received",
+        "role": "PM",
+        "holder": "Ashishkumar Mihirkumar Jha",
+        "entry_date": "19-01-2025",
+        "exit_date": "23-01-2025",
+        "days_spent": 4
+      },
+      {
+        "stage": "Under Estimation",
+        "role": "CEC",
+        "holder": "Harish Patel",
+        "entry_date": "23-01-2025",
+        "exit_date": "28-01-2025",
+        "days_spent": 5
+      },
+      {
+        "stage": "BQC Preparation",
+        "role": "PM",
+        "holder": "Ashishkumar Mihirkumar Jha",
+        "entry_date": "28-01-2025",
+        "exit_date": "02-02-2025",
+        "days_spent": 5
+      },
+      {
+        "stage": "BQC Preparation",
+        "role": "FM",
+        "holder": "Rajesh J",
+        "entry_date": "02-02-2025",
+        "exit_date": null,
+        "days_spent": null,
+        "remarks": "Verifying turnover & net-worth threshold criteria."
+      }
+    ]
+  },
+  {
+    "sr_no": 12,
+    "pr_no": "PR1000448900",
+    "crfq_no": "CRFQ1000415672",
+    "date_pr_initial_indent": "05-01-2025",
+    "receipt_actionable_pr": "12-01-2025",
+    "tender_sent_tech_eval": "",
+    "receipt_tech_eval": "",
+    "item_description": "Replacement of 33kV Switchgear & Substation Automation Panels",
+    "user_function": "Brand",
+    "date_receipt_estimate_cec": "22-01-2025",
+    "pm_officer": "Nandhini N",
+    "attached_pms": [
+      "Purushottam Kumar"
+    ],
+    "tender_type": "Open",
+    "tender_floated_on": "08-02-2025",
+    "tender_opened_due_on": "",
+    "estimate_value_cr": 28.75,
+    "brief_status": "To be Floated",
+    "awarded_value_cr": null,
+    "tec_proposed_on": "",
+    "tec_approval_date": "",
+    "tender_register_updated": "",
+    "aoc_completed": "",
+    "contract_ola_created": "",
+    "sla_days": null,
+    "savings_due_to_negotiation_cr": null,
+    "time_taken_approving_committee_days": null,
+    "month_year": "Feb-25",
+    "remarks": "BQC approved by Finance. Ready for portal publishing.",
+    "attached_fms": [
+      "Anil Verma"
+    ],
+    "attached_cec_officers": [
+      "Sanjay Gupta"
+    ],
+    "current_holder": "Nandhini N",
+    "current_role": "PM",
+    "priority": "Normal",
+    "days_by_role": {
+      "PM": 14,
+      "FM": 6,
+      "CEC": 10
+    },
+    "timeline": [
+      {
+        "stage": "PR Received",
+        "role": "PM",
+        "holder": "Nandhini N",
+        "entry_date": "12-01-2025",
+        "exit_date": "16-01-2025",
+        "days_spent": 4
+      },
+      {
+        "stage": "Under Estimation",
+        "role": "CEC",
+        "holder": "Sanjay Gupta",
+        "entry_date": "16-01-2025",
+        "exit_date": "22-01-2025",
+        "days_spent": 6
+      },
+      {
+        "stage": "BQC Preparation",
+        "role": "PM",
+        "holder": "Nandhini N",
+        "entry_date": "22-01-2025",
+        "exit_date": "28-01-2025",
+        "days_spent": 6
+      },
+      {
+        "stage": "BQC Preparation",
+        "role": "FM",
+        "holder": "Anil Verma",
+        "entry_date": "28-01-2025",
+        "exit_date": "03-02-2025",
+        "days_spent": 6
+      },
+      {
+        "stage": "To be Floated",
+        "role": "PM",
+        "holder": "Nandhini N",
+        "entry_date": "03-02-2025",
+        "exit_date": null,
+        "days_spent": null
+      }
+    ]
+  },
+  {
+    "sr_no": 13,
+    "pr_no": "PR1000451290",
+    "crfq_no": "CRFQ1000418901",
+    "date_pr_initial_indent": "20-12-2024",
+    "receipt_actionable_pr": "28-12-2024",
+    "tender_sent_tech_eval": "",
+    "receipt_tech_eval": "",
+    "item_description": "Subsea Wellhead Intervention and Wireline Logging Services",
+    "user_function": "E&P-Services",
+    "date_receipt_estimate_cec": "10-01-2025",
+    "pm_officer": "Sarath Kumar P",
+    "attached_pms": [
+      "Amit Kumar Jha"
+    ],
+    "tender_type": "Open",
+    "tender_floated_on": "20-01-2025",
+    "tender_opened_due_on": "25-02-2025",
+    "estimate_value_cr": 63.08,
+    "brief_status": "Under Bidding",
+    "awarded_value_cr": null,
+    "tec_proposed_on": "",
+    "tec_approval_date": "",
+    "tender_register_updated": "",
+    "aoc_completed": "",
+    "contract_ola_created": "",
+    "sla_days": null,
+    "savings_due_to_negotiation_cr": null,
+    "time_taken_approving_committee_days": null,
+    "month_year": "Feb-25",
+    "remarks": "Bids open on portal; pre-bid query addendum issued.",
+    "attached_fms": [
+      "Tara Pillai",
+      "Deepa Menon"
+    ],
+    "attached_cec_officers": [
+      "Aditya Chopra"
+    ],
+    "current_holder": "Sarath Kumar P",
+    "current_role": "PM",
+    "priority": "Normal",
+    "days_by_role": {
+      "PM": 28,
+      "FM": 5,
+      "CEC": 13
+    },
+    "timeline": [
+      {
+        "stage": "PR Received",
+        "role": "PM",
+        "holder": "Sarath Kumar P",
+        "entry_date": "28-12-2024",
+        "exit_date": "03-01-2025",
+        "days_spent": 6
+      },
+      {
+        "stage": "Under Estimation",
+        "role": "CEC",
+        "holder": "Aditya Chopra",
+        "entry_date": "03-01-2025",
+        "exit_date": "10-01-2025",
+        "days_spent": 7
+      },
+      {
+        "stage": "BQC Preparation",
+        "role": "PM",
+        "holder": "Sarath Kumar P",
+        "entry_date": "10-01-2025",
+        "exit_date": "16-01-2025",
+        "days_spent": 6
+      },
+      {
+        "stage": "BQC Preparation",
+        "role": "FM",
+        "holder": "Tara Pillai",
+        "entry_date": "16-01-2025",
+        "exit_date": "19-01-2025",
+        "days_spent": 3
+      },
+      {
+        "stage": "To be Floated",
+        "role": "PM",
+        "holder": "Sarath Kumar P",
+        "entry_date": "19-01-2025",
+        "exit_date": "20-01-2025",
+        "days_spent": 1
+      },
+      {
+        "stage": "Under Bidding",
+        "role": "PM",
+        "holder": "Sarath Kumar P",
+        "entry_date": "20-01-2025",
+        "exit_date": null,
+        "days_spent": null
+      }
+    ]
+  },
+  {
+    "sr_no": 14,
+    "pr_no": "PR1000454321",
+    "crfq_no": "CRFQ1000421098",
+    "date_pr_initial_indent": "02-12-2024",
+    "receipt_actionable_pr": "10-12-2024",
+    "tender_sent_tech_eval": "15-01-2025",
+    "receipt_tech_eval": "",
+    "item_description": "Comprehensive IT Network Security Operations Center (SOC) Services",
+    "user_function": "Zeta Digital",
+    "date_receipt_estimate_cec": "22-12-2024",
+    "pm_officer": "Arishi Yadav",
+    "attached_pms": [
+      "Molay Adhikary"
+    ],
+    "tender_type": "QCBS",
+    "tender_floated_on": "02-01-2025",
+    "tender_opened_due_on": "14-01-2025",
+    "estimate_value_cr": 191.53,
+    "brief_status": "Under BQC / Tech Evaluation",
+    "awarded_value_cr": null,
+    "tec_proposed_on": "",
+    "tec_approval_date": "",
+    "tender_register_updated": "",
+    "aoc_completed": "",
+    "contract_ola_created": "",
+    "sla_days": null,
+    "savings_due_to_negotiation_cr": null,
+    "time_taken_approving_committee_days": null,
+    "month_year": "Feb-25",
+    "remarks": "Technical evaluation in progress by user technical committee.",
+    "attached_fms": [
+      "Tara Pillai",
+      "Divya Reddy"
+    ],
+    "attached_cec_officers": [
+      "Pooja Grewal"
+    ],
+    "current_holder": "Arishi Yadav",
+    "current_role": "PM",
+    "priority": "High",
+    "days_by_role": {
+      "PM": 47,
+      "FM": 6,
+      "CEC": 12
+    },
+    "timeline": [
+      {
+        "stage": "PR Received",
+        "role": "PM",
+        "holder": "Arishi Yadav",
+        "entry_date": "10-12-2024",
+        "exit_date": "15-12-2024",
+        "days_spent": 5
+      },
+      {
+        "stage": "Under Estimation",
+        "role": "CEC",
+        "holder": "Pooja Grewal",
+        "entry_date": "15-12-2024",
+        "exit_date": "22-12-2024",
+        "days_spent": 7
+      },
+      {
+        "stage": "BQC Preparation",
+        "role": "PM",
+        "holder": "Arishi Yadav",
+        "entry_date": "22-12-2024",
+        "exit_date": "28-12-2024",
+        "days_spent": 6
+      },
+      {
+        "stage": "BQC Preparation",
+        "role": "FM",
+        "holder": "Divya Reddy",
+        "entry_date": "28-12-2024",
+        "exit_date": "01-01-2025",
+        "days_spent": 4
+      },
+      {
+        "stage": "To be Floated",
+        "role": "PM",
+        "holder": "Arishi Yadav",
+        "entry_date": "01-01-2025",
+        "exit_date": "02-01-2025",
+        "days_spent": 1
+      },
+      {
+        "stage": "Under Bidding",
+        "role": "PM",
+        "holder": "Arishi Yadav",
+        "entry_date": "02-01-2025",
+        "exit_date": "14-01-2025",
+        "days_spent": 12
+      },
+      {
+        "stage": "Under BQC / Tech Evaluation",
+        "role": "PM",
+        "holder": "Arishi Yadav",
+        "entry_date": "14-01-2025",
+        "exit_date": null,
+        "days_spent": null
+      }
+    ]
+  },
+  {
+    "sr_no": 15,
+    "pr_no": "PR1000457812",
+    "crfq_no": "CRFQ1000423450",
+    "date_pr_initial_indent": "15-11-2024",
+    "receipt_actionable_pr": "22-11-2024",
+    "tender_sent_tech_eval": "18-12-2024",
+    "receipt_tech_eval": "08-01-2025",
+    "item_description": "Long-term Charter of Offshore Supply Vessels (OSV Class A)",
+    "user_function": "Epsilon Safety",
+    "date_receipt_estimate_cec": "05-12-2024",
+    "pm_officer": "Sandhya Singh",
+    "attached_pms": [
+      "Abhishek Lodhi"
+    ],
+    "tender_type": "Limited",
+    "tender_floated_on": "10-12-2024",
+    "tender_opened_due_on": "16-12-2024",
+    "estimate_value_cr": 124,
+    "brief_status": "Under Award TEC",
+    "awarded_value_cr": null,
+    "tec_proposed_on": "20-01-2025",
+    "tec_approval_date": "",
+    "tender_register_updated": "",
+    "aoc_completed": "",
+    "contract_ola_created": "",
+    "sla_days": null,
+    "savings_due_to_negotiation_cr": null,
+    "time_taken_approving_committee_days": null,
+    "month_year": "Feb-25",
+    "remarks": "Finance concurrence received. TEC note forwarded to Approval Committee.",
+    "attached_fms": [
+      "Sana Qureshi",
+      "Nikhil Verma"
+    ],
+    "attached_cec_officers": [
+      "Meher Kaul"
+    ],
+    "current_holder": "Sandhya Singh",
+    "current_role": "PM",
+    "priority": "High",
+    "days_by_role": {
+      "PM": 66,
+      "FM": 14,
+      "CEC": 9
+    },
+    "timeline": [
+      {
+        "stage": "PR Received",
+        "role": "PM",
+        "holder": "Sandhya Singh",
+        "entry_date": "22-11-2024",
+        "exit_date": "28-11-2024",
+        "days_spent": 6
+      },
+      {
+        "stage": "Under Estimation",
+        "role": "CEC",
+        "holder": "Meher Kaul",
+        "entry_date": "28-11-2024",
+        "exit_date": "05-12-2024",
+        "days_spent": 7
+      },
+      {
+        "stage": "BQC Preparation",
+        "role": "PM",
+        "holder": "Sandhya Singh",
+        "entry_date": "05-12-2024",
+        "exit_date": "08-12-2024",
+        "days_spent": 3
+      },
+      {
+        "stage": "BQC Preparation",
+        "role": "FM",
+        "holder": "Sana Qureshi",
+        "entry_date": "08-12-2024",
+        "exit_date": "10-12-2024",
+        "days_spent": 2
+      },
+      {
+        "stage": "To be Floated",
+        "role": "PM",
+        "holder": "Sandhya Singh",
+        "entry_date": "10-12-2024",
+        "exit_date": "10-12-2024",
+        "days_spent": 0
+      },
+      {
+        "stage": "Under Bidding",
+        "role": "PM",
+        "holder": "Sandhya Singh",
+        "entry_date": "10-12-2024",
+        "exit_date": "16-12-2024",
+        "days_spent": 6
+      },
+      {
+        "stage": "Under BQC / Tech Evaluation",
+        "role": "PM",
+        "holder": "Sandhya Singh",
+        "entry_date": "16-12-2024",
+        "exit_date": "08-01-2025",
+        "days_spent": 23
+      },
+      {
+        "stage": "Under BQC / Tech Evaluation",
+        "role": "FM",
+        "holder": "Sana Qureshi",
+        "entry_date": "08-01-2025",
+        "exit_date": "18-01-2025",
+        "days_spent": 10
+      },
+      {
+        "stage": "Under Award TEC",
+        "role": "PM",
+        "holder": "Sandhya Singh",
+        "entry_date": "18-01-2025",
+        "exit_date": null,
+        "days_spent": null
+      }
+    ]
+  },
+  {
+    "sr_no": 16,
+    "pr_no": "PR1000460199",
+    "crfq_no": "CRFQ1000425890",
+    "date_pr_initial_indent": "08-11-2024",
+    "receipt_actionable_pr": "15-11-2024",
+    "tender_sent_tech_eval": "10-12-2024",
+    "receipt_tech_eval": "28-12-2024",
+    "item_description": "Rate Contract for Supply of Seamless Stainless Steel Tubes & Flanges",
+    "user_function": "Delta Logistics",
+    "date_receipt_estimate_cec": "28-11-2024",
+    "pm_officer": "M S Neetha",
+    "attached_pms": [
+      "Tarun Meena"
+    ],
+    "tender_type": "Open",
+    "tender_floated_on": "02-12-2024",
+    "tender_opened_due_on": "09-12-2024",
+    "estimate_value_cr": 159.3,
+    "brief_status": "Under Negotiation",
+    "awarded_value_cr": null,
+    "tec_proposed_on": "15-01-2025",
+    "tec_approval_date": "",
+    "tender_register_updated": "",
+    "aoc_completed": "",
+    "contract_ola_created": "",
+    "sla_days": null,
+    "savings_due_to_negotiation_cr": null,
+    "time_taken_approving_committee_days": null,
+    "month_year": "Feb-25",
+    "remarks": "Direct negotiation meeting scheduled with L1 vendor for volume discount.",
+    "attached_fms": [
+      "Tara Pillai",
+      "Rajesh J"
+    ],
+    "attached_cec_officers": [
+      "Kiara Sinha"
+    ],
+    "current_holder": "M S Neetha",
+    "current_role": "PM",
+    "priority": "High",
+    "days_by_role": {
+      "PM": 42,
+      "FM": 27,
+      "CEC": 18
+    },
+    "timeline": [
+      {
+        "stage": "PR Received",
+        "role": "PM",
+        "holder": "M S Neetha",
+        "entry_date": "15-11-2024",
+        "exit_date": "20-11-2024",
+        "days_spent": 5
+      },
+      {
+        "stage": "Under Estimation",
+        "role": "CEC",
+        "holder": "Kiara Sinha",
+        "entry_date": "20-11-2024",
+        "exit_date": "28-11-2024",
+        "days_spent": 8
+      },
+      {
+        "stage": "BQC Preparation",
+        "role": "PM",
+        "holder": "M S Neetha",
+        "entry_date": "28-11-2024",
+        "exit_date": "01-12-2024",
+        "days_spent": 3
+      },
+      {
+        "stage": "BQC Preparation",
+        "role": "FM",
+        "holder": "Tara Pillai",
+        "entry_date": "01-12-2024",
+        "exit_date": "02-12-2024",
+        "days_spent": 1
+      },
+      {
+        "stage": "To be Floated",
+        "role": "PM",
+        "holder": "M S Neetha",
+        "entry_date": "02-12-2024",
+        "exit_date": "02-12-2024",
+        "days_spent": 0
+      },
+      {
+        "stage": "Under Bidding",
+        "role": "PM",
+        "holder": "M S Neetha",
+        "entry_date": "02-12-2024",
+        "exit_date": "09-12-2024",
+        "days_spent": 7
+      },
+      {
+        "stage": "Under BQC / Tech Evaluation",
+        "role": "PM",
+        "holder": "M S Neetha",
+        "entry_date": "09-12-2024",
+        "exit_date": "28-12-2024",
+        "days_spent": 19
+      },
+      {
+        "stage": "Under BQC / Tech Evaluation",
+        "role": "FM",
+        "holder": "Tara Pillai",
+        "entry_date": "28-12-2024",
+        "exit_date": "10-01-2025",
+        "days_spent": 13
+      },
+      {
+        "stage": "Under Award TEC",
+        "role": "PM",
+        "holder": "M S Neetha",
+        "entry_date": "10-01-2025",
+        "exit_date": "20-01-2025",
+        "days_spent": 10
+      },
+      {
+        "stage": "Under Negotiation",
+        "role": "PM",
+        "holder": "M S Neetha",
+        "entry_date": "20-01-2025",
+        "exit_date": null,
+        "days_spent": null
+      }
+    ]
+  },
+  {
+    "sr_no": 17,
+    "pr_no": "PR1000463400",
+    "crfq_no": "CRFQ1000428912",
+    "date_pr_initial_indent": "15-10-2024",
+    "receipt_actionable_pr": "24-10-2024",
+    "tender_sent_tech_eval": "20-11-2024",
+    "receipt_tech_eval": "15-12-2024",
+    "item_description": "Turbine Governor Upgrade and Vibration Monitoring System",
+    "user_function": "Beta Operations",
+    "date_receipt_estimate_cec": "10-11-2024",
+    "pm_officer": "Tarun Meena",
+    "attached_pms": [
+      "Molay Adhikary"
+    ],
+    "tender_type": "SOR",
+    "tender_floated_on": "12-11-2024",
+    "tender_opened_due_on": "19-11-2024",
+    "estimate_value_cr": 102.98,
+    "brief_status": "Under Discussion with User",
+    "awarded_value_cr": null,
+    "tec_proposed_on": "",
+    "tec_approval_date": "",
+    "tender_register_updated": "",
+    "aoc_completed": "",
+    "contract_ola_created": "",
+    "sla_days": null,
+    "savings_due_to_negotiation_cr": null,
+    "time_taken_approving_committee_days": null,
+    "month_year": "Feb-25",
+    "remarks": "Re-evaluating scope split after commercial discrepancies flagged by user group.",
+    "attached_fms": [
+      "Tara Pillai",
+      "Omkar Joshi"
+    ],
+    "attached_cec_officers": [
+      "Yash Bhatt"
+    ],
+    "current_holder": "Tara Pillai",
+    "current_role": "FM",
+    "priority": "Normal",
+    "days_by_role": {
+      "PM": 13,
+      "FM": 15,
+      "CEC": 10
+    },
+    "timeline": [
+      {
+        "stage": "PR Received",
+        "role": "PM",
+        "holder": "Tarun Meena",
+        "entry_date": "24-10-2024",
+        "exit_date": "30-10-2024",
+        "days_spent": 6
+      },
+      {
+        "stage": "Under Estimation",
+        "role": "CEC",
+        "holder": "Yash Bhatt",
+        "entry_date": "30-10-2024",
+        "exit_date": "10-11-2024",
+        "days_spent": 11
+      },
+      {
+        "stage": "BQC Preparation",
+        "role": "PM",
+        "holder": "Tarun Meena",
+        "entry_date": "10-11-2024",
+        "exit_date": "12-11-2024",
+        "days_spent": 2
+      },
+      {
+        "stage": "BQC Preparation",
+        "role": "FM",
+        "holder": "Tara Pillai",
+        "entry_date": "12-11-2024",
+        "exit_date": null,
+        "days_spent": null,
+        "remarks": "Holding file pending clarification on warranty terms from user team."
+      }
+    ]
+  },
+  {
+    "sr_no": 18,
+    "pr_no": "PR1000466710",
+    "crfq_no": "CRFQ1000431289",
+    "date_pr_initial_indent": "04-06-2024",
+    "receipt_actionable_pr": "12-06-2024",
+    "tender_sent_tech_eval": "10-08-2024",
+    "receipt_tech_eval": "28-08-2024",
+    "item_description": "Multi-year Contract for Crude Oil Tank Sludge Cleaning & Recovery",
+    "user_function": "E&P-Services",
+    "date_receipt_estimate_cec": "28-06-2024",
+    "pm_officer": "Molay Adhikary",
+    "attached_pms": [
+      "Amit Kumar Jha"
+    ],
+    "tender_type": "Open",
+    "tender_floated_on": "05-07-2024",
+    "tender_opened_due_on": "02-08-2024",
+    "estimate_value_cr": 154.74,
+    "brief_status": "Awarded",
+    "awarded_value_cr": 139.67,
+    "tec_proposed_on": "15-09-2024",
+    "tec_approval_date": "22-09-2024",
+    "tender_register_updated": "YES",
+    "aoc_completed": "YES",
+    "contract_ola_created": "YES",
+    "sla_days": 130,
+    "savings_due_to_negotiation_cr": 15.07,
+    "time_taken_approving_committee_days": 34,
+    "month_year": "Sep-24",
+    "remarks": "Huge commercial success: Rs 15.07 Cr negotiated savings on high-volume contract.",
+    "attached_fms": [
+      "Divya Reddy",
+      "Ritika Shah"
+    ],
+    "attached_cec_officers": [
+      "Meher Kaul"
+    ],
+    "current_holder": "",
+    "current_role": "",
+    "priority": "Normal",
+    "days_by_role": {
+      "PM": 67,
+      "FM": 22,
+      "CEC": 14
+    },
+    "timeline": [
+      {
+        "stage": "PR Received",
+        "role": "PM",
+        "holder": "Molay Adhikary",
+        "entry_date": "12-06-2024",
+        "exit_date": "18-06-2024",
+        "days_spent": 6
+      },
+      {
+        "stage": "Under Estimation",
+        "role": "CEC",
+        "holder": "Meher Kaul",
+        "entry_date": "18-06-2024",
+        "exit_date": "28-06-2024",
+        "days_spent": 10
+      },
+      {
+        "stage": "BQC Preparation",
+        "role": "PM",
+        "holder": "Molay Adhikary",
+        "entry_date": "28-06-2024",
+        "exit_date": "02-07-2024",
+        "days_spent": 4
+      },
+      {
+        "stage": "BQC Preparation",
+        "role": "FM",
+        "holder": "Divya Reddy",
+        "entry_date": "02-07-2024",
+        "exit_date": "05-07-2024",
+        "days_spent": 3
+      },
+      {
+        "stage": "To be Floated",
+        "role": "PM",
+        "holder": "Molay Adhikary",
+        "entry_date": "05-07-2024",
+        "exit_date": "05-07-2024",
+        "days_spent": 0
+      },
+      {
+        "stage": "Under Bidding",
+        "role": "PM",
+        "holder": "Molay Adhikary",
+        "entry_date": "05-07-2024",
+        "exit_date": "02-08-2024",
+        "days_spent": 28
+      },
+      {
+        "stage": "Under BQC / Tech Evaluation",
+        "role": "PM",
+        "holder": "Molay Adhikary",
+        "entry_date": "02-08-2024",
+        "exit_date": "28-08-2024",
+        "days_spent": 26
+      },
+      {
+        "stage": "Under Negotiation",
+        "role": "PM",
+        "holder": "Molay Adhikary",
+        "entry_date": "28-08-2024",
+        "exit_date": "15-09-2024",
+        "days_spent": 18
+      },
+      {
+        "stage": "Awarded",
+        "role": "PM",
+        "holder": "Molay Adhikary",
+        "entry_date": "15-09-2024",
+        "exit_date": "22-09-2024",
+        "days_spent": 7
+      }
+    ]
+  },
+  {
+    "sr_no": 19,
+    "pr_no": "PR1000470129",
+    "crfq_no": "CRFQ1000434510",
+    "date_pr_initial_indent": "12-07-2024",
+    "receipt_actionable_pr": "20-07-2024",
+    "tender_sent_tech_eval": "15-09-2024",
+    "receipt_tech_eval": "02-10-2024",
+    "item_description": "Design, Supply & Erection of Structural Steel Warehouse Complex",
+    "user_function": "Gamma Retail",
+    "date_receipt_estimate_cec": "08-08-2024",
+    "pm_officer": "Arjun Mehta",
+    "attached_pms": [
+      "Purushottam Kumar"
+    ],
+    "tender_type": "Open",
+    "tender_floated_on": "15-08-2024",
+    "tender_opened_due_on": "08-09-2024",
+    "estimate_value_cr": 84.8,
+    "brief_status": "Awarded",
+    "awarded_value_cr": 76.34,
+    "tec_proposed_on": "15-10-2024",
+    "tec_approval_date": "22-10-2024",
+    "tender_register_updated": "YES",
+    "aoc_completed": "YES",
+    "contract_ola_created": "YES",
+    "sla_days": 91,
+    "savings_due_to_negotiation_cr": 8.46,
+    "time_taken_approving_committee_days": 19,
+    "month_year": "Oct-24",
+    "remarks": "Delivered in 91 days. Rs 8.46 Cr saved through reverse auction & committee discussions.",
+    "attached_fms": [
+      "Omkar Joshi",
+      "Aarav Menon"
+    ],
+    "attached_cec_officers": [
+      "Simran Ahuja"
+    ],
+    "current_holder": "",
+    "current_role": "",
+    "priority": "Normal",
+    "days_by_role": {
+      "PM": 91,
+      "FM": 13,
+      "CEC": 16
+    },
+    "timeline": [
+      {
+        "stage": "PR Received",
+        "role": "PM",
+        "holder": "Arjun Mehta",
+        "entry_date": "20-07-2024",
+        "exit_date": "25-07-2024",
+        "days_spent": 5
+      },
+      {
+        "stage": "Under Estimation",
+        "role": "CEC",
+        "holder": "Simran Ahuja",
+        "entry_date": "25-07-2024",
+        "exit_date": "08-08-2024",
+        "days_spent": 14
+      },
+      {
+        "stage": "BQC Preparation",
+        "role": "PM",
+        "holder": "Arjun Mehta",
+        "entry_date": "08-08-2024",
+        "exit_date": "12-08-2024",
+        "days_spent": 4
+      },
+      {
+        "stage": "BQC Preparation",
+        "role": "FM",
+        "holder": "Omkar Joshi",
+        "entry_date": "12-08-2024",
+        "exit_date": "15-08-2024",
+        "days_spent": 3
+      },
+      {
+        "stage": "To be Floated",
+        "role": "PM",
+        "holder": "Arjun Mehta",
+        "entry_date": "15-08-2024",
+        "exit_date": "15-08-2024",
+        "days_spent": 0
+      },
+      {
+        "stage": "Under Bidding",
+        "role": "PM",
+        "holder": "Arjun Mehta",
+        "entry_date": "15-08-2024",
+        "exit_date": "08-09-2024",
+        "days_spent": 24
+      },
+      {
+        "stage": "Under BQC / Tech Evaluation",
+        "role": "PM",
+        "holder": "Arjun Mehta",
+        "entry_date": "08-09-2024",
+        "exit_date": "02-10-2024",
+        "days_spent": 24
+      },
+      {
+        "stage": "Under Negotiation",
+        "role": "PM",
+        "holder": "Arjun Mehta",
+        "entry_date": "02-10-2024",
+        "exit_date": "15-10-2024",
+        "days_spent": 13
+      },
+      {
+        "stage": "Awarded",
+        "role": "PM",
+        "holder": "Arjun Mehta",
+        "entry_date": "15-10-2024",
+        "exit_date": "22-10-2024",
+        "days_spent": 7
+      }
+    ]
+  },
+  {
+    "sr_no": 20,
+    "pr_no": "PR1000473489",
+    "crfq_no": "",
+    "date_pr_initial_indent": "22-01-2025",
+    "receipt_actionable_pr": "28-01-2025",
+    "tender_sent_tech_eval": "",
+    "receipt_tech_eval": "",
+    "item_description": "Enterprise Cloud Infrastructure and Disaster Recovery Co-location",
+    "user_function": "Zeta Digital",
+    "date_receipt_estimate_cec": "",
+    "pm_officer": "Neha Kapoor",
+    "attached_pms": [
+      "Arjun Mehta"
+    ],
+    "tender_type": "OEM",
+    "tender_floated_on": "",
+    "tender_opened_due_on": "",
+    "estimate_value_cr": 110.24,
+    "brief_status": "Under Estimation",
+    "awarded_value_cr": null,
+    "tec_proposed_on": "",
+    "tec_approval_date": "",
+    "tender_register_updated": "",
+    "aoc_completed": "",
+    "contract_ola_created": "",
+    "sla_days": null,
+    "savings_due_to_negotiation_cr": null,
+    "time_taken_approving_committee_days": null,
+    "month_year": "Feb-25",
+    "remarks": "Currently with CEC Officer Aditya Chopra for compute sizing benchmark.",
+    "attached_fms": [
+      "Omkar Joshi"
+    ],
+    "attached_cec_officers": [
+      "Aditya Chopra"
+    ],
+    "current_holder": "Aditya Chopra",
+    "current_role": "CEC",
+    "priority": "High",
+    "days_by_role": {
+      "PM": 10,
+      "FM": 0,
+      "CEC": 14
+    },
+    "timeline": [
+      {
+        "stage": "PR Received",
+        "role": "PM",
+        "holder": "Neha Kapoor",
+        "entry_date": "28-01-2025",
+        "exit_date": "04-02-2025",
+        "days_spent": 7
+      },
+      {
+        "stage": "Under Estimation",
+        "role": "CEC",
+        "holder": "Aditya Chopra",
+        "entry_date": "04-02-2025",
+        "exit_date": null,
+        "days_spent": null,
+        "remarks": "Estimation model building in progress."
+      }
+    ]
+  },
+  {
+    "sr_no": 21,
+    "pr_no": "PR1000476890",
+    "crfq_no": "CRFQ1000438902",
+    "date_pr_initial_indent": "10-01-2025",
+    "receipt_actionable_pr": "18-01-2025",
+    "tender_sent_tech_eval": "",
+    "receipt_tech_eval": "",
+    "item_description": "Cathodic Protection System Refurbishment for Cross-Country Pipeline",
+    "user_function": "E&P-Services",
+    "date_receipt_estimate_cec": "28-01-2025",
+    "pm_officer": "Dev Malhotra",
+    "attached_pms": [
+      "Amit Kumar Jha"
+    ],
+    "tender_type": "Open",
+    "tender_floated_on": "05-02-2025",
+    "tender_opened_due_on": "28-02-2025",
+    "estimate_value_cr": 41.77,
+    "brief_status": "Under Bidding",
+    "awarded_value_cr": null,
+    "tec_proposed_on": "",
+    "tec_approval_date": "",
+    "tender_register_updated": "",
+    "aoc_completed": "",
+    "contract_ola_created": "",
+    "sla_days": null,
+    "savings_due_to_negotiation_cr": null,
+    "time_taken_approving_committee_days": null,
+    "month_year": "Feb-25",
+    "remarks": "Live on e-procurement portal. 6 prospective bidders registered.",
+    "attached_fms": [
+      "Tara Pillai",
+      "Aarav Menon"
+    ],
+    "attached_cec_officers": [
+      "Pooja Grewal"
+    ],
+    "current_holder": "Dev Malhotra",
+    "current_role": "PM",
+    "priority": "Normal",
+    "days_by_role": {
+      "PM": 25,
+      "FM": 16,
+      "CEC": 5
+    },
+    "timeline": [
+      {
+        "stage": "PR Received",
+        "role": "PM",
+        "holder": "Dev Malhotra",
+        "entry_date": "18-01-2025",
+        "exit_date": "22-01-2025",
+        "days_spent": 4
+      },
+      {
+        "stage": "Under Estimation",
+        "role": "CEC",
+        "holder": "Pooja Grewal",
+        "entry_date": "22-01-2025",
+        "exit_date": "28-01-2025",
+        "days_spent": 6
+      },
+      {
+        "stage": "BQC Preparation",
+        "role": "PM",
+        "holder": "Dev Malhotra",
+        "entry_date": "28-01-2025",
+        "exit_date": "01-02-2025",
+        "days_spent": 4
+      },
+      {
+        "stage": "BQC Preparation",
+        "role": "FM",
+        "holder": "Tara Pillai",
+        "entry_date": "01-02-2025",
+        "exit_date": "04-02-2025",
+        "days_spent": 3
+      },
+      {
+        "stage": "To be Floated",
+        "role": "PM",
+        "holder": "Dev Malhotra",
+        "entry_date": "04-02-2025",
+        "exit_date": "05-02-2025",
+        "days_spent": 1
+      },
+      {
+        "stage": "Under Bidding",
+        "role": "PM",
+        "holder": "Dev Malhotra",
+        "entry_date": "05-02-2025",
+        "exit_date": null,
+        "days_spent": null
+      }
+    ]
+  },
+  {
+    "sr_no": 22,
+    "pr_no": "PR1000479102",
+    "crfq_no": "",
+    "date_pr_initial_indent": "02-02-2025",
+    "receipt_actionable_pr": "08-02-2025",
+    "tender_sent_tech_eval": "",
+    "receipt_tech_eval": "",
+    "item_description": "Supply of Explosion-Proof LED Floodlighting Luminaires",
+    "user_function": "HSSE",
+    "date_receipt_estimate_cec": "",
+    "pm_officer": "Kabir Sharma",
+    "attached_pms": [
+      "Ashishkumar Mihirkumar Jha"
+    ],
+    "tender_type": "Open",
+    "tender_floated_on": "",
+    "tender_opened_due_on": "",
+    "estimate_value_cr": 5.8,
+    "brief_status": "PR Received",
+    "awarded_value_cr": null,
+    "tec_proposed_on": "",
+    "tec_approval_date": "",
+    "tender_register_updated": "",
+    "aoc_completed": "",
+    "contract_ola_created": "",
+    "sla_days": null,
+    "savings_due_to_negotiation_cr": null,
+    "time_taken_approving_committee_days": null,
+    "month_year": "Feb-25",
+    "remarks": "New indent received from HSSE department. Actionable check underway.",
+    "attached_fms": [
+      "Rajesh J"
+    ],
+    "attached_cec_officers": [
+      "Meera Iyer"
+    ],
+    "current_holder": "Kabir Sharma",
+    "current_role": "PM",
+    "priority": "Normal",
+    "days_by_role": {
+      "PM": 4,
+      "FM": 0,
+      "CEC": 0
+    },
+    "timeline": [
+      {
+        "stage": "PR Received",
+        "role": "PM",
+        "holder": "Kabir Sharma",
+        "entry_date": "08-02-2025",
+        "exit_date": null,
+        "days_spent": null,
+        "remarks": "Scrutinizing actionable PR indent checklist."
+      }
+    ]
+  },
+  {
+    "sr_no": 23,
+    "pr_no": "PR1000481230",
+    "crfq_no": "CRFQ1000442390",
+    "date_pr_initial_indent": "14-11-2024",
+    "receipt_actionable_pr": "20-11-2024",
+    "tender_sent_tech_eval": "15-12-2024",
+    "receipt_tech_eval": "10-01-2025",
+    "item_description": "Comprehensive Logistics & Heavy Transport Rate Contract",
+    "user_function": "Delta Logistics",
+    "date_receipt_estimate_cec": "02-12-2024",
+    "pm_officer": "Ishaan Rao",
+    "attached_pms": [
+      "Gunjan Omprakash Bhiwal"
+    ],
+    "tender_type": "Open",
+    "tender_floated_on": "05-12-2024",
+    "tender_opened_due_on": "12-12-2024",
+    "estimate_value_cr": 146.79,
+    "brief_status": "Under Negotiation",
+    "awarded_value_cr": null,
+    "tec_proposed_on": "20-01-2025",
+    "tec_approval_date": "",
+    "tender_register_updated": "",
+    "aoc_completed": "",
+    "contract_ola_created": "",
+    "sla_days": null,
+    "savings_due_to_negotiation_cr": null,
+    "time_taken_approving_committee_days": null,
+    "month_year": "Feb-25",
+    "remarks": "Commercial negotiations ongoing with shortlisted carriers.",
+    "attached_fms": [
+      "Aarav Menon",
+      "Nikhil Verma"
+    ],
+    "attached_cec_officers": [
+      "Simran Ahuja"
+    ],
+    "current_holder": "Ishaan Rao",
+    "current_role": "PM",
+    "priority": "High",
+    "days_by_role": {
+      "PM": 62,
+      "FM": 18,
+      "CEC": 12
+    },
+    "timeline": [
+      {
+        "stage": "PR Received",
+        "role": "PM",
+        "holder": "Ishaan Rao",
+        "entry_date": "20-11-2024",
+        "exit_date": "24-11-2024",
+        "days_spent": 4
+      },
+      {
+        "stage": "Under Estimation",
+        "role": "CEC",
+        "holder": "Simran Ahuja",
+        "entry_date": "24-11-2024",
+        "exit_date": "02-12-2024",
+        "days_spent": 8
+      },
+      {
+        "stage": "BQC Preparation",
+        "role": "PM",
+        "holder": "Ishaan Rao",
+        "entry_date": "02-12-2024",
+        "exit_date": "04-12-2024",
+        "days_spent": 2
+      },
+      {
+        "stage": "BQC Preparation",
+        "role": "FM",
+        "holder": "Nikhil Verma",
+        "entry_date": "04-12-2024",
+        "exit_date": "05-12-2024",
+        "days_spent": 1
+      },
+      {
+        "stage": "To be Floated",
+        "role": "PM",
+        "holder": "Ishaan Rao",
+        "entry_date": "05-12-2024",
+        "exit_date": "05-12-2024",
+        "days_spent": 0
+      },
+      {
+        "stage": "Under Bidding",
+        "role": "PM",
+        "holder": "Ishaan Rao",
+        "entry_date": "05-12-2024",
+        "exit_date": "12-12-2024",
+        "days_spent": 7
+      },
+      {
+        "stage": "Under BQC / Tech Evaluation",
+        "role": "PM",
+        "holder": "Ishaan Rao",
+        "entry_date": "12-12-2024",
+        "exit_date": "10-01-2025",
+        "days_spent": 29
+      },
+      {
+        "stage": "Under BQC / Tech Evaluation",
+        "role": "FM",
+        "holder": "Nikhil Verma",
+        "entry_date": "10-01-2025",
+        "exit_date": "22-01-2025",
+        "days_spent": 12
+      },
+      {
+        "stage": "Under Award TEC",
+        "role": "PM",
+        "holder": "Ishaan Rao",
+        "entry_date": "22-01-2025",
+        "exit_date": "28-01-2025",
+        "days_spent": 6
+      },
+      {
+        "stage": "Under Negotiation",
+        "role": "PM",
+        "holder": "Ishaan Rao",
+        "entry_date": "28-01-2025",
+        "exit_date": null,
+        "days_spent": null
+      }
+    ]
+  },
+  {
+    "sr_no": 24,
+    "pr_no": "PR1000484501",
+    "crfq_no": "CRFQ1000445612",
+    "date_pr_initial_indent": "04-09-2024",
+    "receipt_actionable_pr": "15-09-2024",
+    "tender_sent_tech_eval": "22-10-2024",
+    "receipt_tech_eval": "15-11-2024",
+    "item_description": "Replacement of High-Pressure Natural Gas Desulfurization Column",
+    "user_function": "E&P-Bargarh",
+    "date_receipt_estimate_cec": "02-10-2024",
+    "pm_officer": "Ananya Bose",
+    "attached_pms": [
+      "Purushottam Kumar"
+    ],
+    "tender_type": "Open",
+    "tender_floated_on": "08-10-2024",
+    "tender_opened_due_on": "20-10-2024",
+    "estimate_value_cr": 125.51,
+    "brief_status": "Awarded",
+    "awarded_value_cr": 118.98,
+    "tec_proposed_on": "28-11-2024",
+    "tec_approval_date": "05-12-2024",
+    "tender_register_updated": "YES",
+    "aoc_completed": "YES",
+    "contract_ola_created": "YES",
+    "sla_days": 76,
+    "savings_due_to_negotiation_cr": 6.53,
+    "time_taken_approving_committee_days": 33,
+    "month_year": "Dec-24",
+    "remarks": "Negotiated Rs 6.53 Cr discount below estimated benchmark.",
+    "attached_fms": [
+      "Tara Pillai",
+      "Divya Reddy"
+    ],
+    "attached_cec_officers": [
+      "Simran Ahuja"
+    ],
+    "current_holder": "",
+    "current_role": "",
+    "priority": "Normal",
+    "days_by_role": {
+      "PM": 66,
+      "FM": 10,
+      "CEC": 1
+    },
+    "timeline": [
+      {
+        "stage": "PR Received",
+        "role": "PM",
+        "holder": "Ananya Bose",
+        "entry_date": "15-09-2024",
+        "exit_date": "21-09-2024",
+        "days_spent": 6
+      },
+      {
+        "stage": "Under Estimation",
+        "role": "CEC",
+        "holder": "Simran Ahuja",
+        "entry_date": "21-09-2024",
+        "exit_date": "02-10-2024",
+        "days_spent": 11
+      },
+      {
+        "stage": "BQC Preparation",
+        "role": "PM",
+        "holder": "Ananya Bose",
+        "entry_date": "02-10-2024",
+        "exit_date": "06-10-2024",
+        "days_spent": 4
+      },
+      {
+        "stage": "BQC Preparation",
+        "role": "FM",
+        "holder": "Divya Reddy",
+        "entry_date": "06-10-2024",
+        "exit_date": "08-10-2024",
+        "days_spent": 2
+      },
+      {
+        "stage": "To be Floated",
+        "role": "PM",
+        "holder": "Ananya Bose",
+        "entry_date": "08-10-2024",
+        "exit_date": "08-10-2024",
+        "days_spent": 0
+      },
+      {
+        "stage": "Under Bidding",
+        "role": "PM",
+        "holder": "Ananya Bose",
+        "entry_date": "08-10-2024",
+        "exit_date": "20-10-2024",
+        "days_spent": 12
+      },
+      {
+        "stage": "Under BQC / Tech Evaluation",
+        "role": "PM",
+        "holder": "Ananya Bose",
+        "entry_date": "20-10-2024",
+        "exit_date": "15-11-2024",
+        "days_spent": 26
+      },
+      {
+        "stage": "Under Negotiation",
+        "role": "PM",
+        "holder": "Ananya Bose",
+        "entry_date": "15-11-2024",
+        "exit_date": "28-11-2024",
+        "days_spent": 13
+      },
+      {
+        "stage": "Awarded",
+        "role": "PM",
+        "holder": "Ananya Bose",
+        "entry_date": "28-11-2024",
+        "exit_date": "05-12-2024",
+        "days_spent": 7
+      }
+    ]
+  },
+  {
+    "sr_no": 25,
+    "pr_no": "PR1000487900",
+    "crfq_no": "CRFQ1000448900",
+    "date_pr_initial_indent": "10-01-2025",
+    "receipt_actionable_pr": "18-01-2025",
+    "tender_sent_tech_eval": "",
+    "receipt_tech_eval": "",
+    "item_description": "Supply of Specialized High-Temperature Gaskets and Fasteners",
+    "user_function": "Alpha Services",
+    "date_receipt_estimate_cec": "28-01-2025",
+    "pm_officer": "Vikram Sethi",
+    "attached_pms": [
+      "Suryawanshi Tulsidas"
+    ],
+    "tender_type": "Limited",
+    "tender_floated_on": "04-02-2025",
+    "tender_opened_due_on": "18-02-2025",
+    "estimate_value_cr": 150.71,
+    "brief_status": "Under Bidding",
+    "awarded_value_cr": null,
+    "tec_proposed_on": "",
+    "tec_approval_date": "",
+    "tender_register_updated": "",
+    "aoc_completed": "",
+    "contract_ola_created": "",
+    "sla_days": null,
+    "savings_due_to_negotiation_cr": null,
+    "time_taken_approving_committee_days": null,
+    "month_year": "Feb-25",
+    "remarks": "Limited tender floated to 8 pre-qualified manufacturers.",
+    "attached_fms": [
+      "Sana Qureshi"
+    ],
+    "attached_cec_officers": [
+      "Aditya Chopra"
+    ],
+    "current_holder": "Vikram Sethi",
+    "current_role": "PM",
+    "priority": "Normal",
+    "days_by_role": {
+      "PM": 41,
+      "FM": 18,
+      "CEC": 4
+    },
+    "timeline": [
+      {
+        "stage": "PR Received",
+        "role": "PM",
+        "holder": "Vikram Sethi",
+        "entry_date": "18-01-2025",
+        "exit_date": "24-01-2025",
+        "days_spent": 6
+      },
+      {
+        "stage": "Under Estimation",
+        "role": "CEC",
+        "holder": "Aditya Chopra",
+        "entry_date": "24-01-2025",
+        "exit_date": "28-01-2025",
+        "days_spent": 4
+      },
+      {
+        "stage": "BQC Preparation",
+        "role": "PM",
+        "holder": "Vikram Sethi",
+        "entry_date": "28-01-2025",
+        "exit_date": "31-01-2025",
+        "days_spent": 3
+      },
+      {
+        "stage": "BQC Preparation",
+        "role": "FM",
+        "holder": "Sana Qureshi",
+        "entry_date": "31-01-2025",
+        "exit_date": "03-02-2025",
+        "days_spent": 3
+      },
+      {
+        "stage": "To be Floated",
+        "role": "PM",
+        "holder": "Vikram Sethi",
+        "entry_date": "03-02-2025",
+        "exit_date": "04-02-2025",
+        "days_spent": 1
+      },
+      {
+        "stage": "Under Bidding",
+        "role": "PM",
+        "holder": "Vikram Sethi",
+        "entry_date": "04-02-2025",
+        "exit_date": null,
+        "days_spent": null
+      }
+    ]
+  },
+  {
+    "sr_no": 26,
+    "pr_no": "PR1000491001",
+    "crfq_no": "CRFQ1000451001",
+    "date_pr_initial_indent": "05-01-2025",
+    "receipt_actionable_pr": "12-01-2025",
+    "tender_sent_tech_eval": "10-02-2025",
+    "receipt_tech_eval": "",
+    "item_description": "Engineering Procurement for Group 4 Sulfur Recovery Unit Overhaul",
+    "user_function": "Refinery Process",
+    "date_receipt_estimate_cec": "20-01-2025",
+    "pm_officer": "Molay Adhikary",
+    "attached_pms": [
+      "Arjun Mehta"
+    ],
+    "tender_type": "Open",
+    "tender_floated_on": "28-01-2025",
+    "tender_opened_due_on": "08-02-2025",
+    "estimate_value_cr": 34.5,
+    "brief_status": "Under BQC / Tech Evaluation",
+    "awarded_value_cr": null,
+    "tec_proposed_on": "",
+    "tec_approval_date": "",
+    "tender_register_updated": "",
+    "aoc_completed": "",
+    "contract_ola_created": "",
+    "sla_days": null,
+    "savings_due_to_negotiation_cr": null,
+    "time_taken_approving_committee_days": null,
+    "month_year": "Feb-25",
+    "remarks": "Group 4 major technical evaluation underway with 3 consortium bidders.",
+    "attached_fms": [
+      "Divya Reddy"
+    ],
+    "attached_cec_officers": [
+      "Pooja Grewal"
+    ],
+    "current_holder": "Molay Adhikary",
+    "current_role": "PM",
+    "priority": "High",
+    "days_by_role": {
+      "PM": 32,
+      "FM": 8,
+      "CEC": 6
+    },
+    "timeline": [
+      {
+        "stage": "PR Received",
+        "role": "PM",
+        "holder": "Molay Adhikary",
+        "entry_date": "12-01-2025",
+        "exit_date": "16-01-2025",
+        "days_spent": 4
+      },
+      {
+        "stage": "Under Estimation",
+        "role": "CEC",
+        "holder": "Pooja Grewal",
+        "entry_date": "16-01-2025",
+        "exit_date": "20-01-2025",
+        "days_spent": 4
+      },
+      {
+        "stage": "BQC Preparation",
+        "role": "PM",
+        "holder": "Molay Adhikary",
+        "entry_date": "20-01-2025",
+        "exit_date": "24-01-2025",
+        "days_spent": 4
+      },
+      {
+        "stage": "BQC Preparation",
+        "role": "FM",
+        "holder": "Divya Reddy",
+        "entry_date": "24-01-2025",
+        "exit_date": "27-01-2025",
+        "days_spent": 3
+      },
+      {
+        "stage": "To be Floated",
+        "role": "PM",
+        "holder": "Molay Adhikary",
+        "entry_date": "27-01-2025",
+        "exit_date": "28-01-2025",
+        "days_spent": 1
+      },
+      {
+        "stage": "Under Bidding",
+        "role": "PM",
+        "holder": "Molay Adhikary",
+        "entry_date": "28-01-2025",
+        "exit_date": "08-02-2025",
+        "days_spent": 11
+      },
+      {
+        "stage": "Under BQC / Tech Evaluation",
+        "role": "PM",
+        "holder": "Molay Adhikary",
+        "entry_date": "08-02-2025",
+        "exit_date": null,
+        "days_spent": null
+      }
+    ]
+  },
+  {
+    "sr_no": 27,
+    "pr_no": "PR1000492102",
+    "crfq_no": "CRFQ1000452102",
+    "date_pr_initial_indent": "14-01-2025",
+    "receipt_actionable_pr": "22-01-2025",
+    "tender_sent_tech_eval": "",
+    "receipt_tech_eval": "",
+    "item_description": "Turnkey EPC for Group 4 High-Efficiency Heat Exchanger Train",
+    "user_function": "Mechanical Maintenance",
+    "date_receipt_estimate_cec": "",
+    "pm_officer": "Arjun Mehta",
+    "attached_pms": [
+      "Neha Kapoor"
+    ],
+    "tender_type": "Open",
+    "tender_floated_on": "",
+    "tender_opened_due_on": "",
+    "estimate_value_cr": 52.8,
+    "brief_status": "Under Estimation",
+    "awarded_value_cr": null,
+    "tec_proposed_on": "",
+    "tec_approval_date": "",
+    "tender_register_updated": "",
+    "aoc_completed": "",
+    "contract_ola_created": "",
+    "sla_days": null,
+    "savings_due_to_negotiation_cr": null,
+    "time_taken_approving_committee_days": null,
+    "month_year": "Feb-25",
+    "remarks": "Capital estimate benchmarking in progress with Group 4 CEC team.",
+    "attached_fms": [
+      "Omkar Joshi"
+    ],
+    "attached_cec_officers": [
+      "Meher Kaul"
+    ],
+    "current_holder": "Meher Kaul",
+    "current_role": "CEC",
+    "priority": "Critical",
+    "days_by_role": {
+      "PM": 8,
+      "FM": 0,
+      "CEC": 14
+    },
+    "timeline": [
+      {
+        "stage": "PR Received",
+        "role": "PM",
+        "holder": "Arjun Mehta",
+        "entry_date": "22-01-2025",
+        "exit_date": "28-01-2025",
+        "days_spent": 6
+      },
+      {
+        "stage": "Under Estimation",
+        "role": "CEC",
+        "holder": "Meher Kaul",
+        "entry_date": "28-01-2025",
+        "exit_date": null,
+        "days_spent": null
+      }
+    ]
+  },
+  {
+    "sr_no": 28,
+    "pr_no": "PR1000493203",
+    "crfq_no": "CRFQ1000453203",
+    "date_pr_initial_indent": "18-11-2024",
+    "receipt_actionable_pr": "25-11-2024",
+    "tender_sent_tech_eval": "15-01-2025",
+    "receipt_tech_eval": "28-01-2025",
+    "item_description": "Procurement of Distributed Control System (DCS) Upgrades & PLC Nodes",
+    "user_function": "Instrumentation & Control",
+    "date_receipt_estimate_cec": "05-12-2024",
+    "pm_officer": "Neha Kapoor",
+    "attached_pms": [
+      "Dev Malhotra"
+    ],
+    "tender_type": "Limited",
+    "tender_floated_on": "15-12-2024",
+    "tender_opened_due_on": "05-01-2025",
+    "estimate_value_cr": 18.25,
+    "brief_status": "Under Negotiation",
+    "awarded_value_cr": null,
+    "tec_proposed_on": "02-02-2025",
+    "tec_approval_date": "",
+    "tender_register_updated": "",
+    "aoc_completed": "",
+    "contract_ola_created": "",
+    "sla_days": null,
+    "savings_due_to_negotiation_cr": null,
+    "time_taken_approving_committee_days": null,
+    "month_year": "Feb-25",
+    "remarks": "Finance negotiation in final stages with L1 vendor for Rs 1.10 Cr target rebate.",
+    "attached_fms": [
+      "Aarav Menon"
+    ],
+    "attached_cec_officers": [
+      "Kiara Sinha"
+    ],
+    "current_holder": "Aarav Menon",
+    "current_role": "FM",
+    "priority": "Normal",
+    "days_by_role": {
+      "PM": 45,
+      "FM": 18,
+      "CEC": 8
+    },
+    "timeline": [
+      {
+        "stage": "PR Received",
+        "role": "PM",
+        "holder": "Neha Kapoor",
+        "entry_date": "25-11-2024",
+        "exit_date": "30-11-2024",
+        "days_spent": 5
+      },
+      {
+        "stage": "Under Estimation",
+        "role": "CEC",
+        "holder": "Kiara Sinha",
+        "entry_date": "30-11-2024",
+        "exit_date": "05-12-2024",
+        "days_spent": 5
+      },
+      {
+        "stage": "BQC Preparation",
+        "role": "PM",
+        "holder": "Neha Kapoor",
+        "entry_date": "05-12-2024",
+        "exit_date": "10-12-2024",
+        "days_spent": 5
+      },
+      {
+        "stage": "To be Floated",
+        "role": "PM",
+        "holder": "Neha Kapoor",
+        "entry_date": "10-12-2024",
+        "exit_date": "15-12-2024",
+        "days_spent": 5
+      },
+      {
+        "stage": "Under Bidding",
+        "role": "PM",
+        "holder": "Neha Kapoor",
+        "entry_date": "15-12-2024",
+        "exit_date": "05-01-2025",
+        "days_spent": 21
+      },
+      {
+        "stage": "Under BQC / Tech Evaluation",
+        "role": "PM",
+        "holder": "Neha Kapoor",
+        "entry_date": "05-01-2025",
+        "exit_date": "28-01-2025",
+        "days_spent": 23
+      },
+      {
+        "stage": "Under Negotiation",
+        "role": "FM",
+        "holder": "Aarav Menon",
+        "entry_date": "28-01-2025",
+        "exit_date": null,
+        "days_spent": null
+      }
+    ]
+  },
+  {
+    "sr_no": 29,
+    "pr_no": "PR1000494304",
+    "crfq_no": "CRFQ1000454304",
+    "date_pr_initial_indent": "02-02-2025",
+    "receipt_actionable_pr": "08-02-2025",
+    "tender_sent_tech_eval": "",
+    "receipt_tech_eval": "",
+    "item_description": "Annual Service & Spares Contract for Group 4 Reciprocating Compressors",
+    "user_function": "Asset Integrity",
+    "date_receipt_estimate_cec": "14-02-2025",
+    "pm_officer": "Dev Malhotra",
+    "attached_pms": [
+      "Molay Adhikary"
+    ],
+    "tender_type": "Open",
+    "tender_floated_on": "",
+    "tender_opened_due_on": "",
+    "estimate_value_cr": 12.6,
+    "brief_status": "BQC Preparation",
+    "awarded_value_cr": null,
+    "tec_proposed_on": "",
+    "tec_approval_date": "",
+    "tender_register_updated": "",
+    "aoc_completed": "",
+    "contract_ola_created": "",
+    "sla_days": null,
+    "savings_due_to_negotiation_cr": null,
+    "time_taken_approving_committee_days": null,
+    "month_year": "Feb-25",
+    "remarks": "BQC criteria drafting in progress; technical specifications aligned.",
+    "attached_fms": [
+      "Divya Reddy",
+      "Omkar Joshi"
+    ],
+    "attached_cec_officers": [
+      "Pooja Grewal"
+    ],
+    "current_holder": "Dev Malhotra",
+    "current_role": "PM",
+    "priority": "Normal",
+    "days_by_role": {
+      "PM": 12,
+      "FM": 0,
+      "CEC": 6
+    },
+    "timeline": [
+      {
+        "stage": "PR Received",
+        "role": "PM",
+        "holder": "Dev Malhotra",
+        "entry_date": "08-02-2025",
+        "exit_date": "11-02-2025",
+        "days_spent": 3
+      },
+      {
+        "stage": "Under Estimation",
+        "role": "CEC",
+        "holder": "Pooja Grewal",
+        "entry_date": "11-02-2025",
+        "exit_date": "14-02-2025",
+        "days_spent": 3
+      },
+      {
+        "stage": "BQC Preparation",
+        "role": "PM",
+        "holder": "Dev Malhotra",
+        "entry_date": "14-02-2025",
+        "exit_date": null,
+        "days_spent": null
+      }
+    ]
+  },
+  {
+    "sr_no": 30,
+    "pr_no": "PR1000495405",
+    "crfq_no": "CRFQ1000455405",
+    "date_pr_initial_indent": "15-01-2025",
+    "receipt_actionable_pr": "20-01-2025",
+    "tender_sent_tech_eval": "",
+    "receipt_tech_eval": "",
+    "item_description": "Supply of Low-Emission Flare Gas Recovery Compressor System",
+    "user_function": "Safety & Environment",
+    "date_receipt_estimate_cec": "28-01-2025",
+    "pm_officer": "Molay Adhikary",
+    "attached_pms": [
+      "Neha Kapoor"
+    ],
+    "tender_type": "Open",
+    "tender_floated_on": "",
+    "tender_opened_due_on": "",
+    "estimate_value_cr": 44.1,
+    "brief_status": "To be Floated",
+    "awarded_value_cr": null,
+    "tec_proposed_on": "",
+    "tec_approval_date": "",
+    "tender_register_updated": "",
+    "aoc_completed": "",
+    "contract_ola_created": "",
+    "sla_days": null,
+    "savings_due_to_negotiation_cr": null,
+    "time_taken_approving_committee_days": null,
+    "month_year": "Feb-25",
+    "remarks": "E-portal draft package approved, awaiting final publishing window.",
+    "attached_fms": [
+      "Aarav Menon"
+    ],
+    "attached_cec_officers": [
+      "Kiara Sinha"
+    ],
+    "current_holder": "Molay Adhikary",
+    "current_role": "PM",
+    "priority": "High",
+    "days_by_role": {
+      "PM": 18,
+      "FM": 4,
+      "CEC": 8
+    },
+    "timeline": [
+      {
+        "stage": "PR Received",
+        "role": "PM",
+        "holder": "Molay Adhikary",
+        "entry_date": "20-01-2025",
+        "exit_date": "24-01-2025",
+        "days_spent": 4
+      },
+      {
+        "stage": "Under Estimation",
+        "role": "CEC",
+        "holder": "Kiara Sinha",
+        "entry_date": "24-01-2025",
+        "exit_date": "28-01-2025",
+        "days_spent": 4
+      },
+      {
+        "stage": "BQC Preparation",
+        "role": "PM",
+        "holder": "Molay Adhikary",
+        "entry_date": "28-01-2025",
+        "exit_date": "02-02-2025",
+        "days_spent": 5
+      },
+      {
+        "stage": "BQC Preparation",
+        "role": "FM",
+        "holder": "Aarav Menon",
+        "entry_date": "02-02-2025",
+        "exit_date": "06-02-2025",
+        "days_spent": 4
+      },
+      {
+        "stage": "To be Floated",
+        "role": "PM",
+        "holder": "Molay Adhikary",
+        "entry_date": "06-02-2025",
+        "exit_date": null,
+        "days_spent": null
+      }
+    ]
+  },
+  {
+    "sr_no": 31,
+    "pr_no": "PR1000496506",
+    "crfq_no": "CRFQ1000456506",
+    "date_pr_initial_indent": "01-12-2024",
+    "receipt_actionable_pr": "08-12-2024",
+    "tender_sent_tech_eval": "10-01-2025",
+    "receipt_tech_eval": "25-01-2025",
+    "item_description": "Specialized Pipeline Integrity Testing & Ultrasonic Pigging Services",
+    "user_function": "Pipelines & Logistics",
+    "date_receipt_estimate_cec": "18-12-2024",
+    "pm_officer": "Arjun Mehta",
+    "attached_pms": [
+      "Dev Malhotra"
+    ],
+    "tender_type": "Open",
+    "tender_floated_on": "22-12-2024",
+    "tender_opened_due_on": "05-01-2025",
+    "estimate_value_cr": 22.9,
+    "brief_status": "Under Award TEC",
+    "awarded_value_cr": null,
+    "tec_proposed_on": "04-02-2025",
+    "tec_approval_date": "",
+    "tender_register_updated": "",
+    "aoc_completed": "",
+    "contract_ola_created": "",
+    "sla_days": null,
+    "savings_due_to_negotiation_cr": null,
+    "time_taken_approving_committee_days": null,
+    "month_year": "Feb-25",
+    "remarks": "Award TEC committee recommendation packet prepared for tender board.",
+    "attached_fms": [
+      "Divya Reddy"
+    ],
+    "attached_cec_officers": [
+      "Meher Kaul"
+    ],
+    "current_holder": "Arjun Mehta",
+    "current_role": "PM",
+    "priority": "Critical",
+    "days_by_role": {
+      "PM": 48,
+      "FM": 12,
+      "CEC": 10
+    },
+    "timeline": [
+      {
+        "stage": "PR Received",
+        "role": "PM",
+        "holder": "Arjun Mehta",
+        "entry_date": "08-12-2024",
+        "exit_date": "12-12-2024",
+        "days_spent": 4
+      },
+      {
+        "stage": "Under Estimation",
+        "role": "CEC",
+        "holder": "Meher Kaul",
+        "entry_date": "12-12-2024",
+        "exit_date": "18-12-2024",
+        "days_spent": 6
+      },
+      {
+        "stage": "BQC Preparation",
+        "role": "PM",
+        "holder": "Arjun Mehta",
+        "entry_date": "18-12-2024",
+        "exit_date": "22-12-2024",
+        "days_spent": 4
+      },
+      {
+        "stage": "To be Floated",
+        "role": "PM",
+        "holder": "Arjun Mehta",
+        "entry_date": "22-12-2024",
+        "exit_date": "22-12-2024",
+        "days_spent": 0
+      },
+      {
+        "stage": "Under Bidding",
+        "role": "PM",
+        "holder": "Arjun Mehta",
+        "entry_date": "22-12-2024",
+        "exit_date": "05-01-2025",
+        "days_spent": 14
+      },
+      {
+        "stage": "Under BQC / Tech Evaluation",
+        "role": "PM",
+        "holder": "Arjun Mehta",
+        "entry_date": "05-01-2025",
+        "exit_date": "25-01-2025",
+        "days_spent": 20
+      },
+      {
+        "stage": "Under BQC / Tech Evaluation",
+        "role": "FM",
+        "holder": "Divya Reddy",
+        "entry_date": "25-01-2025",
+        "exit_date": "02-02-2025",
+        "days_spent": 8
+      },
+      {
+        "stage": "Under Award TEC",
+        "role": "PM",
+        "holder": "Arjun Mehta",
+        "entry_date": "02-02-2025",
+        "exit_date": null,
+        "days_spent": null
+      }
+    ]
+  }
+]

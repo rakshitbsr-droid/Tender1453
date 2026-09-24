@@ -1,0 +1,532 @@
+[
+  {
+    "id": "admin-1",
+    "name": "CPO Executive (Management)",
+    "role": "ADMIN",
+    "designation": "Chief Procurement Officer & Executive Committee",
+    "pillar": "Management & Oversight",
+    "group": "Executive",
+    "email": "cpo.exec@enterprise.com",
+    "avatarColor": "bg-indigo-600"
+  },
+  {
+    "id": "pm-1",
+    "name": "Amit Kumar Jha",
+    "role": "PM",
+    "designation": "Lead Procurement Manager",
+    "pillar": "Procurement Group (E&P Services)",
+    "group": "Group 1",
+    "email": "amit.jha@enterprise.com",
+    "avatarColor": "bg-blue-600"
+  },
+  {
+    "id": "pm-2",
+    "name": "Ashishkumar Mihirkumar Jha",
+    "role": "PM",
+    "designation": "Senior Procurement Manager",
+    "pillar": "Procurement Group",
+    "group": "Group 1",
+    "email": "ashishkumar.jha@enterprise.com",
+    "avatarColor": "bg-blue-600"
+  },
+  {
+    "id": "pm-3",
+    "name": "Gunjan Omprakash Bhiwal",
+    "role": "PM",
+    "designation": "Senior Procurement Manager",
+    "pillar": "Procurement Group",
+    "group": "Group 1",
+    "email": "gunjan.bhiwal@enterprise.com",
+    "avatarColor": "bg-blue-600"
+  },
+  {
+    "id": "pm-4",
+    "name": "Suryawanshi Tulsidas",
+    "role": "PM",
+    "designation": "Procurement Manager",
+    "pillar": "Procurement Group",
+    "group": "Group 1",
+    "email": "suryawanshi.t@enterprise.com",
+    "avatarColor": "bg-blue-600"
+  },
+  {
+    "id": "pm-5",
+    "name": "Purushottam Kumar",
+    "role": "PM",
+    "designation": "Senior Procurement Manager",
+    "pillar": "Procurement Group",
+    "group": "Group 2",
+    "email": "purushottam.k@enterprise.com",
+    "avatarColor": "bg-blue-600"
+  },
+  {
+    "id": "pm-6",
+    "name": "Nandhini N",
+    "role": "PM",
+    "designation": "Procurement Manager",
+    "pillar": "Procurement Group",
+    "group": "Group 2",
+    "email": "nandhini.n@enterprise.com",
+    "avatarColor": "bg-blue-600"
+  },
+  {
+    "id": "pm-7",
+    "name": "Sarath Kumar P",
+    "role": "PM",
+    "designation": "Procurement Manager",
+    "pillar": "Procurement Group",
+    "group": "Group 2",
+    "email": "sarath.p@enterprise.com",
+    "avatarColor": "bg-blue-600"
+  },
+  {
+    "id": "pm-8",
+    "name": "Arishi Yadav",
+    "role": "PM",
+    "designation": "Procurement Manager",
+    "pillar": "Procurement Group",
+    "group": "Group 2",
+    "email": "arishi.y@enterprise.com",
+    "avatarColor": "bg-blue-600"
+  },
+  {
+    "id": "pm-9",
+    "name": "Sandhya Singh",
+    "role": "PM",
+    "designation": "Procurement Manager",
+    "pillar": "Procurement Group",
+    "group": "Group 3",
+    "email": "sandhya.s@enterprise.com",
+    "avatarColor": "bg-blue-600"
+  },
+  {
+    "id": "pm-10",
+    "name": "Abhishek Lodhi",
+    "role": "PM",
+    "designation": "Procurement Manager",
+    "pillar": "Procurement Group",
+    "group": "Group 3",
+    "email": "abhishek.lodhi@enterprise.com",
+    "avatarColor": "bg-blue-600"
+  },
+  {
+    "id": "pm-11",
+    "name": "M S Neetha",
+    "role": "PM",
+    "designation": "Procurement Manager",
+    "pillar": "Procurement Group",
+    "group": "Group 3",
+    "email": "neetha.ms@enterprise.com",
+    "avatarColor": "bg-blue-600"
+  },
+  {
+    "id": "pm-12",
+    "name": "Tarun Meena",
+    "role": "PM",
+    "designation": "Procurement Manager",
+    "pillar": "Procurement Group",
+    "group": "Group 3",
+    "email": "tarun.m@enterprise.com",
+    "avatarColor": "bg-blue-600"
+  },
+  {
+    "id": "pm-13",
+    "name": "Molay Adhikary",
+    "role": "PM",
+    "designation": "Procurement Manager",
+    "pillar": "Procurement Group",
+    "group": "Group 4",
+    "email": "molay.a@enterprise.com",
+    "avatarColor": "bg-blue-600"
+  },
+  {
+    "id": "pm-14",
+    "name": "Arjun Mehta",
+    "role": "PM",
+    "designation": "Procurement Manager",
+    "pillar": "Procurement Group",
+    "group": "Group 4",
+    "email": "arjun.mehta@enterprise.com",
+    "avatarColor": "bg-blue-600"
+  },
+  {
+    "id": "pm-15",
+    "name": "Neha Kapoor",
+    "role": "PM",
+    "designation": "Procurement Manager",
+    "pillar": "Procurement Group",
+    "group": "Group 4",
+    "email": "neha.kapoor@enterprise.com",
+    "avatarColor": "bg-blue-600"
+  },
+  {
+    "id": "pm-16",
+    "name": "Dev Malhotra",
+    "role": "PM",
+    "designation": "Procurement Manager",
+    "pillar": "Procurement Group",
+    "group": "Group 4",
+    "email": "dev.malhotra@enterprise.com",
+    "avatarColor": "bg-blue-600"
+  },
+  {
+    "id": "pm-17",
+    "name": "Kabir Sharma",
+    "role": "PM",
+    "designation": "Procurement Manager",
+    "pillar": "Procurement Group",
+    "group": "Group 5",
+    "email": "kabir.sharma@enterprise.com",
+    "avatarColor": "bg-blue-600"
+  },
+  {
+    "id": "pm-18",
+    "name": "Ishaan Rao",
+    "role": "PM",
+    "designation": "Procurement Manager",
+    "pillar": "Procurement Group",
+    "group": "Group 5",
+    "email": "ishaan.rao@enterprise.com",
+    "avatarColor": "bg-blue-600"
+  },
+  {
+    "id": "pm-19",
+    "name": "Ananya Bose",
+    "role": "PM",
+    "designation": "Procurement Manager",
+    "pillar": "Procurement Group",
+    "group": "Group 5",
+    "email": "ananya.bose@enterprise.com",
+    "avatarColor": "bg-blue-600"
+  },
+  {
+    "id": "pm-20",
+    "name": "Vikram Sethi",
+    "role": "PM",
+    "designation": "Procurement Manager",
+    "pillar": "Procurement Group",
+    "group": "Group 6",
+    "email": "vikram.sethi@enterprise.com",
+    "avatarColor": "bg-blue-600"
+  },
+  {
+    "id": "pm-21",
+    "name": "Priya Nanda",
+    "role": "PM",
+    "designation": "Procurement Manager",
+    "pillar": "Procurement Group",
+    "group": "Group 6",
+    "email": "priya.nanda@enterprise.com",
+    "avatarColor": "bg-blue-600"
+  },
+  {
+    "id": "pm-22",
+    "name": "Rohan Iyer",
+    "role": "PM",
+    "designation": "Procurement Manager",
+    "pillar": "Procurement Group",
+    "group": "Group 6",
+    "email": "rohan.iyer@enterprise.com",
+    "avatarColor": "bg-blue-600"
+  },
+  {
+    "id": "fm-1",
+    "name": "Rajesh J",
+    "role": "FM",
+    "designation": "Lead Finance Manager",
+    "pillar": "Finance Group (CPO Concurrence)",
+    "group": "Group 1",
+    "email": "rajesh.j@enterprise.com",
+    "avatarColor": "bg-emerald-600"
+  },
+  {
+    "id": "fm-2",
+    "name": "Priya Nair",
+    "role": "FM",
+    "designation": "Senior Finance Manager",
+    "pillar": "Finance Group",
+    "group": "Group 1",
+    "email": "priya.nair@enterprise.com",
+    "avatarColor": "bg-emerald-600"
+  },
+  {
+    "id": "fm-3",
+    "name": "Anil Verma",
+    "role": "FM",
+    "designation": "Finance Manager",
+    "pillar": "Finance Group",
+    "group": "Group 1",
+    "email": "anil.verma@enterprise.com",
+    "avatarColor": "bg-emerald-600"
+  },
+  {
+    "id": "fm-4",
+    "name": "Sneha Kulkarni",
+    "role": "FM",
+    "designation": "Finance Manager",
+    "pillar": "Finance Group",
+    "group": "Group 2",
+    "email": "sneha.kulkarni@enterprise.com",
+    "avatarColor": "bg-emerald-600"
+  },
+  {
+    "id": "fm-5",
+    "name": "Vikram Rao",
+    "role": "FM",
+    "designation": "Senior Finance Manager",
+    "pillar": "Finance Group",
+    "group": "Group 2",
+    "email": "vikram.rao@enterprise.com",
+    "avatarColor": "bg-emerald-600"
+  },
+  {
+    "id": "fm-6",
+    "name": "Deepa Menon",
+    "role": "FM",
+    "designation": "Finance Manager",
+    "pillar": "Finance Group",
+    "group": "Group 2",
+    "email": "deepa.menon@enterprise.com",
+    "avatarColor": "bg-emerald-600"
+  },
+  {
+    "id": "fm-7",
+    "name": "Karan Shah",
+    "role": "FM",
+    "designation": "Finance Manager",
+    "pillar": "Finance Group",
+    "group": "Group 3",
+    "email": "karan.shah@enterprise.com",
+    "avatarColor": "bg-emerald-600"
+  },
+  {
+    "id": "fm-8",
+    "name": "Tara Pillai",
+    "role": "FM",
+    "designation": "Finance Manager",
+    "pillar": "Finance Group",
+    "group": "Group 3",
+    "email": "tara.pillai@enterprise.com",
+    "avatarColor": "bg-emerald-600"
+  },
+  {
+    "id": "fm-9",
+    "name": "Ritika Shah",
+    "role": "FM",
+    "designation": "Finance Manager",
+    "pillar": "Finance Group",
+    "group": "Group 3",
+    "email": "ritika.shah@enterprise.com",
+    "avatarColor": "bg-emerald-600"
+  },
+  {
+    "id": "fm-10",
+    "name": "Divya Reddy",
+    "role": "FM",
+    "designation": "Finance Manager",
+    "pillar": "Finance Group",
+    "group": "Group 4",
+    "email": "divya.reddy@enterprise.com",
+    "avatarColor": "bg-emerald-600"
+  },
+  {
+    "id": "fm-11",
+    "name": "Omkar Joshi",
+    "role": "FM",
+    "designation": "Finance Manager",
+    "pillar": "Finance Group",
+    "group": "Group 4",
+    "email": "omkar.joshi@enterprise.com",
+    "avatarColor": "bg-emerald-600"
+  },
+  {
+    "id": "fm-12",
+    "name": "Aarav Menon",
+    "role": "FM",
+    "designation": "Finance Manager",
+    "pillar": "Finance Group",
+    "group": "Group 4",
+    "email": "aarav.menon@enterprise.com",
+    "avatarColor": "bg-emerald-600"
+  },
+  {
+    "id": "fm-13",
+    "name": "Sana Qureshi",
+    "role": "FM",
+    "designation": "Finance Manager",
+    "pillar": "Finance Group",
+    "group": "Group 5",
+    "email": "sana.qureshi@enterprise.com",
+    "avatarColor": "bg-emerald-600"
+  },
+  {
+    "id": "fm-14",
+    "name": "Nikhil Verma",
+    "role": "FM",
+    "designation": "Finance Manager",
+    "pillar": "Finance Group",
+    "group": "Group 5",
+    "email": "nikhil.verma@enterprise.com",
+    "avatarColor": "bg-emerald-600"
+  },
+  {
+    "id": "fm-15",
+    "name": "Manav Gill",
+    "role": "FM",
+    "designation": "Finance Manager",
+    "pillar": "Finance Group",
+    "group": "Group 6",
+    "email": "manav.gill@enterprise.com",
+    "avatarColor": "bg-emerald-600"
+  },
+  {
+    "id": "cec-1",
+    "name": "Meera Iyer",
+    "role": "CEC",
+    "designation": "Chief Estimation Officer",
+    "pillar": "Estimation Cell (CEC)",
+    "group": "Group 1",
+    "email": "meera.iyer@enterprise.com",
+    "avatarColor": "bg-amber-600"
+  },
+  {
+    "id": "cec-2",
+    "name": "Sanjay Gupta",
+    "role": "CEC",
+    "designation": "Senior Estimation Officer",
+    "pillar": "Estimation Cell (CEC)",
+    "group": "Group 1",
+    "email": "sanjay.gupta@enterprise.com",
+    "avatarColor": "bg-amber-600"
+  },
+  {
+    "id": "cec-3",
+    "name": "Ritu Desai",
+    "role": "CEC",
+    "designation": "Estimation Officer",
+    "pillar": "Estimation Cell (CEC)",
+    "group": "Group 1",
+    "email": "ritu.desai@enterprise.com",
+    "avatarColor": "bg-amber-600"
+  },
+  {
+    "id": "cec-4",
+    "name": "Harish Patel",
+    "role": "CEC",
+    "designation": "Senior Estimation Officer",
+    "pillar": "Estimation Cell (CEC)",
+    "group": "Group 2",
+    "email": "harish.patel@enterprise.com",
+    "avatarColor": "bg-amber-600"
+  },
+  {
+    "id": "cec-5",
+    "name": "Neha Joshi",
+    "role": "CEC",
+    "designation": "Estimation Officer",
+    "pillar": "Estimation Cell (CEC)",
+    "group": "Group 2",
+    "email": "neha.joshi@enterprise.com",
+    "avatarColor": "bg-amber-600"
+  },
+  {
+    "id": "cec-6",
+    "name": "Vivek Sharma",
+    "role": "CEC",
+    "designation": "Estimation Officer",
+    "pillar": "Estimation Cell (CEC)",
+    "group": "Group 2",
+    "email": "vivek.sharma@enterprise.com",
+    "avatarColor": "bg-amber-600"
+  },
+  {
+    "id": "cec-7",
+    "name": "Pooja Reddy",
+    "role": "CEC",
+    "designation": "Estimation Officer",
+    "pillar": "Estimation Cell (CEC)",
+    "group": "Group 3",
+    "email": "pooja.reddy@enterprise.com",
+    "avatarColor": "bg-amber-600"
+  },
+  {
+    "id": "cec-8",
+    "name": "Aditya Chopra",
+    "role": "CEC",
+    "designation": "Estimation Officer",
+    "pillar": "Estimation Cell (CEC)",
+    "group": "Group 3",
+    "email": "aditya.chopra@enterprise.com",
+    "avatarColor": "bg-amber-600"
+  },
+  {
+    "id": "cec-9",
+    "name": "Simran Ahuja",
+    "role": "CEC",
+    "designation": "Estimation Officer",
+    "pillar": "Estimation Cell (CEC)",
+    "group": "Group 3",
+    "email": "simran.ahuja@enterprise.com",
+    "avatarColor": "bg-amber-600"
+  },
+  {
+    "id": "cec-10",
+    "name": "Pooja Grewal",
+    "role": "CEC",
+    "designation": "Estimation Officer",
+    "pillar": "Estimation Cell (CEC)",
+    "group": "Group 4",
+    "email": "pooja.grewal@enterprise.com",
+    "avatarColor": "bg-amber-600"
+  },
+  {
+    "id": "cec-11",
+    "name": "Meher Kaul",
+    "role": "CEC",
+    "designation": "Estimation Officer",
+    "pillar": "Estimation Cell (CEC)",
+    "group": "Group 4",
+    "email": "meher.kaul@enterprise.com",
+    "avatarColor": "bg-amber-600"
+  },
+  {
+    "id": "cec-12",
+    "name": "Kiara Sinha",
+    "role": "CEC",
+    "designation": "Estimation Officer",
+    "pillar": "Estimation Cell (CEC)",
+    "group": "Group 4",
+    "email": "kiara.sinha@enterprise.com",
+    "avatarColor": "bg-amber-600"
+  },
+  {
+    "id": "cec-13",
+    "name": "Yash Bhatt",
+    "role": "CEC",
+    "designation": "Estimation Officer",
+    "pillar": "Estimation Cell (CEC)",
+    "group": "Group 5",
+    "email": "yash.bhatt@enterprise.com",
+    "avatarColor": "bg-amber-600"
+  },
+  {
+    "id": "cec-14",
+    "name": "Lakshya Dutta",
+    "role": "CEC",
+    "designation": "Estimation Officer",
+    "pillar": "Estimation Cell (CEC)",
+    "group": "Group 5",
+    "email": "lakshya.dutta@enterprise.com",
+    "avatarColor": "bg-amber-600"
+  },
+  {
+    "id": "cec-15",
+    "name": "Rehan Khanna",
+    "role": "CEC",
+    "designation": "Estimation Officer",
+    "pillar": "Estimation Cell (CEC)",
+    "group": "Group 6",
+    "email": "rehan.khanna@enterprise.com",
+    "avatarColor": "bg-amber-600"
+  }
+]
