@@ -11,3 +11,5 @@ coverage/
 bin/
 obj/
 backend/**/App_Data/
+
+.vercel
