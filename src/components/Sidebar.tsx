@@ -8,11 +8,13 @@ import {
   KanbanSquare,
   History,
   PlusCircle,
-  Sliders
+  Sliders,
+  MessageSquare
 } from 'lucide-react';
 
 export type NavTab =
   | 'dashboard'
+  | 'assistant'
   | 'my-queue'
   | 'tenders-register'
   | 'stage-kanban'
@@ -55,6 +57,12 @@ export const Sidebar: React.FC<SidebarProps> = ({
       id: 'dashboard' as NavTab,
       label: 'Dashboard',
       icon: LayoutDashboard,
+      badge: null,
+    },
+    {
+      id: 'assistant' as NavTab,
+      label: 'Assistant',
+      icon: MessageSquare,
       badge: null,
     },
     {

@@ -93,6 +93,18 @@ time is the average of the two, so creator time plus finance time always equals 
 The finance share appears in the Timeline, the stage-wise breakdown and "days by role". The file cannot leave
 the stage while Finance still holds bidders. See `computeEvaluationSplit`.
 
+## Assistant
+
+The **Assistant** page answers typed questions about the tenders: status of a tender, lists, counts, totals,
+break-downs ("by stage", "by officer"), rankings, delays, stage bottlenecks, officer workload, comparisons and a
+summary with findings. A follow-up such as "by officer" or "only group 2" works on the previous answer.
+
+It uses no AI and sends nothing outside the app. `src/assistant/parse.ts` matches the question against a fixed
+vocabulary and the names in the data (officers, stages, groups, types, functions), and `src/assistant/answer.ts`
+computes the figures with the same working-day rule as the rest of the app. It reads only what the current user
+may see. A question outside that vocabulary gets "I did not understand that"; to teach it a new phrase, add it
+to the patterns in `parse.ts`.
+
 ## Who sees file movements
 
 In **Timeline & Audit** and in a tender's Timeline tab, an officer sees only the tenders they work on. A group

@@ -37,6 +37,8 @@ import { TenderRegisterView } from './views/TenderRegisterView';
 import { StageKanbanView } from './views/StageKanbanView';
 import { AuditTrailView } from './views/AuditTrailView';
 import { MastersView } from './views/MastersView';
+import { AssistantView, ChatMessage } from './views/AssistantView';
+import { AssistantData } from './assistant/types';
 import { TenderDetailModal } from './components/TenderDetailModal';
 import { CreateTenderModal } from './components/CreateTenderModal';
 import confetti from 'canvas-confetti';
@@ -139,7 +141,7 @@ export default function App() {
   );
 }
 
-const NAV_TABS: NavTab[] = ['dashboard', 'my-queue', 'tenders-register', 'stage-kanban', 'audit-trail', 'masters'];
+const NAV_TABS: NavTab[] = ['dashboard', 'assistant', 'my-queue', 'tenders-register', 'stage-kanban', 'audit-trail', 'masters'];
 
 // The page and the open tender live in the URL hash (#my-queue, #tenders-register?tender=10) so that
 // refresh, back/forward and shared links all work.
@@ -192,6 +194,9 @@ function TenderWorkspace({
   // Microsoft Tasks State
   const [tasks, setTasks] = useState<UserTask[]>(initialSettings.tasks ?? INITIAL_USER_TASKS);
 
+  // Assistant conversation (kept while moving between pages, cleared when the user changes)
+  const [chat, setChat] = useState<ChatMessage[]>([]);
+
   // Filter tenders visible to current user based on RBAC & Group Architecture
   const visibleTenders = useMemo(() => {
     return getVisibleTenders(tenders, currentUser, leadershipSettings, groups, masterUsers);
@@ -201,6 +206,21 @@ function TenderWorkspace({
   const auditTenders = useMemo(() => {
     return getAuditVisibleTenders(visibleTenders, currentUser, leadershipSettings, groups, masterUsers);
   }, [visibleTenders, currentUser, leadershipSettings, groups, masterUsers]);
+
+  // What the assistant may read: the same tenders and movements this user sees elsewhere
+  const assistantData: AssistantData = useMemo(
+    () => ({
+      tenders: visibleTenders,
+      auditTenders,
+      currentUser,
+      users: masterUsers,
+      groups,
+      slaRules,
+      leadership: leadershipSettings,
+      tasks,
+    }),
+    [visibleTenders, auditTenders, currentUser, masterUsers, groups, slaRules, leadershipSettings, tasks]
+  );
 
   // Derived from the list, so the open tender always reflects the latest saved data
   const selectedTender = visibleTenders.find((t) => t.sr_no === selectedSrNo) ?? null;
@@ -326,6 +346,7 @@ function TenderWorkspace({
   // Switch active user persona
   const handleSwitchUser = (user: UserProfile) => {
     setCurrentUser(user);
+    setChat([]);
     showToast(`Switched to ${user.name} (${user.role})`);
   };
 
@@ -632,6 +653,15 @@ function TenderWorkspace({
             {activeTab === 'dashboard' && (
               <DashboardView
                 tenders={visibleTenders}
+                onOpenTender={(tender) => setSelectedTender(tender)}
+              />
+            )}
+
+            {activeTab === 'assistant' && (
+              <AssistantView
+                data={assistantData}
+                messages={chat}
+                onMessagesChange={setChat}
                 onOpenTender={(tender) => setSelectedTender(tender)}
               />
             )}
