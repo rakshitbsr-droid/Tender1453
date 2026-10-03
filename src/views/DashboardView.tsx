@@ -1,6 +1,6 @@
 import React, { useState, useMemo } from 'react';
 import { Tender, TenderStage, UserRole, UserProfile } from '../types';
-import { formatCurrencyCr, formatNumber, getStageBadgeColor, roleName } from '../utils/tenderUtils';
+import { formatCurrencyCr, formatNumber, getStageBadgeColor } from '../utils/tenderUtils';
 import { USERS } from '../data/seedData';
 import {
   ResponsiveContainer,
@@ -35,7 +35,10 @@ import {
   Sparkles,
   PieChart as PieIcon,
   BarChart3,
-  ListFilter
+  ListFilter,
+  Ban,
+  X,
+  FileWarning
 } from 'lucide-react';
 import { GroupWorkloadSection } from '../components/GroupWorkloadSection';
 
@@ -44,28 +47,32 @@ interface DashboardViewProps {
   onOpenTender: (tender: Tender) => void;
 }
 
-// 9 Standard procurement stages in sequential order
+// Standard procurement stages in sequential order
 const ORDERED_STAGES: { stage: TenderStage; stepNo: number; defaultRole: UserRole | 'TEC'; iconName: string }[] = [
   { stage: 'PR Received', stepNo: 1, defaultRole: 'PM', iconName: 'Layers' },
   { stage: 'Under Estimation', stepNo: 2, defaultRole: 'CEC', iconName: 'Calculator' },
-  { stage: 'BQC Preparation', stepNo: 3, defaultRole: 'PM', iconName: 'Briefcase' },
+  { stage: 'BQC approval', stepNo: 3, defaultRole: 'PM', iconName: 'Briefcase' },
   { stage: 'To be Floated', stepNo: 4, defaultRole: 'PM', iconName: 'TrendingUp' },
   { stage: 'Under Bidding', stepNo: 5, defaultRole: 'PM', iconName: 'Clock' },
-  { stage: 'Under BQC / Tech Evaluation', stepNo: 6, defaultRole: 'TEC', iconName: 'UserCheck' },
-  { stage: 'Under Award TEC', stepNo: 7, defaultRole: 'TEC', iconName: 'Award' },
-  { stage: 'Under Negotiation', stepNo: 8, defaultRole: 'FM', iconName: 'DollarSign' },
-  { stage: 'Awarded', stepNo: 9, defaultRole: 'PM', iconName: 'CheckCircle2' },
+  { stage: 'Under BQC / Tech Evaluation', stepNo: 6, defaultRole: 'PM', iconName: 'UserCheck' },
+  { stage: 'Cashflow report Preparation', stepNo: 7, defaultRole: 'FM', iconName: 'DollarSign' },
+  { stage: 'Under Negotiation', stepNo: 8, defaultRole: 'PM', iconName: 'TrendingDown' },
+  { stage: 'Under Award Approval', stepNo: 9, defaultRole: 'PM', iconName: 'Award' },
+  { stage: 'Awarded', stepNo: 10, defaultRole: 'PM', iconName: 'CheckCircle2' },
 ];
 
 const STAGE_COLORS: Record<TenderStage, string> = {
   'PR Received': '#64748b',
   'Under Estimation': '#8b5cf6',
+  'BQC approval': '#3b82f6',
   'BQC Preparation': '#3b82f6',
   'To be Floated': '#6366f1',
   'Under Bidding': '#06b6d4',
   'Under BQC / Tech Evaluation': '#a855f7',
+  'Cashflow report Preparation': '#0284c7',
   'Under Award TEC': '#0d9488',
   'Under Negotiation': '#f97316',
+  'Under Award Approval': '#0d9488',
   'Awarded': '#10b981',
   'Cancelled': '#ef4444',
   'Under Discussion with User': '#f59e0b',
@@ -89,6 +96,7 @@ export const DashboardView: React.FC<DashboardViewProps> = ({ tenders, onOpenTen
   const [selectedOfficer, setSelectedOfficer] = useState<string>('ALL');
   const [searchQuery, setSearchQuery] = useState<string>('');
   const [selectedStageModal, setSelectedStageModal] = useState<TenderStage | null>(null);
+  const [isCancelledModalOpen, setIsCancelledModalOpen] = useState<boolean>(false);
 
   // Grouped Officers List
   const officersByPillar = useMemo(() => {
@@ -211,6 +219,10 @@ export const DashboardView: React.FC<DashboardViewProps> = ({ tenders, onOpenTen
     () => activePipelineTenders.reduce((acc, t) => acc + (t.estimate_value_cr || 0), 0),
     [activePipelineTenders]
   );
+  const totalCancelledValueCr = useMemo(
+    () => cancelledTenders.reduce((acc, t) => acc + (t.estimate_value_cr || 0), 0),
+    [cancelledTenders]
+  );
   const totalPortfolioValueCr = useMemo(
     () => filteredTenders.reduce((acc, t) => acc + (t.estimate_value_cr || 0), 0),
     [filteredTenders]
@@ -276,19 +288,14 @@ export const DashboardView: React.FC<DashboardViewProps> = ({ tenders, onOpenTen
     <div className="space-y-6 pb-12">
       {/* Top Header & Pillar / Person Filter Section */}
       <div className="bg-white border border-slate-200 rounded-xl p-5 shadow-xs space-y-4">
-        <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-slate-100 pb-4">
-          <div>
-            <div className="flex items-center gap-2">
-              <span className="p-2 bg-blue-50 text-blue-600 rounded-lg border border-blue-100">
-                <BarChart3 className="w-5 h-5" />
-              </span>
-              <div>
-                <h1 className="text-xl font-semibold text-slate-900">Dashboard</h1>
-                <p className="text-sm text-slate-500">
-                  How many tenders are at each stage, what they are worth, and who is carrying the work.
-                </p>
-              </div>
-            </div>
+        <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-slate-100 pb-3">
+          <div className="flex items-center gap-2">
+            <span className="p-2 bg-blue-50 text-blue-600 rounded-lg border border-blue-100">
+              <BarChart3 className="w-5 h-5" />
+            </span>
+            <h1 className="text-base font-bold text-slate-800 tracking-tight">
+              Dashboard
+            </h1>
           </div>
 
           {/* Reset Filters button */}
@@ -296,29 +303,28 @@ export const DashboardView: React.FC<DashboardViewProps> = ({ tenders, onOpenTen
             <button
               onClick={resetFilters}
               className="px-3 py-1.5 text-xs font-semibold text-slate-600 hover:text-slate-900 bg-slate-50 hover:bg-slate-100 rounded-lg border border-slate-200 transition-colors flex items-center gap-1.5 cursor-pointer"
-              title="Show everything again"
             >
               <RotateCcw className="w-3.5 h-3.5" />
-              <span>Reset filters</span>
+              <span>Reset</span>
             </button>
           </div>
         </div>
 
-        {/* Pillar & Officer Filter Controls */}
+        {/* Role & Officer Filter Controls */}
         <div className="space-y-3">
           <div className="flex flex-wrap items-center justify-between gap-2">
-            <span className="text-sm font-medium text-slate-700 flex items-center gap-1.5">
+            <span className="text-xs font-bold text-slate-700 uppercase tracking-wider flex items-center gap-1.5">
               <Filter className="w-3.5 h-3.5 text-blue-600" />
-              <span>Filter</span>
+              <span>Filters</span>
             </span>
             <span className="text-xs text-slate-500">
               Showing <strong className="text-slate-800 font-bold">{totalTendersGoingOn}</strong> of{' '}
-              <strong className="text-slate-600">{tenders.length}</strong> total tenders
+              <strong className="text-slate-600">{tenders.length}</strong> tenders
             </span>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-12 gap-3 items-center">
-            {/* 1. Pillar Selection Tabs */}
+            {/* 1. Role Selection Tabs */}
             <div className="md:col-span-5 flex items-center p-1 bg-slate-100/80 rounded-lg border border-slate-200">
               <button
                 onClick={() => handlePillarChange('ALL')}
@@ -328,7 +334,7 @@ export const DashboardView: React.FC<DashboardViewProps> = ({ tenders, onOpenTen
                     : 'text-slate-600 hover:text-slate-900'
                 }`}
               >
-                All teams
+                All
               </button>
               <button
                 onClick={() => handlePillarChange('PM')}
@@ -338,7 +344,7 @@ export const DashboardView: React.FC<DashboardViewProps> = ({ tenders, onOpenTen
                     : 'text-slate-600 hover:text-slate-900'
                 }`}
               >
-                <span>Procurement</span>
+                <span>PM</span>
               </button>
               <button
                 onClick={() => handlePillarChange('CEC')}
@@ -348,7 +354,7 @@ export const DashboardView: React.FC<DashboardViewProps> = ({ tenders, onOpenTen
                     : 'text-slate-600 hover:text-slate-900'
                 }`}
               >
-                <span>Estimation</span>
+                <span>CEC</span>
               </button>
               <button
                 onClick={() => handlePillarChange('FM')}
@@ -358,7 +364,7 @@ export const DashboardView: React.FC<DashboardViewProps> = ({ tenders, onOpenTen
                     : 'text-slate-600 hover:text-slate-900'
                 }`}
               >
-                <span>Finance</span>
+                <span>FM</span>
               </button>
             </div>
 
@@ -371,17 +377,17 @@ export const DashboardView: React.FC<DashboardViewProps> = ({ tenders, onOpenTen
               >
                 <option value="ALL">
                   {selectedPillar === 'ALL'
-                    ? 'All officers'
+                    ? 'All Officers'
                     : selectedPillar === 'PM'
-                    ? 'All procurement managers'
+                    ? 'All Procurement Managers'
                     : selectedPillar === 'CEC'
-                    ? 'All estimation officers'
-                    : 'All finance managers'}
+                    ? 'All Cost Estimation Officers'
+                    : 'All Finance Managers'}
                 </option>
 
                 {selectedPillar === 'ALL' ? (
                   <>
-                    <optgroup label="Procurement">
+                    <optgroup label="Procurement Managers">
                       {officersByPillar.pms.map((u) => {
                         const count = tenders.filter(
                           (t) =>
@@ -391,13 +397,13 @@ export const DashboardView: React.FC<DashboardViewProps> = ({ tenders, onOpenTen
                         ).length;
                         return (
                           <option key={u.id} value={u.name}>
-                            {u.name} ({count})
+                            {u.name} ({count} tenders)
                           </option>
                         );
                       })}
                     </optgroup>
 
-                    <optgroup label="Estimation">
+                    <optgroup label="Cost Estimation Officers">
                       {officersByPillar.cecs.map((u) => {
                         const count = tenders.filter(
                           (t) =>
@@ -407,13 +413,13 @@ export const DashboardView: React.FC<DashboardViewProps> = ({ tenders, onOpenTen
                         ).length;
                         return (
                           <option key={u.id} value={u.name}>
-                            {u.name} ({count})
+                            {u.name} ({count} tenders)
                           </option>
                         );
                       })}
                     </optgroup>
 
-                    <optgroup label="Finance">
+                    <optgroup label="Finance Managers">
                       {officersByPillar.fms.map((u) => {
                         const count = tenders.filter(
                           (t) =>
@@ -423,7 +429,7 @@ export const DashboardView: React.FC<DashboardViewProps> = ({ tenders, onOpenTen
                         ).length;
                         return (
                           <option key={u.id} value={u.name}>
-                            {u.name} ({count})
+                            {u.name} ({count} tenders)
                           </option>
                         );
                       })}
@@ -442,7 +448,7 @@ export const DashboardView: React.FC<DashboardViewProps> = ({ tenders, onOpenTen
                     ).length;
                     return (
                       <option key={u.id} value={u.name}>
-                        {u.name} ({count})
+                        {u.name} ({count} tenders)
                       </option>
                     );
                   })
@@ -455,7 +461,7 @@ export const DashboardView: React.FC<DashboardViewProps> = ({ tenders, onOpenTen
               <Search className="w-3.5 h-3.5 absolute left-2.5 top-2.5 text-slate-400" />
               <input
                 type="text"
-                placeholder="Search by PR number or description"
+                placeholder="Search Tender #, PR, description..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 className="w-full pl-8 pr-3 py-1.5 bg-slate-50 border border-slate-200 rounded-lg text-xs text-slate-800 placeholder-slate-400 focus:outline-none focus:border-blue-500 focus:bg-white"
@@ -482,7 +488,7 @@ export const DashboardView: React.FC<DashboardViewProps> = ({ tenders, onOpenTen
                   <div className="flex items-center gap-2">
                     <span className="text-xs font-bold text-slate-900">{currentOfficerProfile.name}</span>
                     <span
-                      className={`px-2 py-0.5 rounded text-xs font-bold ${
+                      className={`px-2 py-0.5 rounded text-[10px] font-bold ${
                         currentOfficerProfile.role === 'PM'
                           ? 'bg-blue-100 text-blue-800'
                           : currentOfficerProfile.role === 'CEC'
@@ -490,12 +496,12 @@ export const DashboardView: React.FC<DashboardViewProps> = ({ tenders, onOpenTen
                           : 'bg-emerald-100 text-emerald-800'
                       }`}
                     >
-                      {roleName(currentOfficerProfile.role)}
+                      {currentOfficerProfile.role}
                     </span>
-                    <span className="text-xs text-slate-500 font-medium">({currentOfficerProfile.designation})</span>
+                    <span className="text-[11px] text-slate-500 font-medium">({currentOfficerProfile.designation})</span>
                   </div>
-                  <p className="text-xs text-slate-600">
-                    Involved in <strong>{totalTendersGoingOn} tenders</strong> worth <strong>{formatCurrencyCr(totalPortfolioValueCr)}</strong>
+                  <p className="text-[11px] text-slate-600">
+                    {totalTendersGoingOn} tenders • {formatCurrencyCr(totalPortfolioValueCr)}
                   </p>
                 </div>
               </div>
@@ -504,101 +510,105 @@ export const DashboardView: React.FC<DashboardViewProps> = ({ tenders, onOpenTen
                 onClick={() => setSelectedOfficer('ALL')}
                 className="text-xs text-blue-700 hover:text-blue-900 font-semibold underline cursor-pointer self-start sm:self-center"
               >
-                Show everyone
+                Clear
               </button>
             </div>
           )}
         </div>
       </div>
 
-      {/* ========================================================================= */}
-      {/* SECTION 1: TOTAL TENDERS GOING ON (IN NUMBERS) & STAGE-WISE BIFURCATION  */}
-      {/* ========================================================================= */}
+      {/* SECTION 1: STAGE VOLUME */}
       <div className="space-y-4">
         {/* Section Header */}
         <div className="flex items-center justify-between border-b border-slate-200 pb-2">
           <div className="flex items-center gap-2">
-            <span className="p-1.5 bg-blue-100 text-blue-700 rounded-md font-semibold text-xs">01</span>
-            <h2 className="text-base font-semibold text-slate-900">
-              Where tenders are
+            <h2 className="text-sm font-bold text-slate-800 uppercase tracking-wider">
+              Stage Volume
             </h2>
           </div>
-          
         </div>
 
-        {/* Top 4 Number Highlights */}
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+        {/* Top 5 Number Highlights */}
+        <div className="grid grid-cols-2 lg:grid-cols-5 gap-3.5">
           {/* Main Total Tenders Metric */}
           <div className="bg-white border-2 border-blue-500/80 rounded-xl p-4 shadow-xs bg-gradient-to-br from-blue-50/40 to-white">
-            <div className="text-xs font-medium text-blue-700 flex items-center justify-between">
-              <span>All tenders</span>
+            <div className="text-[10px] font-bold text-blue-700 uppercase tracking-wider flex items-center justify-between">
+              <span>Total Tenders</span>
               <Layers className="w-4 h-4 text-blue-600" />
             </div>
-            <div className="text-3xl font-semibold text-slate-900 mt-1">{totalTendersGoingOn}</div>
-            <div className="text-xs text-slate-600 mt-1 font-medium flex items-center gap-1.5">
-              <span className="font-bold text-blue-700">{activePipelineTenders.length} in progress</span>
-              <span>•</span>
-              <span className="font-bold text-emerald-700">{awardedTenders.length} awarded</span>
-            </div>
+            <div className="text-3xl font-black text-slate-900 mt-1">{totalTendersGoingOn}</div>
           </div>
 
           {/* Active In-Pipeline Tenders */}
           <div className="bg-white border border-slate-200 rounded-xl p-4 shadow-xs">
-            <div className="text-xs text-slate-500 flex items-center justify-between">
-              <span>In progress</span>
+            <div className="text-[10px] font-bold text-slate-400 uppercase tracking-wider flex items-center justify-between">
+              <span>In Pipeline</span>
               <Clock className="w-4 h-4 text-amber-500" />
             </div>
-            <div className="text-2xl font-semibold text-amber-600 mt-1">{activePipelineTenders.length}</div>
-            <div className="text-xs text-slate-500 mt-1">
-              {totalTendersGoingOn > 0
-                ? `${Math.round((activePipelineTenders.length / totalTendersGoingOn) * 100)}% of all tenders`
-                : '0%'}
+            <div className="text-2xl font-black text-amber-600 mt-1">{activePipelineTenders.length}</div>
+            <div className="text-[11px] text-slate-500 mt-1 font-medium truncate">
+              {formatCurrencyCr(totalPipelineValueCr)}
             </div>
           </div>
 
           {/* Awarded Tenders */}
           <div className="bg-white border border-slate-200 rounded-xl p-4 shadow-xs">
-            <div className="text-xs text-slate-500 flex items-center justify-between">
+            <div className="text-[10px] font-bold text-slate-400 uppercase tracking-wider flex items-center justify-between">
               <span>Awarded</span>
               <Award className="w-4 h-4 text-emerald-600" />
             </div>
-            <div className="text-2xl font-semibold text-emerald-600 mt-1">{awardedTenders.length}</div>
-            <div className="text-xs text-slate-500 mt-1">
-              {totalTendersGoingOn > 0
-                ? `${Math.round((awardedTenders.length / totalTendersGoingOn) * 100)}% of all tenders`
-                : '0%'}
+            <div className="text-2xl font-black text-emerald-600 mt-1">{awardedTenders.length}</div>
+            <div className="text-[11px] text-slate-500 mt-1 font-medium truncate">
+              {formatCurrencyCr(totalAwardedValueCr)}
+            </div>
+          </div>
+
+          {/* Cancelled Tenders Metric Card (Clickable to view reasons & files) */}
+          <div
+            onClick={() => cancelledTenders.length > 0 && setIsCancelledModalOpen(true)}
+            className={`rounded-xl p-4 border transition-all cursor-pointer ${
+              cancelledTenders.length > 0
+                ? 'bg-rose-50/50 border-rose-200 hover:border-rose-300 hover:shadow-xs shadow-2xs group'
+                : 'bg-white border-slate-200 shadow-xs'
+            }`}
+          >
+            <div className="text-[10px] font-bold text-rose-700 uppercase tracking-wider flex items-center justify-between">
+              <span>Cancelled</span>
+              <Ban className="w-4 h-4 text-rose-600" />
+            </div>
+            <div className="text-2xl font-black text-rose-600 mt-1">{cancelledTenders.length}</div>
+            <div className="text-[11px] text-rose-700 mt-1 font-medium flex items-center justify-between">
+              <span>{formatCurrencyCr(totalCancelledValueCr)}</span>
+              {cancelledTenders.length > 0 && (
+                <span className="text-[10px] font-bold underline group-hover:text-rose-900">
+                  View Reasons
+                </span>
+              )}
             </div>
           </div>
 
           {/* Active Stages Span */}
           <div className="bg-white border border-slate-200 rounded-xl p-4 shadow-xs">
-            <div className="text-xs text-slate-500 flex items-center justify-between">
-              <span>Stages in use</span>
+            <div className="text-[10px] font-bold text-slate-400 uppercase tracking-wider flex items-center justify-between">
+              <span>Active Stages</span>
               <Briefcase className="w-4 h-4 text-indigo-600" />
             </div>
-            <div className="text-2xl font-semibold text-slate-800 mt-1">
-              {stageBifurcationData.filter((s) => s.count > 0).length} / 9
+            <div className="text-2xl font-black text-slate-800 mt-1">
+              {stageBifurcationData.filter((s) => s.count > 0).length} / {ORDERED_STAGES.length}
             </div>
-            <div className="text-xs text-slate-500 mt-1">Stages that have at least one tender</div>
           </div>
         </div>
 
-        {/* Infographic 1: 9-Stage Step-by-Step Volume Bifurcation Cards Grid */}
+        {/* Step-by-Step Volume Bifurcation Cards Grid */}
         <div className="bg-white border border-slate-200 rounded-xl p-5 shadow-xs space-y-4">
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-100 pb-3">
-            <div>
-              <h3 className="text-sm font-semibold text-slate-900 flex items-center gap-1.5">
-                <Sparkles className="w-3.5 h-3.5 text-blue-600" />
-                <span>Tenders at each stage</span>
-              </h3>
-              <p className="text-xs text-slate-500">
-                Click a stage to see the tenders in it.
-              </p>
-            </div>
-            
+            <h3 className="text-xs font-bold text-slate-800 uppercase tracking-wider flex items-center gap-1.5">
+              <Sparkles className="w-3.5 h-3.5 text-blue-600" />
+              <span>Tenders by Stage</span>
+            </h3>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-9 gap-2.5">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 xl:grid-cols-10 gap-2.5">
             {stageBifurcationData.map((s) => {
               const isZero = s.count === 0;
               return (
@@ -616,11 +626,11 @@ export const DashboardView: React.FC<DashboardViewProps> = ({ tenders, onOpenTen
                   <div>
                     {/* Step No and Responsible Role */}
                     <div className="flex items-center justify-between mb-1.5">
-                      <span className="text-xs font-semibold font-mono text-slate-400">
+                      <span className="text-[10px] font-black font-mono text-slate-400">
                         {String(s.stepNo).padStart(2, '0')}
                       </span>
                       <span
-                        className={`text-xs font-bold px-1.5 py-0.2 rounded ${
+                        className={`text-[9px] font-bold px-1.5 py-0.2 rounded ${
                           s.defaultRole === 'PM'
                             ? 'bg-blue-100 text-blue-800'
                             : s.defaultRole === 'CEC'
@@ -630,12 +640,12 @@ export const DashboardView: React.FC<DashboardViewProps> = ({ tenders, onOpenTen
                             : 'bg-purple-100 text-purple-800'
                         }`}
                       >
-                        {s.defaultRole === 'TEC' ? 'Committee' : roleName(s.defaultRole)}
+                        {s.defaultRole}
                       </span>
                     </div>
 
                     {/* Stage Name */}
-                    <div className="text-xs font-bold text-slate-800 line-clamp-2 leading-tight min-h-[30px]" title={s.stage}>
+                    <div className="text-[11px] font-bold text-slate-800 line-clamp-2 leading-tight min-h-[30px]" title={s.stage}>
                       {s.stage}
                     </div>
                   </div>
@@ -643,10 +653,10 @@ export const DashboardView: React.FC<DashboardViewProps> = ({ tenders, onOpenTen
                   <div className="mt-3 pt-2 border-t border-slate-100">
                     {/* Big Count */}
                     <div className="flex items-baseline justify-between">
-                      <span className={`text-xl font-semibold ${isZero ? 'text-slate-400' : s.stage === 'Awarded' ? 'text-emerald-700' : 'text-slate-900'}`}>
+                      <span className={`text-xl font-black ${isZero ? 'text-slate-400' : s.stage === 'Awarded' ? 'text-emerald-700' : 'text-slate-900'}`}>
                         {s.count}
                       </span>
-                      <span className="text-xs font-bold text-slate-500">
+                      <span className="text-[10px] font-bold text-slate-500">
                         {s.count === 1 ? 'tender' : 'tenders'}
                       </span>
                     </div>
@@ -661,7 +671,7 @@ export const DashboardView: React.FC<DashboardViewProps> = ({ tenders, onOpenTen
                         }}
                       />
                     </div>
-                    <div className="text-xs text-slate-400 text-right mt-0.5 font-medium">
+                    <div className="text-[9px] text-slate-400 text-right mt-0.5 font-medium">
                       {s.countSharePercent}% of total
                     </div>
                   </div>
@@ -671,19 +681,14 @@ export const DashboardView: React.FC<DashboardViewProps> = ({ tenders, onOpenTen
           </div>
         </div>
 
-        {/* Infographic 2: Stage-wise Tender Count Bar Chart */}
+        {/* Stage-wise Tender Count Bar Chart */}
         <div className="bg-white border border-slate-200 rounded-xl p-5 shadow-xs space-y-4">
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-100 pb-3">
-            <div>
-              <h3 className="text-sm font-semibold text-slate-900">
-                Tenders per stage
-              </h3>
-              <p className="text-xs text-slate-500">
-                How many tenders are at each stage right now
-              </p>
-            </div>
+            <h3 className="text-xs font-bold text-slate-800 uppercase tracking-wider">
+              Stage Distribution
+            </h3>
             <span className="text-xs px-2.5 py-1 bg-blue-50 text-blue-700 border border-blue-200 rounded-md font-bold">
-              {totalTendersGoingOn} tenders
+              Total: {totalTendersGoingOn}
             </span>
           </div>
 
@@ -702,7 +707,7 @@ export const DashboardView: React.FC<DashboardViewProps> = ({ tenders, onOpenTen
                   allowDecimals={false}
                   stroke="#94a3b8"
                   tick={{ fontSize: 10, fill: '#64748b' }}
-                  label={{ value: 'Tenders', angle: -90, position: 'insideLeft', fill: '#64748b', fontSize: 10 }}
+                  label={{ value: 'No. of Tenders', angle: -90, position: 'insideLeft', fill: '#64748b', fontSize: 10 }}
                 />
                 <Tooltip
                   contentStyle={{
@@ -713,11 +718,11 @@ export const DashboardView: React.FC<DashboardViewProps> = ({ tenders, onOpenTen
                     color: '#0f172a',
                   }}
                   formatter={(value: any, name: any, item: any) => [
-                    `${value} tenders (${item.payload.countSharePercent}% share)`,
+                    `${value} tenders (${item.payload.countSharePercent}%)`,
                     item.payload.stage,
                   ]}
                 />
-                <Bar dataKey="count" name="Tenders" radius={[4, 4, 0, 0]}>
+                <Bar dataKey="count" name="Tenders Count" radius={[4, 4, 0, 0]}>
                   {stageBifurcationData.map((entry) => (
                     <Cell key={entry.stage} fill={entry.color} />
                   ))}
@@ -728,76 +733,60 @@ export const DashboardView: React.FC<DashboardViewProps> = ({ tenders, onOpenTen
         </div>
       </div>
 
-      {/* ========================================================================= */}
-      {/* SECTION 2: VALUE BASIS ANALYTICS (AWARDED & UNDER EACH STAGE + COUNTS)   */}
-      {/* ========================================================================= */}
+      {/* SECTION 2: VALUE ANALYTICS */}
       <div className="space-y-4 pt-4 border-t-2 border-slate-200">
         {/* Section Header */}
         <div className="flex items-center justify-between border-b border-slate-200 pb-2">
           <div className="flex items-center gap-2">
-            <span className="p-1.5 bg-emerald-100 text-emerald-800 rounded-md font-semibold text-xs">02</span>
-            <h2 className="text-base font-semibold text-slate-900">
-              Value
+            <h2 className="text-sm font-bold text-slate-800 uppercase tracking-wider">
+              Value Analytics
             </h2>
           </div>
-          
         </div>
 
         {/* 4 Value Summary Cards */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
           {/* Total Value Awarded */}
           <div className="bg-white border-2 border-emerald-500 rounded-xl p-4 shadow-xs bg-gradient-to-br from-emerald-50/40 to-white">
-            <div className="text-xs font-medium text-emerald-800 flex items-center justify-between">
-              <span>Awarded value</span>
+            <div className="text-[10px] font-bold text-emerald-800 uppercase tracking-wider flex items-center justify-between">
+              <span>Awarded Value</span>
               <Award className="w-4 h-4 text-emerald-600" />
             </div>
-            <div className="text-2xl font-semibold text-emerald-700 mt-1 truncate">
+            <div className="text-2xl font-black text-emerald-700 mt-1 truncate">
               {formatCurrencyCr(totalAwardedValueCr)}
-            </div>
-            <div className="text-xs text-emerald-800 font-medium mt-1">
-              Across <strong className="font-bold">{awardedTenders.length} awarded contracts</strong>
             </div>
           </div>
 
           {/* Total Pipeline Value (Under Stages 1-8) */}
           <div className="bg-white border border-slate-200 rounded-xl p-4 shadow-xs">
-            <div className="text-xs text-slate-500 flex items-center justify-between">
-              <span>Value in progress</span>
+            <div className="text-[10px] font-bold text-slate-400 uppercase tracking-wider flex items-center justify-between">
+              <span>Pipeline Value</span>
               <DollarSign className="w-4 h-4 text-blue-600" />
             </div>
-            <div className="text-2xl font-semibold text-blue-700 mt-1 truncate">
+            <div className="text-2xl font-black text-blue-700 mt-1 truncate">
               {formatCurrencyCr(totalPipelineValueCr)}
-            </div>
-            <div className="text-xs text-slate-500 mt-1 font-medium">
-              In-progress across <strong className="text-slate-700">{activePipelineTenders.length} tenders</strong>
             </div>
           </div>
 
           {/* Total Overall Portfolio Value */}
           <div className="bg-white border border-slate-200 rounded-xl p-4 shadow-xs">
-            <div className="text-xs text-slate-500 flex items-center justify-between">
-              <span>Total value</span>
+            <div className="text-[10px] font-bold text-slate-400 uppercase tracking-wider flex items-center justify-between">
+              <span>Total Value</span>
               <TrendingUp className="w-4 h-4 text-indigo-600" />
             </div>
-            <div className="text-2xl font-semibold text-slate-900 mt-1 truncate">
+            <div className="text-2xl font-black text-slate-900 mt-1 truncate">
               {formatCurrencyCr(totalPortfolioValueCr)}
-            </div>
-            <div className="text-xs text-slate-500 mt-1 font-medium">
-              All <strong className="text-slate-700">{totalTendersGoingOn} tenders</strong> combined
             </div>
           </div>
 
           {/* Direct Negotiation Savings */}
           <div className="bg-white border border-blue-200 bg-blue-50/40 rounded-xl p-4 shadow-xs">
-            <div className="text-xs font-medium text-blue-700 flex items-center justify-between">
-              <span>Saved in negotiation</span>
+            <div className="text-[10px] font-bold text-blue-700 uppercase tracking-wider flex items-center justify-between">
+              <span>Negotiated Savings</span>
               <Sparkles className="w-4 h-4 text-blue-600" />
             </div>
-            <div className="text-2xl font-semibold text-blue-700 mt-1 truncate">
+            <div className="text-2xl font-black text-blue-700 mt-1 truncate">
               {formatCurrencyCr(totalSavingsCr)}
-            </div>
-            <div className="text-xs text-blue-600 font-medium mt-1">
-              Estimate minus awarded value
             </div>
           </div>
         </div>
@@ -807,15 +796,9 @@ export const DashboardView: React.FC<DashboardViewProps> = ({ tenders, onOpenTen
           {/* 1. Dual-Axis Composed Chart (Value in Cr + Number of Tenders per Stage) */}
           <div className="lg:col-span-8 bg-white border border-slate-200 rounded-xl p-5 shadow-xs space-y-4">
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-100 pb-3">
-              <div>
-                <h3 className="text-sm font-semibold text-slate-900">
-                  Value and count per stage
-                </h3>
-                <p className="text-xs text-slate-500">
-                  Bars show value in ₹ crore (left axis); the line shows the number of tenders (right axis).
-                </p>
-              </div>
-              
+              <h3 className="text-xs font-bold text-slate-800 uppercase tracking-wider">
+                Value & Volume by Stage
+              </h3>
             </div>
 
             <div className="h-80 w-full">
@@ -841,7 +824,7 @@ export const DashboardView: React.FC<DashboardViewProps> = ({ tenders, onOpenTen
                     allowDecimals={false}
                     stroke="#2563eb"
                     tick={{ fontSize: 10, fill: '#2563eb' }}
-                    label={{ value: 'Tenders', angle: 90, position: 'insideRight', fill: '#2563eb', fontSize: 10 }}
+                    label={{ value: 'Tenders Count', angle: 90, position: 'insideRight', fill: '#2563eb', fontSize: 10 }}
                   />
                   <Tooltip
                     contentStyle={{
@@ -852,17 +835,17 @@ export const DashboardView: React.FC<DashboardViewProps> = ({ tenders, onOpenTen
                       color: '#0f172a',
                     }}
                     formatter={(value: any, name: any, item: any) => [
-                      name === 'totalStageValueCr'
-                        ? `₹ ${value} Cr (${item.payload.valueSharePercent}% of portfolio)`
+                      item.dataKey === 'totalStageValueCr'
+                        ? `₹ ${value} Cr (${item.payload.valueSharePercent}%)`
                         : `${value} tenders`,
-                      name === 'totalStageValueCr' ? 'Value (₹ Cr)' : 'Tenders',
+                      name,
                     ]}
                   />
                   <Legend wrapperStyle={{ fontSize: 11, paddingTop: 10 }} />
                   <Bar
                     yAxisId="left"
                     dataKey="totalStageValueCr"
-                    name="Value (₹ Cr)"
+                    name="Stage Value (₹ Cr)"
                     fill="#10b981"
                     radius={[4, 4, 0, 0]}
                   />
@@ -870,7 +853,7 @@ export const DashboardView: React.FC<DashboardViewProps> = ({ tenders, onOpenTen
                     yAxisId="right"
                     type="monotone"
                     dataKey="count"
-                    name="Tenders"
+                    name="No. of Tenders"
                     stroke="#2563eb"
                     strokeWidth={3}
                     dot={{ r: 4, fill: '#2563eb', strokeWidth: 2, stroke: '#ffffff' }}
@@ -881,14 +864,13 @@ export const DashboardView: React.FC<DashboardViewProps> = ({ tenders, onOpenTen
             </div>
           </div>
 
-          {/* 2. Donut / Pie Infographic: Value Share across Stages */}
+          {/* Donut Chart: Value Share */}
           <div className="lg:col-span-4 bg-white border border-slate-200 rounded-xl p-5 shadow-xs space-y-4 flex flex-col justify-between">
             <div className="border-b border-slate-100 pb-3">
-              <h3 className="text-sm font-semibold text-slate-900 flex items-center gap-1.5">
+              <h3 className="text-xs font-bold text-slate-800 uppercase tracking-wider flex items-center gap-1.5">
                 <PieIcon className="w-3.5 h-3.5 text-emerald-600" />
-                <span>Share of value by stage</span>
+                <span>Value Share</span>
               </h3>
-              <p className="text-xs text-slate-500">Proportional value share in ₹ Cr</p>
             </div>
 
             <div className="h-64 w-full">
@@ -926,13 +908,13 @@ export const DashboardView: React.FC<DashboardViewProps> = ({ tenders, onOpenTen
 
             <div className="space-y-1.5 max-h-36 overflow-y-auto pr-1 text-xs border-t border-slate-100 pt-2">
               {stageValueDonutData.map((item) => (
-                <div key={item.name} className="flex items-center justify-between text-xs">
+                <div key={item.name} className="flex items-center justify-between text-[11px]">
                   <div className="flex items-center gap-1.5 truncate max-w-[140px]" title={item.name}>
                     <span className="w-2.5 h-2.5 rounded-full shrink-0" style={{ backgroundColor: item.color }} />
                     <span className="text-slate-700 truncate">{item.name}</span>
                   </div>
                   <div className="flex items-center gap-2 font-mono">
-                    <span className="text-slate-500 text-xs">{item.count}t</span>
+                    <span className="text-slate-500 text-[10px]">{item.count}t</span>
                     <span className="font-bold text-slate-800">₹{item.value}Cr</span>
                   </div>
                 </div>
@@ -941,33 +923,28 @@ export const DashboardView: React.FC<DashboardViewProps> = ({ tenders, onOpenTen
           </div>
         </div>
 
-        {/* Infographic 3: Comprehensive Stage-Wise Value & Number Breakdown Table */}
+        {/* Stage-Wise Value & Number Breakdown Table */}
         <div className="bg-white border border-slate-200 rounded-xl shadow-xs overflow-hidden">
           <div className="p-4 border-b border-slate-200 flex flex-col sm:flex-row sm:items-center justify-between gap-2 bg-slate-50/50">
-            <div>
-              <h3 className="text-sm font-semibold text-slate-900 flex items-center gap-1.5">
-                <ListFilter className="w-3.5 h-3.5 text-blue-600" />
-                <span>Stage-by-Stage Value & Volume Detailed Summary</span>
-              </h3>
-              <p className="text-xs text-slate-500">
-                Complete bifurcation of tender count, total value (₹ Cr), portfolio share, and average ticket size
-              </p>
-            </div>
+            <h3 className="text-xs font-bold text-slate-800 uppercase tracking-wider flex items-center gap-1.5">
+              <ListFilter className="w-3.5 h-3.5 text-blue-600" />
+              <span>Stage Summary</span>
+            </h3>
             <span className="text-xs font-bold text-slate-700">
-              Total Portfolio: {formatCurrencyCr(totalPortfolioValueCr)}
+              Total: {formatCurrencyCr(totalPortfolioValueCr)}
             </span>
           </div>
 
           <div className="overflow-x-auto">
             <table className="w-full text-left text-xs text-slate-700">
-              <thead className="bg-slate-100/80 text-slate-600 font-medium text-xs border-b border-slate-200">
+              <thead className="bg-slate-100/80 text-slate-600 uppercase font-bold text-[10px] tracking-wider border-b border-slate-200">
                 <tr>
-                  <th className="py-2.5 px-4">Stage #</th>
-                  <th className="py-2.5 px-4">Workflow Stage</th>
-                  <th className="py-2.5 px-4">Pillar</th>
-                  <th className="py-2.5 px-4 text-center">No. of Tenders</th>
+                  <th className="py-2.5 px-4">#</th>
+                  <th className="py-2.5 px-4">Stage</th>
+                  <th className="py-2.5 px-4">Role</th>
+                  <th className="py-2.5 px-4 text-center">Tenders</th>
                   <th className="py-2.5 px-4 text-right">Volume Share</th>
-                  <th className="py-2.5 px-4 text-right">Total Stage Value (₹ Cr)</th>
+                  <th className="py-2.5 px-4 text-right">Value</th>
                   <th className="py-2.5 px-4 text-right">Value Share</th>
                   <th className="py-2.5 px-4 text-right">Avg / Tender</th>
                   <th className="py-2.5 px-4 text-center">Action</th>
@@ -996,7 +973,7 @@ export const DashboardView: React.FC<DashboardViewProps> = ({ tenders, onOpenTen
                       </td>
                       <td className="py-2.5 px-4">
                         <span
-                          className={`text-xs font-bold px-2 py-0.5 rounded ${
+                          className={`text-[10px] font-bold px-2 py-0.5 rounded ${
                             s.defaultRole === 'PM'
                               ? 'bg-blue-100 text-blue-800'
                               : s.defaultRole === 'CEC'
@@ -1037,13 +1014,13 @@ export const DashboardView: React.FC<DashboardViewProps> = ({ tenders, onOpenTen
                             e.stopPropagation();
                             setSelectedStageModal(s.stage);
                           }}
-                          className={`text-xs px-2 py-1 rounded font-semibold transition-all ${
+                          className={`text-[11px] px-2 py-1 rounded font-semibold transition-all ${
                             s.count > 0
                               ? 'bg-blue-50 text-blue-700 hover:bg-blue-100 cursor-pointer'
                               : 'bg-slate-50 text-slate-300 cursor-not-allowed'
                           }`}
                         >
-                          Inspect ({s.count})
+                          Inspect
                         </button>
                       </td>
                     </tr>
@@ -1052,14 +1029,14 @@ export const DashboardView: React.FC<DashboardViewProps> = ({ tenders, onOpenTen
               </tbody>
               <tfoot className="bg-slate-100/90 font-bold border-t border-slate-200 text-slate-800 text-xs">
                 <tr>
-                  <td colSpan={3} className="py-3 px-4 text-xs font-medium text-slate-600">
-                    Grand Total
+                  <td colSpan={3} className="py-3 px-4 uppercase text-[10px] tracking-wider text-slate-600">
+                    Total
                   </td>
-                  <td className="py-3 px-4 text-center font-semibold text-blue-700 text-sm">
+                  <td className="py-3 px-4 text-center font-black text-blue-700 text-sm">
                     {totalTendersGoingOn}
                   </td>
                   <td className="py-3 px-4 text-right font-mono">100.0%</td>
-                  <td className="py-3 px-4 text-right font-semibold text-emerald-700 text-sm">
+                  <td className="py-3 px-4 text-right font-black text-emerald-700 text-sm">
                     {formatCurrencyCr(totalPortfolioValueCr)}
                   </td>
                   <td className="py-3 px-4 text-right font-mono">100.0%</td>
@@ -1085,23 +1062,22 @@ export const DashboardView: React.FC<DashboardViewProps> = ({ tenders, onOpenTen
       {/* POPUP MODAL: Inspect Tenders in Selected Stage                           */}
       {/* ========================================================================= */}
       {selectedStageModal && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/60 backdrop-blur-xs">
-          <div className="bg-white rounded-2xl shadow-xl max-w-4xl w-full max-h-[85vh] flex flex-col overflow-hidden border border-slate-200">
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 bg-slate-900/60 backdrop-blur-xs animate-fadeIn">
+          <div className="bg-white rounded-2xl shadow-2xl max-w-[96vw] xl:max-w-[1550px] w-full h-[92vh] max-h-[92vh] flex flex-col overflow-hidden border border-slate-200">
             {/* Modal Header */}
-            <div className="p-4 border-b border-slate-200 flex items-center justify-between bg-slate-50">
-              <div className="flex items-center gap-2.5">
+            <div className="p-4 sm:p-5 border-b border-slate-200 flex items-center justify-between bg-slate-50 shrink-0">
+              <div className="flex items-center gap-3">
                 <span
-                  className="w-3 h-3 rounded-full"
+                  className="w-3.5 h-3.5 rounded-full shrink-0"
                   style={{ backgroundColor: STAGE_COLORS[selectedStageModal] || '#3b82f6' }}
                 />
                 <div>
-                  <h3 className="text-sm font-bold text-slate-800">
-                    Stage: {selectedStageModal} ({modalStageTenders.length} {modalStageTenders.length === 1 ? 'Tender' : 'Tenders'})
+                  <h3 className="text-base font-bold text-slate-800">
+                    {selectedStageModal} ({modalStageTenders.length})
                   </h3>
-                  <p className="text-xs text-slate-500">
-                    Total Value in this Stage:{' '}
-                    <strong>
-                      {formatCurrencyCr(
+                  <div className="text-xs text-slate-500 flex items-center gap-3 mt-0.5">
+                    <span>
+                      Total: <strong>{formatCurrencyCr(
                         modalStageTenders.reduce(
                           (acc, t) =>
                             acc +
@@ -1110,87 +1086,242 @@ export const DashboardView: React.FC<DashboardViewProps> = ({ tenders, onOpenTen
                               : t.estimate_value_cr || 0),
                           0
                         )
-                      )}
-                    </strong>
-                  </p>
+                      )}</strong>
+                    </span>
+                  </div>
+                </div>
+              </div>
+
+              <div className="flex items-center gap-2">
+                <button
+                  onClick={() => setSelectedStageModal(null)}
+                  className="px-3 py-1.5 text-xs font-semibold text-slate-600 hover:text-slate-900 bg-white border border-slate-300 rounded-lg hover:bg-slate-100 transition-colors cursor-pointer"
+                >
+                  Close
+                </button>
+              </div>
+            </div>
+
+            {/* Modal Body: Full data table like all pages */}
+            <div className="overflow-y-auto flex-1 p-4 sm:p-6">
+              {modalStageTenders.length === 0 ? (
+                <div className="text-center py-16 text-slate-400 text-xs">
+                  No tenders
+                </div>
+              ) : (
+                <div className="bg-white border border-slate-200 rounded-xl overflow-hidden shadow-xs">
+                  <table className="w-full text-left text-xs border-collapse">
+                    <thead className="bg-slate-50 text-slate-700 border-b border-slate-200 font-semibold uppercase text-[10px] tracking-wider">
+                      <tr>
+                        <th className="py-3 px-4 w-12 text-center">#</th>
+                        <th className="py-3 px-4">PR / CRFQ No</th>
+                        <th className="py-3 px-4 min-w-[260px]">Description</th>
+                        <th className="py-3 px-4">Category</th>
+                        <th className="py-3 px-4">Type</th>
+                        <th className="py-3 px-4">Lead PM</th>
+                        <th className="py-3 px-4">Current Holder</th>
+                        <th className="py-3 px-4 text-right">Value</th>
+                        <th className="py-3 px-4 text-center">Action</th>
+                      </tr>
+                    </thead>
+                    <tbody className="divide-y divide-slate-100 text-slate-700">
+                      {modalStageTenders.map((tender, idx) => (
+                        <tr
+                          key={`${tender.sr_no}-${tender.pr_no}`}
+                          onClick={() => {
+                            setSelectedStageModal(null);
+                            onOpenTender(tender);
+                          }}
+                          className="hover:bg-blue-50/60 transition-colors cursor-pointer group"
+                        >
+                          <td className="py-3 px-4 text-center font-mono text-slate-400 text-[11px]">
+                            {idx + 1}
+                          </td>
+                          <td className="py-3 px-4 font-mono font-bold text-blue-700">
+                            <div>{tender.pr_no}</div>
+                            {tender.crfq_no && (
+                              <div className="text-[10px] text-slate-400 font-normal">
+                                {tender.crfq_no}
+                              </div>
+                            )}
+                          </td>
+                          <td className="py-3 px-4">
+                            <span className="font-semibold text-slate-900 group-hover:text-blue-700 line-clamp-2">
+                              {tender.item_description}
+                            </span>
+                          </td>
+                          <td className="py-3 px-4">
+                            <span className="px-2 py-0.5 rounded text-[11px] font-semibold bg-slate-100 text-slate-700">
+                              {tender.user_function}
+                            </span>
+                          </td>
+                          <td className="py-3 px-4 text-slate-600">
+                            {tender.tender_type}
+                          </td>
+                          <td className="py-3 px-4 font-medium text-slate-800">
+                            {tender.pm_officer}
+                          </td>
+                          <td className="py-3 px-4">
+                            {tender.current_holder ? (
+                              <span className="font-semibold text-amber-700">
+                                {tender.current_holder} ({tender.current_role})
+                              </span>
+                            ) : (
+                              <span className="text-slate-400">—</span>
+                            )}
+                          </td>
+                          <td className="py-3 px-4 text-right font-mono font-bold text-slate-900">
+                            {formatCurrencyCr(
+                              selectedStageModal === 'Awarded' && tender.awarded_value_cr
+                                ? tender.awarded_value_cr
+                                : tender.estimate_value_cr
+                            )}
+                          </td>
+                          <td className="py-3 px-4 text-center">
+                            <button
+                              onClick={(e) => {
+                                e.stopPropagation();
+                                setSelectedStageModal(null);
+                                onOpenTender(tender);
+                              }}
+                              className="px-2.5 py-1 text-[11px] font-semibold text-blue-700 hover:text-white bg-blue-50 hover:bg-blue-600 rounded-lg transition-colors cursor-pointer"
+                            >
+                              Open
+                            </button>
+                          </td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+              )}
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Cancelled Tenders Inspection Modal */}
+      {isCancelledModalOpen && (
+        <div className="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-xs flex items-center justify-center p-4 animate-fadeIn">
+          <div className="bg-white rounded-2xl max-w-4xl w-full max-h-[85vh] shadow-2xl border border-slate-200 overflow-hidden flex flex-col animate-scaleUp">
+            {/* Modal Header */}
+            <div className="p-4 sm:p-5 border-b border-rose-200 bg-rose-50 flex items-center justify-between gap-4">
+              <div className="flex items-center gap-3">
+                <div className="p-2.5 bg-rose-600 text-white rounded-xl shadow-xs">
+                  <Ban className="w-5 h-5" />
+                </div>
+                <div>
+                  <h3 className="text-base font-bold text-rose-950 flex items-center gap-2">
+                    <span>Cancelled Tenders</span>
+                    <span className="px-2 py-0.5 rounded text-xs font-bold bg-rose-200 text-rose-900">
+                      {cancelledTenders.length}
+                    </span>
+                  </h3>
                 </div>
               </div>
 
               <button
-                onClick={() => setSelectedStageModal(null)}
-                className="text-slate-400 hover:text-slate-700 p-1.5 rounded-lg hover:bg-slate-200 transition-colors cursor-pointer"
+                onClick={() => setIsCancelledModalOpen(false)}
+                className="p-1.5 text-slate-400 hover:text-slate-700 rounded-lg hover:bg-white/80 transition-colors cursor-pointer"
               >
-                ✕
+                <X className="w-5 h-5" />
               </button>
             </div>
 
-            {/* Modal Body List */}
-            <div className="p-4 overflow-y-auto space-y-2.5 max-h-[60vh]">
-              {modalStageTenders.length === 0 ? (
-                <div className="text-center py-8 text-slate-400 text-xs">
-                  No tenders currently in this stage matching active filters.
+            {/* Modal Body */}
+            <div className="p-4 overflow-y-auto flex-1 space-y-3">
+              {cancelledTenders.length === 0 ? (
+                <div className="p-8 text-center text-slate-400">
+                  <p className="text-xs font-semibold text-slate-600">No cancelled tenders</p>
                 </div>
               ) : (
-                modalStageTenders.map((tender) => (
-                  <div
-                    key={`${tender.sr_no}-${tender.pr_no}`}
-                    onClick={() => {
-                      setSelectedStageModal(null);
-                      onOpenTender(tender);
-                    }}
-                    className="p-3.5 bg-slate-50 hover:bg-white border border-slate-200 hover:border-blue-400 rounded-xl transition-all cursor-pointer flex flex-col sm:flex-row sm:items-center justify-between gap-3 shadow-2xs group"
-                  >
-                    <div className="space-y-1 max-w-lg">
-                      <div className="flex items-center gap-2">
-                        <span className="font-mono text-xs font-bold text-blue-700 bg-blue-50 px-2 py-0.5 rounded border border-blue-200">
-                          {tender.pr_no}
-                        </span>
-                        {tender.crfq_no && (
-                          <span className="font-mono text-xs text-slate-600 bg-slate-100 px-1.5 py-0.5 rounded">
-                            CRFQ: {tender.crfq_no}
-                          </span>
-                        )}
-                        <span className="text-xs font-semibold text-slate-500 bg-slate-100 px-1.5 py-0.5 rounded">
-                          {tender.tender_type}
-                        </span>
-                      </div>
-                      <div className="text-xs font-bold text-slate-800 line-clamp-1 group-hover:text-blue-600 transition-colors">
-                        {tender.item_description}
-                      </div>
-                      <div className="text-xs text-slate-500 flex items-center gap-2">
-                        <span>Lead PM: <strong>{tender.pm_officer}</strong></span>
-                        <span>•</span>
-                        <span>Current Holder: <strong className="text-blue-700">{tender.current_holder}</strong></span>
-                      </div>
-                    </div>
+                <div className="space-y-3">
+                  {cancelledTenders.map((tender) => {
+                    const cInfo = tender.cancellation_info;
+                    return (
+                      <div
+                        key={`cancelled-tender-${tender.sr_no}`}
+                        className="p-4 rounded-xl border border-rose-200 bg-rose-50/30 hover:bg-rose-50/60 transition-colors shadow-2xs space-y-2.5"
+                      >
+                        <div className="flex flex-wrap items-center justify-between gap-2">
+                          <div className="flex items-center gap-2">
+                            <span className="font-mono font-bold text-xs bg-white text-blue-700 px-2 py-0.5 rounded border border-slate-200">
+                              {tender.pr_no}
+                            </span>
+                            {tender.crfq_no && (
+                              <span className="font-mono text-xs text-slate-500">
+                                {tender.crfq_no}
+                              </span>
+                            )}
+                            <span className="px-2 py-0.5 rounded text-[10px] font-bold bg-rose-100 text-rose-800 border border-rose-200">
+                              Cancelled at: {cInfo?.stage_at_cancellation || '—'}
+                            </span>
+                          </div>
 
-                    <div className="flex sm:flex-col items-end justify-between sm:justify-center gap-1 shrink-0">
-                      <div className="text-right">
-                        <div className="text-xs font-semibold text-slate-900 font-mono">
-                          {formatCurrencyCr(
-                            selectedStageModal === 'Awarded' && tender.awarded_value_cr
-                              ? tender.awarded_value_cr
-                              : tender.estimate_value_cr
+                          <div className="text-xs font-bold text-slate-900">
+                            Estimate: {formatCurrencyCr(tender.estimate_value_cr)}
+                          </div>
+                        </div>
+
+                        <div>
+                          <h4 className="text-xs font-bold text-slate-900 leading-snug">
+                            {tender.item_description}
+                          </h4>
+                        </div>
+
+                        {/* Cancellation Details */}
+                        <div className="p-2.5 bg-white rounded-lg border border-rose-100 text-xs space-y-1.5">
+                          <div className="flex items-center justify-between text-[11px] text-slate-500">
+                            <span>
+                              <strong>Cancelled By:</strong> {cInfo?.cancelled_by || tender.pm_officer} ({cInfo?.cancelled_role || 'PM'})
+                            </span>
+                            <span>
+                              <strong>Date:</strong> {cInfo?.cancelled_on || '—'}
+                            </span>
+                          </div>
+                          <div>
+                            <span className="text-[11px] font-bold text-rose-800 block">
+                              Reason:
+                            </span>
+                            <p className="text-xs font-medium text-slate-800">
+                              {cInfo?.reason || '—'}
+                            </p>
+                          </div>
+                          {cInfo?.remarks && (
+                            <div>
+                              <span className="text-[10px] font-bold text-slate-400 block uppercase">
+                                Justification Note:
+                              </span>
+                              <p className="text-[11px] text-slate-600 italic">
+                                &quot;{cInfo.remarks}&quot;
+                              </p>
+                            </div>
                           )}
                         </div>
-                        <div className="text-xs text-slate-500 font-medium">
-                          {selectedStageModal === 'Awarded' ? 'Awarded Value' : 'Estimate Value'}
+
+                        {/* Footer Action */}
+                        <div className="flex justify-end pt-1">
+                          <button
+                            onClick={() => {
+                              setIsCancelledModalOpen(false);
+                              onOpenTender(tender);
+                            }}
+                            className="px-3 py-1.5 text-xs font-semibold text-rose-700 bg-white hover:bg-rose-100 border border-rose-200 rounded-lg transition-colors cursor-pointer"
+                          >
+                            Open
+                          </button>
                         </div>
                       </div>
-                      <span className="text-xs text-blue-600 font-bold flex items-center gap-0.5 group-hover:translate-x-0.5 transition-transform">
-                        Open File <ChevronRight className="w-3 h-3" />
-                      </span>
-                    </div>
-                  </div>
-                ))
+                    );
+                  })}
+                </div>
               )}
             </div>
 
-            {/* Modal Footer */}
             <div className="p-3 bg-slate-50 border-t border-slate-200 flex justify-end">
               <button
-                onClick={() => setSelectedStageModal(null)}
-                className="px-4 py-1.5 text-xs font-semibold text-slate-700 hover:text-slate-900 bg-white border border-slate-300 rounded-lg hover:bg-slate-100 transition-colors cursor-pointer"
+                onClick={() => setIsCancelledModalOpen(false)}
+                className="px-4 py-1.5 text-xs font-bold text-slate-700 bg-white border border-slate-300 rounded-lg hover:bg-slate-100 cursor-pointer"
               >
                 Close
               </button>

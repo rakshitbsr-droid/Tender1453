@@ -60,10 +60,10 @@ export const ExcelComparisonView: React.FC = () => {
         <div className="relative z-10 max-w-3xl">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-bold bg-white/10 text-white border border-white/20 mb-3">
             <Sparkles className="w-3.5 h-3.5 text-blue-200" />
-            <span>Why move off the spreadsheet</span>
+            <span>Executive Business Case for CPO Leadership</span>
           </div>
           <h2 className="text-xl sm:text-2xl font-bold text-white leading-snug">
-            From an Excel tracker to a shared tender workflow
+            Migrating from Group 4 Excel Tracker to an Enterprise Tender Management Platform
           </h2>
           <p className="text-xs sm:text-sm text-blue-100 mt-2 leading-relaxed">
             Transitioning our procurement operations into a digital workflow platform eliminates version friction, delivers granular file turnaround auditability between Procurement, Finance, and Estimation, and compresses tender cycle times by over 30%.
@@ -77,7 +77,7 @@ export const ExcelComparisonView: React.FC = () => {
           <div className="w-8 h-8 rounded-lg bg-blue-50 text-blue-600 border border-blue-100 flex items-center justify-center mb-3">
             <Clock className="w-4 h-4" />
           </div>
-          <h4 className="text-sm font-semibold text-slate-900">35% Faster Cycles</h4>
+          <h4 className="text-xs font-bold text-slate-800 uppercase tracking-wider">35% Faster Cycles</h4>
           <p className="text-xs text-slate-500 mt-1 leading-relaxed">
             Automated handoffs and bottleneck notifications remove idle wait time between PM, FM, and CEC.
           </p>
@@ -87,7 +87,7 @@ export const ExcelComparisonView: React.FC = () => {
           <div className="w-8 h-8 rounded-lg bg-emerald-50 text-emerald-600 border border-emerald-100 flex items-center justify-center mb-3">
             <ShieldCheck className="w-4 h-4" />
           </div>
-          <h4 className="text-sm font-semibold text-slate-900">100% Audit Traceability</h4>
+          <h4 className="text-xs font-bold text-slate-800 uppercase tracking-wider">100% Audit Traceability</h4>
           <p className="text-xs text-slate-500 mt-1 leading-relaxed">
             Immutable time ledger tracking every officer handoff, committee sanction, and document clearance.
           </p>
@@ -97,7 +97,7 @@ export const ExcelComparisonView: React.FC = () => {
           <div className="w-8 h-8 rounded-lg bg-amber-50 text-amber-600 border border-amber-100 flex items-center justify-center mb-3">
             <Users className="w-4 h-4" />
           </div>
-          <h4 className="text-sm font-semibold text-slate-900">Multi-Pillar Synergy</h4>
+          <h4 className="text-xs font-bold text-slate-800 uppercase tracking-wider">Multi-Pillar Synergy</h4>
           <p className="text-xs text-slate-500 mt-1 leading-relaxed">
             Seamless concurrent check by multiple Procurement Managers and Finance Managers simultaneously.
           </p>
@@ -107,7 +107,7 @@ export const ExcelComparisonView: React.FC = () => {
           <div className="w-8 h-8 rounded-lg bg-indigo-50 text-indigo-600 border border-indigo-100 flex items-center justify-center mb-3">
             <TrendingUp className="w-4 h-4" />
           </div>
-          <h4 className="text-sm font-semibold text-slate-900">Real-time CPO Analytics</h4>
+          <h4 className="text-xs font-bold text-slate-800 uppercase tracking-wider">Real-time CPO Analytics</h4>
           <p className="text-xs text-slate-500 mt-1 leading-relaxed">
             Instant executive dashboards tracking Rs Cr pipeline value, negotiated savings, and officer workloads.
           </p>
@@ -118,30 +118,30 @@ export const ExcelComparisonView: React.FC = () => {
       <div className="bg-white border border-slate-200 rounded-xl p-5 shadow-xs space-y-4">
         <div className="flex items-center justify-between">
           <div>
-            <h3 className="text-sm font-semibold text-slate-900">
-              Side by side
+            <h3 className="text-xs font-bold text-slate-800 uppercase tracking-wider">
+              Detailed Operational Matrix: Excel Tracker vs Platform
             </h3>
-            <p className="text-xs text-slate-500">
-              What changes for the people doing the work
+            <p className="text-[11px] text-slate-500">
+              Comparative analysis justifying migration to enterprise workflow architecture
             </p>
           </div>
         </div>
 
         <div className="border border-slate-200 rounded-lg overflow-hidden">
-          <table className="w-full text-left text-sm border-collapse">
+          <table className="w-full text-left text-xs border-collapse">
             <thead>
               <tr className="bg-slate-50 text-slate-700 border-b border-slate-200">
-                <th className="py-3 px-4 font-bold w-1/4">Task</th>
+                <th className="py-3 px-4 font-bold w-1/4">Operational Capability</th>
                 <th className="py-3 px-4 font-bold w-1/3 text-rose-700">
                   <div className="flex items-center gap-1.5">
                     <XCircle className="w-3.5 h-3.5 text-rose-600" />
-                    <span>Excel tracker</span>
+                    <span>Existing Excel Spreadsheet</span>
                   </div>
                 </th>
                 <th className="py-3 px-4 font-bold w-1/3 text-emerald-700">
                   <div className="flex items-center gap-1.5">
                     <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600" />
-                    <span>This app</span>
+                    <span>Proposed Web Workflow Platform</span>
                   </div>
                 </th>
               </tr>
@@ -151,7 +151,7 @@ export const ExcelComparisonView: React.FC = () => {
                 <tr key={idx} className="hover:bg-slate-50/60 transition-colors">
                   <td className="py-3.5 px-4 font-semibold text-slate-900">
                     <div>{item.feature}</div>
-                    <div className="text-xs text-blue-700 font-bold mt-0.5">{item.impact}</div>
+                    <div className="text-[10px] text-blue-700 font-bold mt-0.5">{item.impact}</div>
                   </td>
                   <td className="py-3.5 px-4 text-slate-600 bg-rose-50/40 leading-relaxed border-x border-slate-100">
                     {item.excel}

@@ -1,3 +1,4 @@
+using System.Text.Json;
 using System.Text.Json.Serialization;
 
 namespace TenderTracker.Api.Models;
@@ -16,4 +17,7 @@ public sealed record UserProfile
 
     [JsonPropertyName("email")] public string Email { get; init; } = "";
     [JsonPropertyName("avatarColor")] public string AvatarColor { get; init; } = "";
+
+    // assignedGroups, isGroupLeader, visibilityScope, canEditMasters, ... (see src/types.ts)
+    [JsonExtensionData] public Dictionary<string, JsonElement>? Extra { get; init; }
 }

@@ -1,8 +1,11 @@
+using System.Text.Json;
 using System.Text.Json.Serialization;
 
 namespace TenderTracker.Api.Models;
 
-// JSON names mirror the frontend contract in src/types.ts exactly.
+// JSON names mirror the frontend contract in src/types.ts exactly. Only the fields the API reads are
+// declared; everything else in src/types.ts (creator, sign-offs, evaluation, post-award steps,
+// cancellation, ...) passes through Extra untouched, so the frontend type can grow without changes here.
 public sealed record Tender
 {
     [JsonPropertyName("sr_no")] public int SrNo { get; init; }
@@ -20,7 +23,8 @@ public sealed record Tender
     [JsonPropertyName("tender_type")] public string TenderType { get; init; } = "";
     [JsonPropertyName("tender_floated_on")] public string TenderFloatedOn { get; init; } = "";
     [JsonPropertyName("tender_opened_due_on")] public string TenderOpenedDueOn { get; init; } = "";
-    [JsonPropertyName("estimate_value_cr")] public double EstimateValueCr { get; init; }
+    // Null until the estimation officer enters it
+    [JsonPropertyName("estimate_value_cr")] public double? EstimateValueCr { get; init; }
     [JsonPropertyName("brief_status")] public string BriefStatus { get; init; } = "";
     [JsonPropertyName("awarded_value_cr")] public double? AwardedValueCr { get; init; }
     [JsonPropertyName("tec_proposed_on")] public string TecProposedOn { get; init; } = "";
@@ -45,6 +49,8 @@ public sealed record Tender
 
     [JsonPropertyName("days_by_role")] public DaysByRole DaysByRole { get; init; } = new();
     [JsonPropertyName("timeline")] public List<TimelineLogEntry> Timeline { get; init; } = [];
+
+    [JsonExtensionData] public Dictionary<string, JsonElement>? Extra { get; init; }
 }
 
 public sealed record DaysByRole
@@ -75,4 +81,6 @@ public sealed record TimelineLogEntry
     [JsonPropertyName("action_type")]
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     public string? ActionType { get; init; }
+
+    [JsonExtensionData] public Dictionary<string, JsonElement>? Extra { get; init; }
 }

@@ -6,7 +6,7 @@ var builder = WebApplication.CreateBuilder(args);
 var port = Environment.GetEnvironmentVariable("PORT");
 if (!string.IsNullOrWhiteSpace(port)) builder.WebHost.UseUrls($"http://0.0.0.0:{port}");
 
-// Models carry explicit [JsonPropertyName]s, so no naming policy is applied.
+// Models carry explicit [JsonPropertyName]s and pass unknown fields through, so no naming policy is applied.
 builder.Services.AddControllers()
     .AddJsonOptions(o => o.JsonSerializerOptions.PropertyNamingPolicy = null);
 builder.Services.AddSingleton<TenderStore>();

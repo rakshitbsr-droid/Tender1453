@@ -10,7 +10,6 @@ import {
   formatCurrencyCr,
   formatNumber,
   getStageBadgeColor,
-  roleName,
 } from '../utils/tenderUtils';
 import {
   ResponsiveContainer,
@@ -257,40 +256,26 @@ export const GroupWorkloadSection: React.FC<GroupWorkloadSectionProps> = ({
       {/* Section Header */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-200 pb-2">
         <div className="flex items-center gap-2">
-          <span className="p-1.5 bg-indigo-100 text-indigo-700 rounded-md font-semibold text-xs">
-            03
-          </span>
-          <div>
-            <h2 className="text-base font-semibold text-slate-900 flex items-center gap-2">
-              <span>Workload by group</span>
-              <span className="text-xs font-semibold text-indigo-700 bg-indigo-50 border border-indigo-200 px-2 py-0.5 rounded">
-                Open tenders only
-              </span>
-            </h2>
-          </div>
+          <h2 className="text-sm font-bold text-slate-800 uppercase tracking-wider">
+            Group Workload
+          </h2>
         </div>
-        
       </div>
 
       {/* Group Selector Navigation Pills */}
       <div className="bg-white border border-slate-200 rounded-xl p-4 shadow-xs space-y-3">
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-3">
-          <div>
-            <span className="text-sm font-medium text-slate-700 flex items-center gap-1.5">
-              <Building className="w-3.5 h-3.5 text-indigo-600" />
-              <span>Group</span>
-            </span>
-            <p className="text-xs text-slate-500 mt-0.5">
-              Pick a group to see its officers and what each one is working on.
-            </p>
-          </div>
+          <span className="text-xs font-bold text-slate-700 uppercase tracking-wider flex items-center gap-1.5">
+            <Building className="w-3.5 h-3.5 text-indigo-600" />
+            <span>Group</span>
+          </span>
 
           {/* Quick Search within Group Officers */}
           <div className="relative w-full sm:w-64">
             <Search className="w-3.5 h-3.5 absolute left-2.5 top-2.5 text-slate-400" />
             <input
               type="text"
-              placeholder="Search officers in this group"
+              placeholder="Search officer..."
               value={officerSearch}
               onChange={(e) => setOfficerSearch(e.target.value)}
               className="w-full pl-8 pr-3 py-1.5 bg-slate-50 border border-slate-200 rounded-lg text-xs text-slate-800 placeholder-slate-400 focus:outline-none focus:border-indigo-500 focus:bg-white"
@@ -325,22 +310,11 @@ export const GroupWorkloadSection: React.FC<GroupWorkloadSectionProps> = ({
                   >
                     {grp}
                   </span>
-                  {grp === 'Group 4' && (
-                    <span
-                      className={`text-xs font-semibold px-1.5 py-0.2 rounded ${
-                        isSelected
-                          ? 'bg-white text-indigo-700'
-                          : 'bg-indigo-100 text-indigo-800'
-                      }`}
-                    >
-                      Target
-                    </span>
-                  )}
                 </div>
 
                 <div className="mt-2 space-y-0.5">
                   <div
-                    className={`text-xs font-semibold flex items-center justify-between ${
+                    className={`text-[11px] font-semibold flex items-center justify-between ${
                       isSelected ? 'text-indigo-100' : 'text-slate-500'
                     }`}
                   >
@@ -350,13 +324,13 @@ export const GroupWorkloadSection: React.FC<GroupWorkloadSectionProps> = ({
                     </strong>
                   </div>
                   <div
-                    className={`text-xs font-semibold flex items-center justify-between ${
+                    className={`text-[11px] font-semibold flex items-center justify-between ${
                       isSelected ? 'text-indigo-100' : 'text-slate-500'
                     }`}
                   >
                     <span>Working:</span>
                     <strong
-                      className={`font-semibold ${
+                      className={`font-black ${
                         isSelected ? 'text-amber-300' : 'text-amber-700'
                       }`}
                     >
@@ -378,14 +352,14 @@ export const GroupWorkloadSection: React.FC<GroupWorkloadSectionProps> = ({
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
           {/* 1. Total Officers in Group */}
           <div className="bg-white border-2 border-indigo-500/80 rounded-xl p-4 shadow-xs bg-gradient-to-br from-indigo-50/50 to-white">
-            <div className="text-xs font-medium text-indigo-700 flex items-center justify-between">
+            <div className="text-[10px] font-bold text-indigo-700 uppercase tracking-wider flex items-center justify-between">
               <span>Officers in {currentGroupSummary.groupName}</span>
               <Users className="w-4 h-4 text-indigo-600" />
             </div>
-            <div className="text-3xl font-semibold text-slate-900 mt-1">
+            <div className="text-3xl font-black text-slate-900 mt-1">
               {currentGroupSummary.totalOfficers}
             </div>
-            <div className="text-xs text-slate-600 mt-1 font-medium flex items-center gap-1.5 flex-wrap">
+            <div className="text-[11px] text-slate-600 mt-1 font-medium flex items-center gap-1.5 flex-wrap">
               <span className="font-bold text-blue-700">
                 {currentGroupSummary.pmCount} PMs
               </span>
@@ -400,46 +374,37 @@ export const GroupWorkloadSection: React.FC<GroupWorkloadSectionProps> = ({
             </div>
           </div>
 
-          {/* 2. Total Working Tenders (Not Awarded) */}
+          {/* 2. Total Working Tenders */}
           <div className="bg-white border-2 border-amber-500/70 rounded-xl p-4 shadow-xs bg-gradient-to-br from-amber-50/40 to-white">
-            <div className="text-xs font-bold text-amber-800  flex items-center justify-between">
-              <span>Working Tenders (Not Awarded)</span>
+            <div className="text-[10px] font-bold text-amber-800 uppercase tracking-wider flex items-center justify-between">
+              <span>Working Tenders</span>
               <Briefcase className="w-4 h-4 text-amber-600" />
             </div>
-            <div className="text-3xl font-semibold text-amber-600 mt-1">
+            <div className="text-3xl font-black text-amber-600 mt-1">
               {currentGroupSummary.totalWorkingTendersCount}
-            </div>
-            <div className="text-xs text-slate-600 mt-1">
-              Active in-pipeline assignments across {currentGroupSummary.groupName} officers
             </div>
           </div>
 
           {/* 3. Total In-Progress Working Value */}
           <div className="bg-white border border-slate-200 rounded-xl p-4 shadow-xs">
-            <div className="text-xs text-slate-500 flex items-center justify-between">
-              <span>Active Working Value (₹ Cr)</span>
+            <div className="text-[10px] font-bold text-slate-400 uppercase tracking-wider flex items-center justify-between">
+              <span>Working Value</span>
               <Layers className="w-4 h-4 text-emerald-600" />
             </div>
-            <div className="text-2xl font-semibold text-emerald-700 mt-1 font-mono">
+            <div className="text-2xl font-black text-emerald-700 mt-1 font-mono">
               {formatCurrencyCr(currentGroupSummary.totalWorkingValueCr)}
-            </div>
-            <div className="text-xs text-slate-500 mt-1">
-              Benchmark estimate volume in execution
             </div>
           </div>
 
           {/* 4. Average Workload per Officer */}
           <div className="bg-white border border-slate-200 rounded-xl p-4 shadow-xs">
-            <div className="text-xs text-slate-500 flex items-center justify-between">
+            <div className="text-[10px] font-bold text-slate-400 uppercase tracking-wider flex items-center justify-between">
               <span>Avg. Workload / Officer</span>
               <Clock className="w-4 h-4 text-purple-600" />
             </div>
-            <div className="text-2xl font-semibold text-purple-700 mt-1">
+            <div className="text-2xl font-black text-purple-700 mt-1">
               {currentGroupSummary.avgTendersPerOfficer}{' '}
-              <span className="text-xs font-normal text-slate-500">tenders/officer</span>
-            </div>
-            <div className="text-xs text-slate-500 mt-1">
-              Average per officer
+              <span className="text-xs font-normal text-slate-500">tenders</span>
             </div>
           </div>
         </div>
@@ -449,18 +414,11 @@ export const GroupWorkloadSection: React.FC<GroupWorkloadSectionProps> = ({
           {/* Left Chart (8 cols): Working Tenders per Officer in this Group */}
           <div className="lg:col-span-8 bg-white border border-slate-200 rounded-xl p-5 shadow-xs space-y-3">
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-100 pb-3">
-              <div>
-                <h3 className="text-sm font-semibold text-slate-900 flex items-center gap-1.5">
-                  <BarChart3 className="w-3.5 h-3.5 text-indigo-600" />
-                  <span>
-                    {currentGroupSummary.groupName}: open tenders per officer
-                  </span>
-                </h3>
-                <p className="text-xs text-slate-500">
-                  Number of active in-pipeline tenders currently handled by each officer
-                </p>
-              </div>
-              <div className="flex items-center gap-2 text-xs font-bold">
+              <h3 className="text-xs font-bold text-slate-800 uppercase tracking-wider flex items-center gap-1.5">
+                <BarChart3 className="w-3.5 h-3.5 text-indigo-600" />
+                <span>Working Tenders per Officer</span>
+              </h3>
+              <div className="flex items-center gap-2 text-[10px] font-bold">
                 <span className="flex items-center gap-1 text-blue-700">
                   <span className="w-2.5 h-2.5 rounded-full bg-blue-500"></span> PM
                 </span>
@@ -475,7 +433,7 @@ export const GroupWorkloadSection: React.FC<GroupWorkloadSectionProps> = ({
 
             {officerChartData.length === 0 ? (
               <div className="h-64 flex items-center justify-center text-xs text-slate-400">
-                No officers found for {currentGroupSummary.groupName}
+                No officers
               </div>
             ) : (
               <div className="h-72 w-full">
@@ -506,17 +464,17 @@ export const GroupWorkloadSection: React.FC<GroupWorkloadSectionProps> = ({
                             <div className="bg-slate-900 text-white p-3 rounded-lg shadow-xl text-xs space-y-1 z-50 border border-slate-700">
                               <div className="font-bold flex items-center justify-between gap-4 text-slate-100 border-b border-slate-800 pb-1">
                                 <span>{data.fullName}</span>
-                                <span className="text-xs px-1.5 py-0.5 rounded bg-slate-800 text-amber-400 font-mono">
-                                  {roleName(data.role)}
+                                <span className="text-[10px] px-1.5 py-0.5 rounded bg-slate-800 text-amber-400 font-mono">
+                                  {data.role}
                                 </span>
                               </div>
                               <div className="text-amber-300 font-bold">
-                                Working Tenders (Not Awarded): {data.workingCount}
+                                Working Tenders: {data.workingCount}
                               </div>
-                              <div className="text-slate-300 text-xs">
-                                Currently on Desk: <strong>{data.holdingCount}</strong>
+                              <div className="text-slate-300 text-[11px]">
+                                On Desk: <strong>{data.holdingCount}</strong>
                               </div>
-                              <div className="text-emerald-400 text-xs font-mono">
+                              <div className="text-emerald-400 text-[11px] font-mono">
                                 Active Value: {formatCurrencyCr(data.workingValueCr)}
                               </div>
                             </div>
@@ -540,20 +498,15 @@ export const GroupWorkloadSection: React.FC<GroupWorkloadSectionProps> = ({
           <div className="lg:col-span-4 bg-white border border-slate-200 rounded-xl p-5 shadow-xs space-y-3 flex flex-col justify-between">
             <div>
               <div className="flex items-center justify-between border-b border-slate-100 pb-3">
-                <div>
-                  <h3 className="text-sm font-semibold text-slate-900 flex items-center gap-1.5">
-                    <PieIcon className="w-3.5 h-3.5 text-indigo-600" />
-                    <span>Open tenders by stage</span>
-                  </h3>
-                  <p className="text-xs text-slate-500">
-                    Active stages in {currentGroupSummary.groupName}
-                  </p>
-                </div>
+                <h3 className="text-xs font-bold text-slate-800 uppercase tracking-wider flex items-center gap-1.5">
+                  <PieIcon className="w-3.5 h-3.5 text-indigo-600" />
+                  <span>Working Stages</span>
+                </h3>
               </div>
 
               {groupStageDonutData.length === 0 ? (
                 <div className="h-44 flex items-center justify-center text-xs text-slate-400">
-                  No active working tenders in this group
+                  No tenders
                 </div>
               ) : (
                 <div className="h-44 w-full relative mt-2">
@@ -591,10 +544,10 @@ export const GroupWorkloadSection: React.FC<GroupWorkloadSectionProps> = ({
                     </PieChart>
                   </ResponsiveContainer>
                   <div className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none">
-                    <span className="text-lg font-semibold text-slate-800">
+                    <span className="text-lg font-black text-slate-800">
                       {currentGroupSummary.totalWorkingTendersCount}
                     </span>
-                    <span className="text-xs text-slate-500">
+                    <span className="text-[9px] uppercase font-bold text-slate-400">
                       Working
                     </span>
                   </div>
@@ -607,7 +560,7 @@ export const GroupWorkloadSection: React.FC<GroupWorkloadSectionProps> = ({
               {currentGroupSummary.stageBreakdownArray.map((item, idx) => (
                 <div
                   key={item.stage}
-                  className="flex items-center justify-between text-xs text-slate-600"
+                  className="flex items-center justify-between text-[11px] text-slate-600"
                 >
                   <span className="flex items-center gap-1.5 truncate max-w-[170px]">
                     <span
@@ -621,7 +574,7 @@ export const GroupWorkloadSection: React.FC<GroupWorkloadSectionProps> = ({
                   </span>
                   <span className="font-bold text-slate-800">
                     {item.count}{' '}
-                    <span className="text-xs text-slate-400 font-normal">
+                    <span className="text-[10px] text-slate-400 font-normal">
                       ({item.percent}%)
                     </span>
                   </span>
@@ -636,19 +589,12 @@ export const GroupWorkloadSection: React.FC<GroupWorkloadSectionProps> = ({
         {/* ========================================================================= */}
         <div className="bg-white border border-slate-200 rounded-xl p-5 shadow-xs space-y-4">
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-100 pb-3">
-            <div>
-              <h3 className="text-sm font-semibold text-slate-900 flex items-center gap-1.5">
-                <Sparkles className="w-3.5 h-3.5 text-indigo-600" />
-                <span>
-                  {currentGroupSummary.groupName}: officers
-                </span>
-              </h3>
-              <p className="text-xs text-slate-500">
-                Each officer, their team, and the open tenders they are working on
-              </p>
-            </div>
+            <h3 className="text-xs font-bold text-slate-800 uppercase tracking-wider flex items-center gap-1.5">
+              <Sparkles className="w-3.5 h-3.5 text-indigo-600" />
+              <span>Officer Workload</span>
+            </h3>
             <span className="text-xs font-bold px-2.5 py-1 bg-indigo-50 text-indigo-700 rounded-md border border-indigo-100">
-              {filteredOfficerWorkload.length} Officers Listed
+              {filteredOfficerWorkload.length} Officers
             </span>
           </div>
 
@@ -687,14 +633,14 @@ export const GroupWorkloadSection: React.FC<GroupWorkloadSectionProps> = ({
                         <h4 className="text-xs font-bold text-slate-900 group-hover:text-indigo-600 transition-colors">
                           {officer.name}
                         </h4>
-                        <div className="text-xs text-slate-500 font-medium">
+                        <div className="text-[10px] text-slate-500 font-medium">
                           {officer.designation}
                         </div>
                       </div>
                     </div>
 
                     <span
-                      className={`px-2 py-0.5 rounded text-xs font-bold border shrink-0 ${roleBadge.bg} ${roleBadge.text} ${roleBadge.border}`}
+                      className={`px-2 py-0.5 rounded text-[10px] font-bold border shrink-0 ${roleBadge.bg} ${roleBadge.text} ${roleBadge.border}`}
                     >
                       {officer.role}
                     </span>
@@ -703,22 +649,22 @@ export const GroupWorkloadSection: React.FC<GroupWorkloadSectionProps> = ({
                   {/* Middle: Workload Metrics Row */}
                   <div className="grid grid-cols-2 gap-2 bg-white p-2.5 rounded-lg border border-slate-200/80">
                     <div>
-                      <div className="text-xs text-slate-500">
-                        Working Tenders (Not Awarded)
+                      <div className="text-[9px] uppercase font-bold text-slate-400">
+                        Working Tenders
                       </div>
-                      <div className="text-base font-semibold text-indigo-700 flex items-center gap-1.5 mt-0.5">
+                      <div className="text-base font-black text-indigo-700 flex items-center gap-1.5 mt-0.5">
                         <span>{workingCount}</span>
-                        <span className="text-xs font-normal text-slate-500">
+                        <span className="text-[10px] font-normal text-slate-500">
                           {workingCount === 1 ? 'tender' : 'tenders'}
                         </span>
                       </div>
                     </div>
 
                     <div>
-                      <div className="text-xs text-slate-500">
-                        Active Value (₹ Cr)
+                      <div className="text-[9px] uppercase font-bold text-slate-400">
+                        Active Value
                       </div>
-                      <div className="text-xs font-semibold text-slate-900 font-mono mt-1">
+                      <div className="text-xs font-black text-slate-900 font-mono mt-1">
                         {formatCurrencyCr(workingValueCr)}
                       </div>
                     </div>
@@ -726,9 +672,8 @@ export const GroupWorkloadSection: React.FC<GroupWorkloadSectionProps> = ({
 
                   {/* Desk Status & Working Tenders Preview Chips */}
                   <div className="space-y-1.5">
-                    <div className="flex items-center justify-between text-xs text-slate-500">
-                      <span>Currently on Desk: <strong className="text-slate-800">{holdingCount}</strong></span>
-                      <span>Assigned in Pipeline: <strong className="text-indigo-700">{workingCount}</strong></span>
+                    <div className="flex items-center justify-between text-[10px] text-slate-500">
+                      <span>On Desk: <strong className="text-slate-800">{holdingCount}</strong></span>
                     </div>
 
                     {/* Mini Chips of Working Tenders */}
@@ -740,8 +685,8 @@ export const GroupWorkloadSection: React.FC<GroupWorkloadSectionProps> = ({
                             <div
                               key={`${tender.sr_no}-${tender.pr_no}`}
                               onClick={() => onOpenTender(tender)}
-                              className="p-1.5 bg-white hover:bg-indigo-50/50 border border-slate-200 hover:border-indigo-300 rounded text-xs flex items-center justify-between gap-1.5 cursor-pointer transition-colors"
-                              title={`Click to open ${tender.pr_no}: ${tender.item_description}`}
+                              className="p-1.5 bg-white hover:bg-indigo-50/50 border border-slate-200 hover:border-indigo-300 rounded text-[10px] flex items-center justify-between gap-1.5 cursor-pointer transition-colors"
+                              title={tender.item_description}
                             >
                               <div className="flex items-center gap-1 truncate">
                                 <span className="font-mono font-bold text-blue-700">
@@ -752,7 +697,7 @@ export const GroupWorkloadSection: React.FC<GroupWorkloadSectionProps> = ({
                                 </span>
                               </div>
                               <span
-                                className={`px-1.5 py-0.2 rounded text-xs font-bold shrink-0 border ${badge.bg} ${badge.text} ${badge.border}`}
+                                className={`px-1.5 py-0.2 rounded text-[9px] font-bold shrink-0 border ${badge.bg} ${badge.text} ${badge.border}`}
                               >
                                 {tender.brief_status.replace('Under ', 'U/')}
                               </span>
@@ -761,14 +706,14 @@ export const GroupWorkloadSection: React.FC<GroupWorkloadSectionProps> = ({
                         })}
 
                         {activeWorkingTenders.length > 2 && (
-                          <div className="text-xs text-center text-slate-400 font-semibold">
-                            +{activeWorkingTenders.length - 2} more working tenders
+                          <div className="text-[10px] text-center text-slate-400 font-semibold">
+                            +{activeWorkingTenders.length - 2} more
                           </div>
                         )}
                       </div>
                     ) : (
-                      <div className="text-xs text-slate-400 italic py-1 text-center bg-white rounded border border-slate-100">
-                        No active in-pipeline tenders currently
+                      <div className="text-[11px] text-slate-400 italic py-1 text-center bg-white rounded border border-slate-100">
+                        No tenders
                       </div>
                     )}
                   </div>
@@ -783,7 +728,7 @@ export const GroupWorkloadSection: React.FC<GroupWorkloadSectionProps> = ({
                     }
                     className="w-full py-1.5 bg-white hover:bg-indigo-600 text-indigo-700 hover:text-white border border-indigo-200 hover:border-indigo-600 rounded-lg text-xs font-semibold transition-all cursor-pointer flex items-center justify-center gap-1 shadow-2xs"
                   >
-                    <span>Inspect Officer's Tenders ({workingCount})</span>
+                    <span>View Tenders</span>
                     <ChevronRight className="w-3.5 h-3.5" />
                   </button>
                 </div>
@@ -798,29 +743,25 @@ export const GroupWorkloadSection: React.FC<GroupWorkloadSectionProps> = ({
         <div className="bg-white border border-slate-200 rounded-xl p-5 shadow-xs space-y-3">
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-100 pb-3">
             <div>
-              <h3 className="text-sm font-semibold text-slate-900 flex items-center gap-1.5">
+              <h3 className="text-xs font-bold text-slate-800 uppercase tracking-wider flex items-center gap-1.5">
                 <Building className="w-3.5 h-3.5 text-indigo-600" />
-                <span>All groups compared</span>
+                <span>All Groups</span>
               </h3>
-              <p className="text-xs text-slate-500">
-                Officers, open tenders and value in progress for every group
-              </p>
             </div>
-            <span className="text-xs text-slate-400">All 6 Sourcing Groups</span>
           </div>
 
           <div className="overflow-x-auto">
             <table className="w-full text-left text-xs border-collapse">
               <thead>
-                <tr className="bg-slate-50 text-slate-500 font-bold border-y border-slate-200 text-xs ">
-                  <th className="py-2.5 px-3">Sourcing Group</th>
-                  <th className="py-2.5 px-3 text-center">Total Officers</th>
-                  <th className="py-2.5 px-3 text-center">PM Officers</th>
-                  <th className="py-2.5 px-3 text-center">FM Officers</th>
-                  <th className="py-2.5 px-3 text-center">CEC Officers</th>
-                  <th className="py-2.5 px-3 text-center">Working Tenders (Not Awarded)</th>
-                  <th className="py-2.5 px-3 text-center">On Desk (Action Pending)</th>
-                  <th className="py-2.5 px-3 text-right">Active Working Value (₹ Cr)</th>
+                <tr className="bg-slate-50 text-slate-500 font-bold border-y border-slate-200 text-[11px] uppercase tracking-wider">
+                  <th className="py-2.5 px-3">Group</th>
+                  <th className="py-2.5 px-3 text-center">Officers</th>
+                  <th className="py-2.5 px-3 text-center">PM</th>
+                  <th className="py-2.5 px-3 text-center">FM</th>
+                  <th className="py-2.5 px-3 text-center">CEC</th>
+                  <th className="py-2.5 px-3 text-center">Working Tenders</th>
+                  <th className="py-2.5 px-3 text-center">On Desk</th>
+                  <th className="py-2.5 px-3 text-right">Working Value</th>
                   <th className="py-2.5 px-3 text-center">Avg. Load / Officer</th>
                   <th className="py-2.5 px-3 text-center">Action</th>
                 </tr>
@@ -845,11 +786,6 @@ export const GroupWorkloadSection: React.FC<GroupWorkloadSectionProps> = ({
                           <span className="font-bold text-slate-900">
                             {grp.groupName}
                           </span>
-                          {grp.groupName === 'Group 4' && (
-                            <span className="text-xs font-bold px-1.5 py-0.2 bg-indigo-100 text-indigo-700 rounded">
-                              Group 4 Focus
-                            </span>
-                          )}
                         </div>
                       </td>
 
@@ -870,7 +806,7 @@ export const GroupWorkloadSection: React.FC<GroupWorkloadSectionProps> = ({
                       </td>
 
                       <td className="py-2.5 px-3 text-center">
-                        <span className="px-2.5 py-1 rounded-full text-xs font-semibold bg-amber-100 text-amber-800 border border-amber-200">
+                        <span className="px-2.5 py-1 rounded-full text-xs font-black bg-amber-100 text-amber-800 border border-amber-200">
                           {grp.totalWorkingTenders}
                         </span>
                       </td>
@@ -895,13 +831,13 @@ export const GroupWorkloadSection: React.FC<GroupWorkloadSectionProps> = ({
                             const el = document.getElementById('group-workload-section');
                             if (el) el.scrollIntoView({ behavior: 'smooth' });
                           }}
-                          className={`px-2.5 py-1 text-xs font-bold rounded-lg transition-colors cursor-pointer ${
+                          className={`px-2.5 py-1 text-[11px] font-bold rounded-lg transition-colors cursor-pointer ${
                             isCurrent
                               ? 'bg-indigo-600 text-white'
                               : 'bg-slate-100 hover:bg-indigo-50 text-slate-700 hover:text-indigo-700'
                           }`}
                         >
-                          {isCurrent ? 'Viewing' : 'Select Group'}
+                          {isCurrent ? 'Viewing' : 'Select'}
                         </button>
                       </td>
                     </tr>
@@ -936,12 +872,12 @@ export const GroupWorkloadSection: React.FC<GroupWorkloadSectionProps> = ({
                 <div>
                   <h3 className="text-sm font-bold text-slate-900 flex items-center gap-2">
                     <span>{selectedOfficerModal.officer.name}</span>
-                    <span className="text-xs px-2 py-0.5 rounded font-bold bg-indigo-100 text-indigo-800">
-                      {roleName(selectedOfficerModal.officer.role)} · {selectedOfficerModal.officer.group || selectedGroup}
+                    <span className="text-[10px] px-2 py-0.5 rounded font-bold bg-indigo-100 text-indigo-800">
+                      {selectedOfficerModal.officer.role} • {selectedOfficerModal.officer.group || selectedGroup}
                     </span>
                   </h3>
-                  <p className="text-xs text-slate-500">
-                    {selectedOfficerModal.workingTenders.length} open tenders
+                  <p className="text-[11px] text-slate-500">
+                    {selectedOfficerModal.workingTenders.length} Working Tenders
                   </p>
                 </div>
               </div>
@@ -958,7 +894,7 @@ export const GroupWorkloadSection: React.FC<GroupWorkloadSectionProps> = ({
             <div className="p-4 overflow-y-auto space-y-2.5 max-h-[60vh]">
               {selectedOfficerModal.workingTenders.length === 0 ? (
                 <div className="text-center py-8 text-slate-400 text-xs">
-                  No active working (not awarded) tenders assigned to this officer.
+                  No tenders
                 </div>
               ) : (
                 selectedOfficerModal.workingTenders.map((tender) => {
@@ -980,17 +916,17 @@ export const GroupWorkloadSection: React.FC<GroupWorkloadSectionProps> = ({
                             {tender.pr_no}
                           </span>
                           {tender.crfq_no && (
-                            <span className="font-mono text-xs text-slate-600 bg-slate-100 px-1.5 py-0.5 rounded">
+                            <span className="font-mono text-[11px] text-slate-600 bg-slate-100 px-1.5 py-0.5 rounded">
                               CRFQ: {tender.crfq_no}
                             </span>
                           )}
                           <span
-                            className={`text-xs font-bold px-2 py-0.5 rounded border ${badge.bg} ${badge.text} ${badge.border}`}
+                            className={`text-[10px] font-bold px-2 py-0.5 rounded border ${badge.bg} ${badge.text} ${badge.border}`}
                           >
                             {tender.brief_status}
                           </span>
                           {isCurrentHolder && (
-                            <span className="text-xs font-bold px-1.5 py-0.5 rounded bg-emerald-100 text-emerald-800 border border-emerald-200 flex items-center gap-0.5">
+                            <span className="text-[10px] font-bold px-1.5 py-0.5 rounded bg-emerald-100 text-emerald-800 border border-emerald-200 flex items-center gap-0.5">
                               <CheckCircle2 className="w-3 h-3" /> On Desk
                             </span>
                           )}
@@ -998,7 +934,7 @@ export const GroupWorkloadSection: React.FC<GroupWorkloadSectionProps> = ({
                         <div className="text-xs font-bold text-slate-800 line-clamp-1 group-hover:text-indigo-600 transition-colors">
                           {tender.item_description}
                         </div>
-                        <div className="text-xs text-slate-500 flex items-center gap-2">
+                        <div className="text-[11px] text-slate-500 flex items-center gap-2">
                           <span>Function: <strong>{tender.user_function}</strong></span>
                           <span>•</span>
                           <span>Lead PM: <strong>{tender.pm_officer}</strong></span>
@@ -1007,15 +943,15 @@ export const GroupWorkloadSection: React.FC<GroupWorkloadSectionProps> = ({
 
                       <div className="flex sm:flex-col items-end justify-between sm:justify-center gap-1 shrink-0">
                         <div className="text-right">
-                          <div className="text-xs font-semibold text-slate-900 font-mono">
+                          <div className="text-xs font-black text-slate-900 font-mono">
                             {formatCurrencyCr(tender.estimate_value_cr)}
                           </div>
-                          <div className="text-xs text-slate-500 font-medium">
+                          <div className="text-[10px] text-slate-500 font-medium">
                             Estimate Value
                           </div>
                         </div>
-                        <span className="text-xs text-indigo-600 font-bold flex items-center gap-0.5 group-hover:translate-x-0.5 transition-transform">
-                          Open Tender <ChevronRight className="w-3 h-3" />
+                        <span className="text-[11px] text-indigo-600 font-bold flex items-center gap-0.5 group-hover:translate-x-0.5 transition-transform">
+                          Open <ChevronRight className="w-3 h-3" />
                         </span>
                       </div>
                     </div>

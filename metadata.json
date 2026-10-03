@@ -1,6 +1,8 @@
 {
-  "name": "Tender Workflow Management System",
-  "description": "Interactive web-based Tender Workflow Management System prototype for Chief Procurement Office (CPO) with automated stage tracking, role-based queues, and audit trail.",
+  "name": "Tender Workflow Management System 1.1",
+  "description": "Interactive web-based Tender Workflow Management System prototype for Chief Procurement Office (CPO) with automated stage tracking, role-based queues, SLA bottleneck analytics, and audit trail.",
   "requestFramePermissions": [],
-  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
 }

@@ -25,35 +25,37 @@ public sealed class TendersController(TenderStore store) : ControllerBase
             ModelState.AddModelError("pr_no", "PR No is required.");
         if (string.IsNullOrWhiteSpace(tender.ItemDescription))
             ModelState.AddModelError("item_description", "Item description is required.");
-        if (!(tender.EstimateValueCr > 0))
-            ModelState.AddModelError("estimate_value_cr", "Estimate value must be greater than zero.");
         if (!ModelState.IsValid) return ValidationProblem(ModelState);
 
-        // Explicit JSON nulls bypass the property initialisers
-        var saved = store.Add(tender with
-        {
-            AttachedPms = tender.AttachedPms ?? [],
-            AttachedFms = tender.AttachedFms ?? [],
-            AttachedCecOfficers = tender.AttachedCecOfficers ?? [],
-            DaysByRole = tender.DaysByRole ?? new DaysByRole(),
-            Timeline = tender.Timeline ?? [],
-        });
+        var saved = store.Add(WithoutNulls(tender));
 
         return CreatedAtAction(nameof(Get), new { srNo = saved.SrNo }, saved);
     }
 
-    [HttpPost("{srNo:int}/advance")]
-    public ActionResult<Tender> Advance(int srNo, AdvanceStageRequest request)
+    /// <summary>
+    /// Saves a tender as the frontend computed it: stage hand-offs, evaluation movements, cancellation,
+    /// post-award steps and edits all arrive here (the rules live in src/App.tsx and tenderUtils.ts).
+    /// </summary>
+    [HttpPut("{srNo:int}")]
+    public ActionResult<Tender> Replace(int srNo, Tender tender)
     {
-        if (!TenderWorkflow.Stages.Contains(request.NextStage))
-            ModelState.AddModelError("next_stage", $"'{request.NextStage}' is not a valid stage.");
-        if (!TenderWorkflow.Roles.Contains(request.NextRole))
-            ModelState.AddModelError("next_role", $"'{request.NextRole}' is not a valid role.");
-        if (string.IsNullOrWhiteSpace(request.NextHolder))
-            ModelState.AddModelError("next_holder", "A recipient officer is required.");
+        if (string.IsNullOrWhiteSpace(tender.PrNo))
+            ModelState.AddModelError("pr_no", "PR No is required.");
+        if (string.IsNullOrWhiteSpace(tender.ItemDescription))
+            ModelState.AddModelError("item_description", "Item description is required.");
         if (!ModelState.IsValid) return ValidationProblem(ModelState);
 
-        var updated = store.Update(srNo, t => TenderWorkflow.Advance(t, request, DateTime.Now));
+        var updated = store.Update(srNo, _ => WithoutNulls(tender) with { SrNo = srNo });
         return updated is null ? NotFound() : updated;
     }
+
+    // Explicit JSON nulls bypass the property initialisers
+    private static Tender WithoutNulls(Tender tender) => tender with
+    {
+        AttachedPms = tender.AttachedPms ?? [],
+        AttachedFms = tender.AttachedFms ?? [],
+        AttachedCecOfficers = tender.AttachedCecOfficers ?? [],
+        DaysByRole = tender.DaysByRole ?? new DaysByRole(),
+        Timeline = tender.Timeline ?? [],
+    };
 }

@@ -7,7 +7,9 @@
     "pillar": "Management & Oversight",
     "group": "Executive",
     "email": "cpo.exec@enterprise.com",
-    "avatarColor": "bg-indigo-600"
+    "avatarColor": "bg-indigo-600",
+    "canEditMasters": true,
+    "visibilityScope": "ALL"
   },
   {
     "id": "pm-1",
@@ -17,7 +19,10 @@
     "pillar": "Procurement Group (E&P Services)",
     "group": "Group 1",
     "email": "amit.jha@enterprise.com",
-    "avatarColor": "bg-blue-600"
+    "avatarColor": "bg-blue-600",
+    "isGroupLeader": true,
+    "visibilityScope": "GROUP",
+    "canEditMasters": true
   },
   {
     "id": "pm-2",
@@ -27,7 +32,8 @@
     "pillar": "Procurement Group",
     "group": "Group 1",
     "email": "ashishkumar.jha@enterprise.com",
-    "avatarColor": "bg-blue-600"
+    "avatarColor": "bg-blue-600",
+    "visibilityScope": "ALL"
   },
   {
     "id": "pm-3",
@@ -233,11 +239,14 @@
     "id": "fm-1",
     "name": "Rajesh J",
     "role": "FM",
-    "designation": "Lead Finance Manager",
+    "designation": "Lead Finance Manager & Finance Head",
     "pillar": "Finance Group (CPO Concurrence)",
-    "group": "Group 1",
+    "group": "Finance Group",
     "email": "rajesh.j@enterprise.com",
-    "avatarColor": "bg-emerald-600"
+    "avatarColor": "bg-emerald-600",
+    "isGroupLeader": true,
+    "visibilityScope": "ALL",
+    "canEditMasters": true
   },
   {
     "id": "fm-2",
@@ -247,7 +256,8 @@
     "pillar": "Finance Group",
     "group": "Group 1",
     "email": "priya.nair@enterprise.com",
-    "avatarColor": "bg-emerald-600"
+    "avatarColor": "bg-emerald-600",
+    "visibilityScope": "ALL"
   },
   {
     "id": "fm-3",
@@ -383,11 +393,14 @@
     "id": "cec-1",
     "name": "Meera Iyer",
     "role": "CEC",
-    "designation": "Chief Estimation Officer",
+    "designation": "Chief Estimation Officer & Estimate Head",
     "pillar": "Estimation Cell (CEC)",
-    "group": "Group 1",
+    "group": "Estimation Group",
     "email": "meera.iyer@enterprise.com",
-    "avatarColor": "bg-amber-600"
+    "avatarColor": "bg-amber-600",
+    "isGroupLeader": true,
+    "visibilityScope": "ALL",
+    "canEditMasters": true
   },
   {
     "id": "cec-2",
@@ -397,7 +410,8 @@
     "pillar": "Estimation Cell (CEC)",
     "group": "Group 1",
     "email": "sanjay.gupta@enterprise.com",
-    "avatarColor": "bg-amber-600"
+    "avatarColor": "bg-amber-600",
+    "visibilityScope": "ALL"
   },
   {
     "id": "cec-3",

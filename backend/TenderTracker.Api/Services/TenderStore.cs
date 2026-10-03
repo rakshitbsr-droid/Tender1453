@@ -4,9 +4,9 @@ using TenderTracker.Api.Models;
 namespace TenderTracker.Api.Services;
 
 /// <summary>
-/// Holds users and tenders in memory. Tenders start from Data/Seed/tenders.json and every
-/// change is written to the Storage:DataFile JSON file, so data survives a restart.
-/// Delete that file to reset back to the seed data.
+/// Holds tenders, officers and master settings in memory. Tenders and officers start from Data/Seed
+/// and every change is written next to the Storage:DataFile JSON file (tenders.json, users.json,
+/// settings.json), so data survives a restart. Delete those files to reset back to the seed data.
 /// </summary>
 public sealed class TenderStore
 {
@@ -14,18 +14,24 @@ public sealed class TenderStore
 
     private readonly Lock _gate = new();
     private readonly string _dataFile;
+    private readonly string _usersFile;
+    private readonly string _settingsFile;
     private readonly ILogger<TenderStore> _logger;
     private readonly List<Tender> _tenders;
-
-    public IReadOnlyList<UserProfile> Users { get; }
+    private readonly Dictionary<string, JsonElement> _settings;
+    private List<UserProfile> _users;
 
     public TenderStore(IWebHostEnvironment env, IConfiguration config, ILogger<TenderStore> logger)
     {
         _logger = logger;
         var seedDir = Path.Combine(env.ContentRootPath, "Data", "Seed");
         _dataFile = Path.Combine(env.ContentRootPath, config["Storage:DataFile"] ?? "App_Data/tenders.json");
+        var dataDir = Path.GetDirectoryName(_dataFile)!;
+        _usersFile = Path.Combine(dataDir, "users.json");
+        _settingsFile = Path.Combine(dataDir, "settings.json");
 
-        Users = ReadJson<List<UserProfile>>(Path.Combine(seedDir, "users.json"));
+        _users = ReadJson<List<UserProfile>>(File.Exists(_usersFile) ? _usersFile : Path.Combine(seedDir, "users.json"));
+        _settings = File.Exists(_settingsFile) ? ReadJson<Dictionary<string, JsonElement>>(_settingsFile) : [];
 
         if (File.Exists(_dataFile))
         {
@@ -37,9 +43,35 @@ public sealed class TenderStore
             _tenders = ReadJson<List<Tender>>(Path.Combine(seedDir, "tenders.json"));
             _logger.LogInformation("Seeded {Count} tenders", _tenders.Count);
         }
+    }
 
-        // Day counts exclude weekends; older data was stored in calendar days.
-        for (var i = 0; i < _tenders.Count; i++) _tenders[i] = TenderWorkflow.RecalculateWorkingDays(_tenders[i]);
+    public IReadOnlyList<UserProfile> GetUsers()
+    {
+        lock (_gate) return _users.ToList();
+    }
+
+    public IReadOnlyList<UserProfile> ReplaceUsers(List<UserProfile> users)
+    {
+        lock (_gate)
+        {
+            _users = users.ToList();
+            WriteJson(_usersFile, _users);
+            return _users.ToList();
+        }
+    }
+
+    public IReadOnlyDictionary<string, JsonElement> GetSettings()
+    {
+        lock (_gate) return new Dictionary<string, JsonElement>(_settings);
+    }
+
+    public void SetSetting(string key, JsonElement value)
+    {
+        lock (_gate)
+        {
+            _settings[key] = value.Clone();
+            WriteJson(_settingsFile, _settings);
+        }
     }
 
     public IReadOnlyList<Tender> GetAll()
@@ -82,12 +114,14 @@ public sealed class TenderStore
         }
     }
 
-    private void Save()
+    private void Save() => WriteJson(_dataFile, _tenders);
+
+    private static void WriteJson<T>(string path, T value)
     {
-        Directory.CreateDirectory(Path.GetDirectoryName(_dataFile)!);
-        var tmp = _dataFile + ".tmp";
-        File.WriteAllText(tmp, JsonSerializer.Serialize(_tenders, FileJsonOptions));
-        File.Move(tmp, _dataFile, overwrite: true);
+        Directory.CreateDirectory(Path.GetDirectoryName(path)!);
+        var tmp = path + ".tmp";
+        File.WriteAllText(tmp, JsonSerializer.Serialize(value, FileJsonOptions));
+        File.Move(tmp, path, overwrite: true);
     }
 
     private static T ReadJson<T>(string path) =>

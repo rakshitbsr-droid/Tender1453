@@ -3,8 +3,10 @@ using TenderTracker.Api.Models;
 namespace TenderTracker.Api.Services;
 
 /// <summary>
-/// Stage hand-off rules. Ported from handleAdvanceStage in the original React App.tsx;
-/// behaviour is intentionally identical.
+/// NOT IN USE. Stage hand-offs, SLA and working-day figures are now computed in the frontend
+/// (src/App.tsx, src/utils/tenderUtils.ts), which knows the holiday calendar and the parallel
+/// EMD / BQC evaluation, and are saved through PUT /api/tenders/{srNo}. This file, DateUtils.cs and
+/// Models/AdvanceStageRequest.cs are kept only until they are deleted.
 /// </summary>
 public static class TenderWorkflow
 {
@@ -143,8 +145,8 @@ public static class TenderWorkflow
         {
             awardedValue = request.AwardedValue is > 0 or < 0
                 ? request.AwardedValue
-                : t.EstimateValueCr * 0.95;
-            savings = request.Savings ?? DateUtils.RoundTo2(t.EstimateValueCr - awardedValue.Value);
+                : (t.EstimateValueCr ?? 0) * 0.95;
+            savings = request.Savings ?? DateUtils.RoundTo2((t.EstimateValueCr ?? 0) - awardedValue.Value);
         }
 
         return t with
